@@ -1,0 +1,206 @@
+.footer {
+  background-color: var(--dark);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+
+
+  &__body {
+    padding: 40px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include desktop-bottom {
+      padding-top: 32px;
+      gap: 10px;
+    }
+
+    @include tablet {
+      padding-top: 24px;
+    }
+
+    @include tablet-bottom {
+      padding: 20px 0 16px;
+    }
+
+    @include mobile {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 100px;
+    height: 48px;
+
+    @include desktop-bottom {
+      width: 90px;
+      height: 40px;
+    }
+
+    @include tablet {
+      width: 60px;
+      height: 30px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    @include tablet {
+      gap: 4px;
+    }
+
+    span:first-child {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include tablet {
+        width: 14px;
+        height: 14px;
+
+        svg {
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: space-between;
+    gap: 130px;
+    color: var(--white);
+    font-size: 24px;
+
+    @include desktop {
+      gap: 100px;
+    }
+
+    @include desktop-bottom {
+      gap: 70px;
+      font-size: 20px;
+    }
+
+    @include tablet {
+      gap: 60px;
+      font-size: 14px;
+    }
+
+    @include tablet-bottom {
+      gap: 40px;
+      font-size: 10px;
+    }
+
+    address {
+      max-width: 390px;
+
+      @include desktop {
+        max-width: 350px;
+      }
+
+      @include tablet {
+        max-width: 230px;
+      }
+
+      @include tablet-bottom {
+        max-width: 160px;
+      }
+    }
+  }
+
+  &__item {
+
+    &:nth-of-type(2) {
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @include tablet-bottom {
+        gap: 8px;
+      }
+    }
+  }
+
+  &__socials-list {
+    display: flex;
+    gap: 10px;
+
+    .social-icon {
+      svg {
+        width: 20px;
+        height: 20px;
+
+        @include tablet {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 46px 0 27px;
+    border-top: 2px solid rgba(127, 127, 127, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include desktop {
+      padding: 32px 0 16px;
+    }
+
+    @include desktop-bottom {
+      font-size: 14px;
+    }
+
+    @include tablet {
+      padding: 10px 0 12px;
+      font-size: 10px;
+    }
+
+
+  }
+
+  &__copyright-text {}
+
+  &__copyright-link {}
+
+  &__leadstudio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: 130px;
+      height: 22px;
+
+      @include desktop-bottom {
+        width: 75px;
+        height: 16px;
+      }
+
+      @include tablet {
+        width: 65px;
+        height: 12px;
+      }
+    }
+  }
+
+  &__leadstudio-text {}
+}
+
+.container-mini {}

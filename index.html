@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Auto</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <div class="header__body">
+      <div class="header__burger">
+        <button class="header__burger-btn btn-popup" type="button">
+          <img src="/images/burger.svg" alt="">
+        </button>
+      </div>
+      <div class="header__logo">
+        <a href="/"><img src="/images/logo/logo.png" alt="Логотип" width="121" height="48"></a>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__link" href="#">Торгуются сейчас</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#">Этапы работы</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#">Преимущества</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__contacts">
+        <button class="header__btn btn-popup" type="button">
+          <span>
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.80634 11.605C8.95757 14.7556 11.8777 15.1006 12.735 15.1325C13.7709 15.1702 14.8281 14.3246 15.2854 13.4585C14.556 12.603 13.6062 11.9393 12.5661 11.2199C11.9523 11.8328 11.1958 12.9718 10.1886 12.5637C9.61568 12.3334 8.20111 11.682 6.96521 10.4455C5.7293 9.20907 5.07774 7.79561 4.8458 7.22367C4.43766 6.21499 5.58014 5.45704 6.19399 4.84331C5.47441 3.78629 4.82204 2.81202 3.96805 2.11963C3.08947 2.57849 2.23876 3.62732 2.27728 4.67697C2.30924 5.53407 2.65428 8.45359 5.80634 11.605ZM12.6743 16.7705C11.4941 16.7271 8.14948 16.2649 4.64665 12.7636C1.14464 9.26151 0.683223 5.91836 0.638966 4.73761C0.573401 2.93821 1.95191 1.19043 3.54433 0.507871C3.73609 0.425085 3.94608 0.393566 4.1537 0.416406C4.36133 0.439247 4.55944 0.515663 4.72861 0.638156C6.04647 1.59931 6.95537 3.05538 7.73642 4.19599C7.8989 4.43316 7.97333 4.71967 7.94684 5.00592C7.92035 5.29217 7.7946 5.56015 7.59135 5.7635L6.48002 6.87542C6.73818 7.44491 7.26353 8.42655 8.12407 9.28691C8.98462 10.1473 9.96646 10.6725 10.5369 10.9306L11.6474 9.81952C11.8513 9.61546 12.1205 9.48961 12.4079 9.46399C12.6953 9.43837 12.9825 9.51463 13.2193 9.67941C14.3831 10.4857 15.7501 11.3813 16.7467 12.6571C16.8792 12.8275 16.9635 13.0303 16.9907 13.2443C17.018 13.4584 16.9872 13.6758 16.9016 13.8739C16.2157 15.4742 14.4798 16.8369 12.6743 16.7705Z"
+                fill="currentColor" />
+            </svg>
+          </span>
+          <span>Связаться</span>
+        </button>
+        <div class="header__social">
+          <a href="#">
+            <span class="social-icon tg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none">
+                <path fill="#fff"
+                  d="M19.548 2.546a.703.703 0 0 0-.716-.123L3 8.62a1.11 1.11 0 0 0 .19 2.125l4.102.806v4.574a1.244 1.244 0 0 0 .781 1.159 1.243 1.243 0 0 0 1.368-.292l1.978-2.051 3.138 2.746a1.24 1.24 0 0 0 1.212.251 1.239 1.239 0 0 0 .834-.908l3.17-13.796a.704.704 0 0 0-.225-.688ZM14.772 5.36l-7 5.012-3.875-.76 10.874-4.252Zm-6.23 10.766v-3.71l1.937 1.699-1.937 2.011Zm6.838.625-6.46-5.664 9.298-6.663L15.38 16.75Z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div class="header__social">
+          <a href="#">
+            <span class="social-icon wa">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none">
+                <path fill="#fff"
+                  d="M17.542 4.592A8.184 8.184 0 0 0 11.7 2.167c-4.55 0-8.258 3.708-8.258 8.258 0 1.458.383 2.875 1.1 4.125l-1.167 4.283 4.375-1.15a8.26 8.26 0 0 0 3.95 1.009c4.55 0 8.258-3.709 8.258-8.259a8.207 8.207 0 0 0-2.416-5.841Zm-5.842 12.7a6.885 6.885 0 0 1-3.5-.959l-.25-.15-2.6.684.692-2.534-.167-.258a6.883 6.883 0 0 1-1.05-3.65c0-3.783 3.083-6.867 6.867-6.867 1.833 0 3.558.717 4.85 2.017a6.817 6.817 0 0 1 2.008 4.858c.017 3.784-3.067 6.859-6.85 6.859Zm3.767-5.134c-.209-.1-1.225-.6-1.409-.675-.191-.066-.325-.1-.466.1a13.04 13.04 0 0 1-.65.809c-.117.141-.242.158-.45.05-.209-.1-.875-.325-1.659-1.025-.616-.55-1.025-1.225-1.15-1.434-.116-.208-.016-.316.092-.425.092-.091.208-.241.308-.358.1-.117.142-.208.209-.342.066-.141.033-.258-.017-.358-.05-.1-.467-1.117-.633-1.533-.167-.4-.342-.35-.467-.359h-.4a.749.749 0 0 0-.55.259c-.183.208-.717.708-.717 1.725 0 1.016.742 2 .842 2.133.1.142 1.458 2.225 3.525 3.117.492.216.875.341 1.175.433.492.158.942.133 1.3.083.4-.058 1.225-.5 1.392-.983.175-.483.175-.892.116-.983-.058-.092-.183-.134-.391-.234Z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu__top">
+      <div class="mobile-menu__logo">
+        <a href="/">
+          <img src="/images/logo-white.svg" alt="Логотип " width="125" height="30">
+        </a>
+      </div>
+      <button class="mobile-menu__btn-close" type="button">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 1L1 15M15 15L1 1" stroke="#0F0821" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-menu__nav">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__list-item">
+          <a class="click-js" href="/calculator.html">
+            <p class="mobile-menu__btn-text">Торгуются сейчас</p>
+          </a>
+        </li>
+        <li class="mobile-menu__list-item">
+          <a class="click-js" href="/turnkey-mining.html">
+            <p class="mobile-menu__btn-text">Этапы работы</p>
+          </a>
+        </li>
+        <li class="mobile-menu__list-item">
+          <a class="click-js" href="/investing-mining.html">
+            <p class="mobile-menu__btn-text">Преимущества</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__contacts">
+      <div class="mobile-menu__address">
+        <address>
+          <p>3789 Mockingbird Lane, Apartment 2B, Anytown, CA 91234</p>
+        </address>
+      </div>
+      <div class="mobile-menu__mail">
+        <a href="mailto:mining@mail.ru" target="_blank">address@mail.ru</a>
+      </div>
+      <div class="mobile-menu__phone">
+        <a href="tel:88888888-888888">88888888-888888</a>
+      </div>
+      <ul class="mobile-menu__socials-list">
+        <li class="mobile-menu__social">
+          <a href="#">
+            <span class="social-icon tg">
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.77388 0.522975C8.72547 0.481166 8.66656 0.45336 8.60351 0.442553C8.54045 0.431746 8.47565 0.438348 8.41607 0.461647L0.499665 3.55969C0.387472 3.60332 0.292487 3.68221 0.229011 3.78449C0.165535 3.88678 0.137003 4.00691 0.14771 4.12681C0.158418 4.24671 0.207786 4.35989 0.288382 4.4493C0.368977 4.53872 0.476439 4.59953 0.594587 4.62258L2.64576 5.02532V7.31243C2.64536 7.43701 2.68238 7.55883 2.75203 7.66212C2.82167 7.76541 2.92074 7.8454 3.03638 7.89173C3.15185 7.93888 3.27883 7.95019 3.40081 7.92421C3.5228 7.89822 3.63414 7.83614 3.72037 7.74602L4.70943 6.72024L6.27857 8.09368C6.39178 8.1941 6.53779 8.24967 6.68912 8.24993C6.75543 8.24988 6.82133 8.23946 6.88443 8.21907C6.98754 8.18635 7.08027 8.1272 7.1534 8.04749C7.22653 7.96778 7.27749 7.87031 7.30123 7.76477L8.88678 0.867116C8.90096 0.804909 8.89794 0.740014 8.87806 0.679389C8.85817 0.618764 8.82216 0.564694 8.77388 0.522975ZM6.3856 1.92923L2.88599 4.43548L0.948493 4.0554L6.3856 1.92923ZM3.27076 7.31243V5.45774L4.23912 6.30696L3.27076 7.31243ZM6.6899 7.62493L3.46021 4.7929L8.10865 1.46126L6.6899 7.62493Z"
+                  fill="white" />
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="mobile-menu__social">
+          <a href="#">
+            <span class="social-icon wa">
+              <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.77083 2.5459C8.38878 2.16011 7.93376 1.85422 7.4323 1.64605C6.93083 1.43788 6.39295 1.3316 5.85 1.3334C3.575 1.3334 1.72083 3.18756 1.72083 5.46256C1.72083 6.19173 1.9125 6.90006 2.27083 7.52506L1.6875 9.66673L3.875 9.09173C4.47917 9.4209 5.15833 9.5959 5.85 9.5959C8.125 9.5959 9.97917 7.74173 9.97917 5.46673C9.97917 4.36256 9.55 3.32506 8.77083 2.5459ZM5.85 8.8959C5.23333 8.8959 4.62917 8.72923 4.1 8.41673L3.975 8.34173L2.675 8.6834L3.02083 7.41673L2.9375 7.28756C2.59481 6.7405 2.41289 6.10809 2.4125 5.46256C2.4125 3.5709 3.95417 2.02923 5.84583 2.02923C6.7625 2.02923 7.625 2.38756 8.27083 3.03756C8.59067 3.35584 8.84413 3.73446 9.01651 4.15145C9.18889 4.56844 9.27675 5.01552 9.275 5.46673C9.28333 7.3584 7.74167 8.8959 5.85 8.8959ZM7.73333 6.32923C7.62917 6.27923 7.12083 6.02923 7.02917 5.99173C6.93333 5.9584 6.86667 5.94173 6.79583 6.04173C6.725 6.1459 6.52917 6.37923 6.47083 6.4459C6.4125 6.51673 6.35 6.52506 6.24583 6.4709C6.14167 6.4209 5.80833 6.3084 5.41667 5.9584C5.10833 5.6834 4.90417 5.3459 4.84167 5.24173C4.78333 5.13756 4.83333 5.0834 4.8875 5.02923C4.93333 4.9834 4.99167 4.9084 5.04167 4.85006C5.09167 4.79173 5.1125 4.7459 5.14583 4.67923C5.17917 4.6084 5.1625 4.55006 5.1375 4.50006C5.1125 4.45006 4.90417 3.94173 4.82083 3.7334C4.7375 3.5334 4.65 3.5584 4.5875 3.55423H4.3875C4.31667 3.55423 4.20833 3.57923 4.1125 3.6834C4.02083 3.78756 3.75417 4.03756 3.75417 4.5459C3.75417 5.05423 4.125 5.5459 4.175 5.61256C4.225 5.6834 4.90417 6.72506 5.9375 7.1709C6.18333 7.27923 6.375 7.34173 6.525 7.38756C6.77083 7.46673 6.99583 7.45423 7.175 7.42923C7.375 7.40006 7.7875 7.17923 7.87083 6.93756C7.95833 6.6959 7.95833 6.49173 7.92917 6.4459C7.9 6.40006 7.8375 6.37923 7.73333 6.32923Z"
+                  fill="white" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <main class="main">
+
+    <section class="intro">
+      <div class="container">
+        <div class="intro__body">
+          <div class="intro__content">
+            <h1 class="intro__title">АВТОМОБИЛИ ИЗ КИТАЯ, США&nbsp;И&nbsp;ЕВРОПЫ
+              <strong>В&nbsp;НАЛИЧИИ И&nbsp;ПОД&nbsp;ЗАКАЗ</strong>
+            </h1>
+            <p class="intro__subtitle">Большой выбор автомобилей в наличии,
+              с&nbsp;подтвержденными документами состояния авто</p>
+            <button class="intro__btn btn-popup" type="button">Заказать авто</button>
+          </div>
+          <div class="intro__line"></div>
+          <div class="intro__bottom">
+            <div class="intro__logos">
+              <div class="intro__logo">
+                <img src="./images/logo/bentley.svg" alt="bentley" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/bmw.svg" alt="bmw" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/dodge.svg" alt="dodge" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/li.svg" alt="li" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/porsche.svg" alt="porsche" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/tesla.svg" alt="tesla" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/toyota.svg" alt="toyota" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/bentley.svg" alt="bentley" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/bmw.svg" alt="bmw" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/dodge.svg" alt="dodge" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/li.svg" alt="li" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/porsche.svg" alt="porsche" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/tesla.svg" alt="tesla" width="100" height="100">
+              </div>
+              <div class="intro__logo">
+                <img src="./images/logo/toyota.svg" alt="toyota" width="100" height="100">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="background-page">
+      <section class="cards">
+        <div class="container-mini">
+          <div class="cards__body">
+            <h2 class="cards__title title">ТОРГУЮТСЯ СЕЙЧАС</h2>
+            <div class="cards__content">
+              <div class="cards__filters filters">
+                <div class="filters__wrapper">
+                  <div class="filters__options">
+                    <div class="filters__options-btn">
+                      <button class="filters__btn active" type="button">Все</button>
+                      <button class="filters__btn" type="button">Новые</button>
+                      <button class="filters__btn" type="button">С пробегом</button>
+                    </div>
+                  </div>
+                  <div class="filters__options">
+                    <div class="filters__options-btn">
+                      <button class="filters__btn active" type="button">Автомобили</button>
+                      <button class="filters__btn" type="button">Мотоциклы</button>
+                    </div>
+                  </div>
+                  <div class="filters__options">
+                    <div class="filters__options-input">
+                      <label for="price-range">Цена</label>
+                      <input type="range" id="price-range" name="range" min="0" max="15 000 000" value=""
+                        step="10000" />
+                    </div>
+                  </div>
+                  <h3 class="filters__title">Марка</h3>
+                  <div class="filters__options">
+                    <div class="filters__brands">
+                      <div class="filters__current-brands">
+                        <div class="filters__brand">
+                          <p class="filters__brand-title-all">Все марки</p>
+                          <p class="filters__brand-title-choice" style="display: none;">Марки автомобиля</p>
+                        </div>
+                        <span class="select-arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 13 8">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5"
+                              stroke-width="2" d="m1 1 4.763 5.196a1 1 0 0 0 1.474 0L12 1" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- <div class="option__select-coin">
+                      <div class="option__coin" @click="selectCoin('Все')">
+                        <p class="option__coin-name">Все</p>
+                      </div>
+                      <div class="option__coin" v-for="(coin, index) in coins" :key="coin.shortName"
+                        @click="selectCoin(coin.shortName, coin.img)">
+                        <div class="option__coin-img">
+                          <img :src="coin.img" :alt="coin.shortName" width="20" height="20" loading="lazy">
+                        </div>
+                        <p class="option__coin-name">{{coin.nameCoin}}<span> ({{coin.shortName}})</span></p>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="filters__buttons">
+                  <button class="filters__btn-submit" type="button">Применить</button>
+                  <button class="filters__btn-reset" type="reset" hidden>Сбросить фильтры</button>
+                </div>
+
+              </div>
+              <article class="cards__item card">
+                <div class="card__top">
+                  <div class="card__images">
+                    <div class="card__image-item">
+                      <div class="card__img">
+                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="card__pagination-list" aria-hidden="true"></ul>
+                </div>
+                <div class="card__info-wrapper">
+                  <div class="card__info">
+                    <div class="card__car">
+                      <h3 class="card__car-brand">МАРКА АВТО</h3>
+                      <h3 class="card__car-model">Модель</h3>
+                    </div>
+                    <div class="card__characteristics">
+                      <div class="card__characteristic-item">
+                        <span>КПП</span>
+                        <p>IAT</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Объем двигателя</span>
+                        <p>660</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Пробег</span>
+                        <p>5000км</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Тип двигателя</span>
+                        <p>Электрический</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Мощность</span>
+                        <p>203 л.с.</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Привод</span>
+                        <p>Передний</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__price">641 978 ₽</div>
+                  <div class="card__buttons">
+                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
+                  </div>
+                </div>
+              </article>
+              <article class="cards__item card">
+                <div class="card__top">
+                  <div class="card__images">
+                    <div class="card__image-item">
+                      <div class="card__img">
+                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="card__pagination-list" aria-hidden="true"></ul>
+                </div>
+                <div class="card__info-wrapper">
+                  <div class="card__info">
+                    <div class="card__car">
+                      <h3 class="card__car-brand">МАРКА АВТО</h3>
+                      <h3 class="card__car-model">Модель</h3>
+                    </div>
+                    <div class="card__characteristics">
+                      <div class="card__characteristic-item">
+                        <span>КПП</span>
+                        <p>IAT</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Объем двигателя</span>
+                        <p>660</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Пробег</span>
+                        <p>5000км</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Тип двигателя</span>
+                        <p>Электрический</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Мощность</span>
+                        <p>203 л.с.</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Привод</span>
+                        <p>Передний</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__price">641 978 ₽</div>
+                  <div class="card__buttons">
+                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
+                  </div>
+                </div>
+              </article>
+              <article class="cards__item card">
+                <div class="card__top">
+                  <div class="card__images">
+                    <div class="card__image-item">
+                      <div class="card__img">
+                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="card__pagination-list" aria-hidden="true"></ul>
+                </div>
+                <div class="card__info-wrapper">
+                  <div class="card__info">
+                    <div class="card__car">
+                      <h3 class="card__car-brand">МАРКА АВТО</h3>
+                      <h3 class="card__car-model">Модель</h3>
+                    </div>
+                    <div class="card__characteristics">
+                      <div class="card__characteristic-item">
+                        <span>КПП</span>
+                        <p>IAT</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Объем двигателя</span>
+                        <p>660</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Пробег</span>
+                        <p>5000км</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Тип двигателя</span>
+                        <p>Электрический</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Мощность</span>
+                        <p>203 л.с.</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Привод</span>
+                        <p>Передний</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__price">641 978 ₽</div>
+                  <div class="card__buttons">
+                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
+                  </div>
+                </div>
+              </article>
+              <article class="cards__item card">
+                <div class="card__top">
+                  <div class="card__images">
+                    <div class="card__image-item">
+                      <div class="card__img">
+                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="card__pagination-list" aria-hidden="true"></ul>
+                </div>
+                <div class="card__info-wrapper">
+                  <div class="card__info">
+                    <div class="card__car">
+                      <h3 class="card__car-brand">МАРКА АВТО</h3>
+                      <h3 class="card__car-model">Модель</h3>
+                    </div>
+                    <div class="card__characteristics">
+                      <div class="card__characteristic-item">
+                        <span>КПП</span>
+                        <p>IAT</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Объем двигателя</span>
+                        <p>660</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Пробег</span>
+                        <p>5000км</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Тип двигателя</span>
+                        <p>Электрический</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Мощность</span>
+                        <p>203 л.с.</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Привод</span>
+                        <p>Передний</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__price">641 978 ₽</div>
+                  <div class="card__buttons">
+                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
+                  </div>
+                </div>
+              </article>
+              <article class="cards__item card">
+                <div class="card__top">
+                  <div class="card__images">
+                    <div class="card__image-item">
+                      <div class="card__img">
+                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="card__pagination-list" aria-hidden="true"></ul>
+                </div>
+                <div class="card__info-wrapper">
+                  <div class="card__info">
+                    <div class="card__car">
+                      <h3 class="card__car-brand">МАРКА АВТО</h3>
+                      <h3 class="card__car-model">Модель</h3>
+                    </div>
+                    <div class="card__characteristics">
+                      <div class="card__characteristic-item">
+                        <span>КПП</span>
+                        <p>IAT</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Объем двигателя</span>
+                        <p>660</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Пробег</span>
+                        <p>5000км</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Тип двигателя</span>
+                        <p>Электрический</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Мощность</span>
+                        <p>203 л.с.</p>
+                      </div>
+                      <div class="card__characteristic-item">
+                        <span>Привод</span>
+                        <p>Передний</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__price">641 978 ₽</div>
+                  <div class="card__buttons">
+                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <button class="cards__btn-else" type="button"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="banner">
+        <div class="container">
+          <div class="banner__body">
+            <div class="banner__content">
+              <h2 class="banner__title title">УЗНАЙТЕ СТОИМОСТЬ ВАШЕГО АВТОМОБИЛЯ</h2>
+              <p class="banner__subtitle">У вас есть вопросы о наших услугах по импорту автомобилей? Заполните форму
+                ниже,
+                и мы свяжемся с вами в ближайшее время.</p>
+              <button class="banner__btn btn-popup" type="button">Узнать стоимость</button>
+            </div>
+            <div class="banner__img">
+              <img src="./images/banner-car.png" alt width="740" height="270" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps">
+        <div class="container-mini">
+          <div class="steps__body">
+            <h2 class="steps__title title">ВСЕГО 5 ЭТАПОВ РАБОТЫ</h2>
+            <div class="steps__cards">
+              <div class="steps__card">
+                <h3 class="steps__card-title">Подбор авто</h3>
+                <p class="steps__card-text card-text">Подробная консультация и подбор авто со специалистом</p>
+                <span class="steps__card-number">1</span>
+              </div>
+              <div class="steps__card">
+                <h3 class="steps__card-title">Безопасная оплата</h3>
+                <p class="steps__card-text card-text">Оплата стоимости выигранного лота/ авто</p>
+                <span class="steps__card-number">2</span>
+              </div>
+              <div class="steps__card">
+                <h3 class="steps__card-title">Подтверждение участия</h3>
+                <p class="steps__card-text card-text">Подтвеждение участия
+                  в торгах за выигранный автомобиль</p>
+                <span class="steps__card-number">3</span>
+              </div>
+              <div class="steps__card">
+                <h3 class="steps__card-title">Торги и выбор авто</h3>
+                <p class="steps__card-text card-text">Проведение торгов, победа или поиск нового лота/ авто</p>
+                <span class="steps__card-number">4</span>
+              </div>
+              <div class="steps__card">
+                <h3 class="steps__card-title">Получение вашего авто</h3>
+                <p class="steps__card-text card-text">Доставка и оформление документов, передача
+                  авто заказчику</p>
+                <img class="steps__card-img" src="/images/key.png" alt width="245" height="226" loading="lazy">
+                <span class="steps__card-number">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="numbers">
+        <div class="container-mini">
+          <div class="numbers__body">
+            <h2 class="numbers__title title">ПОЧЕМУ МЫ?</h2>
+            <div class="numbers__cards">
+              <div class="numbers__card">
+                <span class="numbers__card-number">20%</span>
+                <p class="numbers__card-text card-text">автомобилей покупаем ежедневно</p>
+              </div>
+              <div class="numbers__card">
+                <span class="numbers__card-number">18999+</span>
+                <p class="numbers__card-text card-text">доставили автомобилей</p>
+              </div>
+              <div class="numbers__card">
+                <span class="numbers__card-number">99%</span>
+                <p class="numbers__card-text card-text">положительных отзывов</p>
+              </div>
+              <div class="numbers__card">
+                <span class="numbers__card-number">99%</span>
+                <p class="numbers__card-text card-text">минимум выгоды на каждом авто</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-form">
+        <div class="container-mini">
+          <div class="page-form__body">
+            <div class="page-form__popup popup">
+              <h2 class="popup__title title">УЗНАЙТЕ СТОИМОСТЬ ВАШЕГО АВТОМОБИЛЯ</h2>
+              <form class="popup__form" method="post" name="formPopup" novalidate>
+                <label class="popup__label">
+                  <input id="name2" type="text" name="name[0]" class="input-name input-validation" minlength="2"
+                    pattern="^(?!\s).+[a-zA-Zа-яА-ЯЁё \-]+$" required placeholder="Ваше имя"
+                    data-error-message="Допускаются символы латиницы, кириллицы, дефисы. Минимум 2 символа">
+                  <span class="input-error name2-error"></span>
+                </label>
+                <label class="popup__label label-email">
+                  <input id="email[0]" class="input-email" type="email" name="email[0]" inputmode="email"
+                    title="exemple@gmail.com" placeholder="Ваш e-mail">
+                  <span id="email-error[0]" class="input-error email-error"></span>
+                </label>
+                <label class="popup__label">
+                  <input id="phone2" type="text" name="phone[0]" class="input-phone input-validation" inputmode="tel"
+                    minlength="16" placeholder="+7 (999) 999-99-99" autocomplete="off" required>
+                  <span id="phone2-error" class="input-error phone2-error tel-err"></span>
+                </label>
+                <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
+                <span class="empty-error" id="empty-error"></span>
+              </form>
+              <p class="popup__text"><span>Или напишите нам</span></p>
+              <div class="popup__socials">
+                <a class="popup__social" href="#">
+                  <span class="popup__social-icon">
+                    <svg width="32" height="29" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M31.3122 0.857515C31.1379 0.707002 30.9258 0.6069 30.6988 0.567995C30.4718 0.529091 30.2385 0.552857 30.024 0.636734L1.52497 11.7897C1.12107 11.9468 0.779126 12.2308 0.550611 12.599C0.322096 12.9672 0.219381 13.3997 0.257929 13.8313C0.296477 14.263 0.474201 14.6704 0.764346 14.9923C1.05449 15.3142 1.44135 15.5331 1.86669 15.6161L9.2509 17.066V25.2996C9.24945 25.748 9.38273 26.1866 9.63346 26.5584C9.8842 26.9303 10.2408 27.2183 10.6572 27.385C11.0728 27.5548 11.53 27.5955 11.9691 27.502C12.4082 27.4084 12.8091 27.1849 13.1195 26.8605L16.6801 23.1677L22.329 28.1121C22.7366 28.4736 23.2622 28.6736 23.807 28.6746C24.0457 28.6744 24.283 28.6369 24.5101 28.5635C24.8813 28.4457 25.2151 28.2327 25.4784 27.9458C25.7417 27.6588 25.9251 27.3079 26.0106 26.928L31.7186 2.09642C31.7696 1.87248 31.7588 1.63886 31.6872 1.42061C31.6156 1.20236 31.4859 1.0077 31.3122 0.857515ZM22.7143 5.92002L10.1157 14.9425L3.14075 13.5742L22.7143 5.92002ZM11.5009 25.2996V18.6227L14.987 21.6799L11.5009 25.2996ZM23.8098 26.4246L12.1829 16.2292L28.9173 4.23533L23.8098 26.4246Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                  <p class="popup__social-name">Telegram</p>
+                </a>
+                <a class="popup__social" href="#">
+                  <span class="popup__social-icon">
+                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M25.6999 5.01498C24.3245 3.62614 22.6865 2.52493 20.8812 1.77553C19.0759 1.02612 17.1396 0.643508 15.1849 0.649983C6.99495 0.649983 0.319951 7.32498 0.319951 15.515C0.319951 18.14 1.00995 20.69 2.29995 22.94L0.199951 30.65L8.07495 28.58C10.2499 29.765 12.6949 30.395 15.1849 30.395C23.3749 30.395 30.0499 23.72 30.0499 15.53C30.0499 11.555 28.5049 7.81998 25.6999 5.01498ZM15.1849 27.875C12.9649 27.875 10.7899 27.275 8.88495 26.15L8.43495 25.88L3.75495 27.11L4.99995 22.55L4.69995 22.085C3.46627 20.1156 2.81134 17.8389 2.80995 15.515C2.80995 8.70498 8.35995 3.15498 15.1699 3.15498C18.4699 3.15498 21.5749 4.44498 23.8999 6.78498C25.0514 7.93078 25.9638 9.2938 26.5844 10.795C27.2049 12.2962 27.5212 13.9056 27.5149 15.53C27.5449 22.34 21.9949 27.875 15.1849 27.875ZM21.9649 18.635C21.5899 18.455 19.7599 17.555 19.4299 17.42C19.0849 17.3 18.8449 17.24 18.5899 17.6C18.3349 17.975 17.6299 18.815 17.4199 19.055C17.2099 19.31 16.9849 19.34 16.6099 19.145C16.2349 18.965 15.0349 18.56 13.6249 17.3C12.5149 16.31 11.7799 15.095 11.5549 14.72C11.3449 14.345 11.5249 14.15 11.7199 13.955C11.8849 13.79 12.0949 13.52 12.2749 13.31C12.4549 13.1 12.5299 12.935 12.6499 12.695C12.7699 12.44 12.7099 12.23 12.6199 12.05C12.5299 11.87 11.7799 10.04 11.4799 9.28998C11.1799 8.56998 10.8649 8.65998 10.6399 8.64498H9.91995C9.66495 8.64498 9.27495 8.73498 8.92995 9.10998C8.59995 9.48498 7.63995 10.385 7.63995 12.215C7.63995 14.045 8.97495 15.815 9.15495 16.055C9.33495 16.31 11.7799 20.06 15.4999 21.665C16.3849 22.055 17.0749 22.28 17.6149 22.445C18.4999 22.73 19.3099 22.685 19.9549 22.595C20.6749 22.49 22.1599 21.695 22.4599 20.825C22.7749 19.955 22.7749 19.22 22.6699 19.055C22.5649 18.89 22.3399 18.815 21.9649 18.635Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                  <p class="popup__social-name">WhatshApp</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="popup-form">
+      <div class="popup">
+        <h2 class="popup__title title">УЗНАЙТЕ СТОИМОСТЬ ВАШЕГО АВТОМОБИЛЯ</h2>
+        <div class="popup__btn-close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.02777 6.99989L0.325642 1.29914C0.261721 1.23522 0.211016 1.15934 0.176422 1.07582C0.141829 0.992302 0.124023 0.90279 0.124023 0.812392C0.124023 0.721994 0.141829 0.632481 0.176422 0.548965C0.211016 0.465448 0.261721 0.389563 0.325642 0.325642C0.389563 0.261721 0.465448 0.211016 0.548965 0.176422C0.632481 0.141829 0.721994 0.124023 0.812392 0.124023C0.90279 0.124023 0.992302 0.141829 1.07582 0.176422C1.15934 0.211016 1.23522 0.261721 1.29914 0.325642L6.99989 6.02777L12.7006 0.325642C12.8297 0.196548 13.0048 0.124023 13.1874 0.124023C13.37 0.124023 13.545 0.196548 13.6741 0.325642C13.8032 0.454736 13.8758 0.629825 13.8758 0.812392C13.8758 0.994959 13.8032 1.17005 13.6741 1.29914L7.97202 6.99989L13.6741 12.7006C13.8032 12.8297 13.8758 13.0048 13.8758 13.1874C13.8758 13.37 13.8032 13.545 13.6741 13.6741C13.545 13.8032 13.37 13.8758 13.1874 13.8758C13.0048 13.8758 12.8297 13.8032 12.7006 13.6741L6.99989 7.97202L1.29914 13.6741C1.17005 13.8032 0.994959 13.8758 0.812392 13.8758C0.629825 13.8758 0.454736 13.8032 0.325642 13.6741C0.196548 13.545 0.124023 13.37 0.124023 13.1874C0.124023 13.0048 0.196548 12.8297 0.325642 12.7006L6.02777 6.99989Z"
+              fill="#303030" />
+          </svg>
+        </div>
+        <form class="popup__form" method="post" name="formPopup" novalidate>
+          <label class="popup__label">
+            <input id="name2" type="text" name="name[0]" class="input-name input-validation" minlength="2"
+              pattern="^(?!\s).+[a-zA-Zа-яА-ЯЁё \-]+$" required placeholder="Ваше имя"
+              data-error-message="Допускаются символы латиницы, кириллицы, дефисы. Минимум 2 символа">
+            <span class="input-error name2-error"></span>
+          </label>
+          <label class="popup__label label-email">
+            <input id="email[0]" class="input-email" type="email" name="email[0]" inputmode="email"
+              title="exemple@gmail.com" placeholder="Ваш e-mail">
+            <span id="email-error[0]" class="input-error email-error"></span>
+          </label>
+          <label class="popup__label">
+            <input id="phone2" type="text" name="phone[0]" class="input-phone input-validation" inputmode="tel"
+              minlength="16" placeholder="+7 (999) 999-99-99" autocomplete="off" required>
+            <span id="phone2-error" class="input-error phone2-error tel-err"></span>
+          </label>
+          <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
+          <span class="empty-error" id="empty-error"></span>
+        </form>
+        <p class="popup__text"><span>Или напишите нам</span></p>
+        <div class="popup__socials">
+          <a class="popup__social" href="#">
+            <span class="popup__social-icon">
+              <svg width="32" height="29" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M31.3122 0.857515C31.1379 0.707002 30.9258 0.6069 30.6988 0.567995C30.4718 0.529091 30.2385 0.552857 30.024 0.636734L1.52497 11.7897C1.12107 11.9468 0.779126 12.2308 0.550611 12.599C0.322096 12.9672 0.219381 13.3997 0.257929 13.8313C0.296477 14.263 0.474201 14.6704 0.764346 14.9923C1.05449 15.3142 1.44135 15.5331 1.86669 15.6161L9.2509 17.066V25.2996C9.24945 25.748 9.38273 26.1866 9.63346 26.5584C9.8842 26.9303 10.2408 27.2183 10.6572 27.385C11.0728 27.5548 11.53 27.5955 11.9691 27.502C12.4082 27.4084 12.8091 27.1849 13.1195 26.8605L16.6801 23.1677L22.329 28.1121C22.7366 28.4736 23.2622 28.6736 23.807 28.6746C24.0457 28.6744 24.283 28.6369 24.5101 28.5635C24.8813 28.4457 25.2151 28.2327 25.4784 27.9458C25.7417 27.6588 25.9251 27.3079 26.0106 26.928L31.7186 2.09642C31.7696 1.87248 31.7588 1.63886 31.6872 1.42061C31.6156 1.20236 31.4859 1.0077 31.3122 0.857515ZM22.7143 5.92002L10.1157 14.9425L3.14075 13.5742L22.7143 5.92002ZM11.5009 25.2996V18.6227L14.987 21.6799L11.5009 25.2996ZM23.8098 26.4246L12.1829 16.2292L28.9173 4.23533L23.8098 26.4246Z"
+                  fill="white" />
+              </svg>
+            </span>
+            <p class="popup__social-name">Telegram</p>
+          </a>
+          <a class="popup__social" href="#">
+            <span class="popup__social-icon">
+              <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M25.6999 5.01498C24.3245 3.62614 22.6865 2.52493 20.8812 1.77553C19.0759 1.02612 17.1396 0.643508 15.1849 0.649983C6.99495 0.649983 0.319951 7.32498 0.319951 15.515C0.319951 18.14 1.00995 20.69 2.29995 22.94L0.199951 30.65L8.07495 28.58C10.2499 29.765 12.6949 30.395 15.1849 30.395C23.3749 30.395 30.0499 23.72 30.0499 15.53C30.0499 11.555 28.5049 7.81998 25.6999 5.01498ZM15.1849 27.875C12.9649 27.875 10.7899 27.275 8.88495 26.15L8.43495 25.88L3.75495 27.11L4.99995 22.55L4.69995 22.085C3.46627 20.1156 2.81134 17.8389 2.80995 15.515C2.80995 8.70498 8.35995 3.15498 15.1699 3.15498C18.4699 3.15498 21.5749 4.44498 23.8999 6.78498C25.0514 7.93078 25.9638 9.2938 26.5844 10.795C27.2049 12.2962 27.5212 13.9056 27.5149 15.53C27.5449 22.34 21.9949 27.875 15.1849 27.875ZM21.9649 18.635C21.5899 18.455 19.7599 17.555 19.4299 17.42C19.0849 17.3 18.8449 17.24 18.5899 17.6C18.3349 17.975 17.6299 18.815 17.4199 19.055C17.2099 19.31 16.9849 19.34 16.6099 19.145C16.2349 18.965 15.0349 18.56 13.6249 17.3C12.5149 16.31 11.7799 15.095 11.5549 14.72C11.3449 14.345 11.5249 14.15 11.7199 13.955C11.8849 13.79 12.0949 13.52 12.2749 13.31C12.4549 13.1 12.5299 12.935 12.6499 12.695C12.7699 12.44 12.7099 12.23 12.6199 12.05C12.5299 11.87 11.7799 10.04 11.4799 9.28998C11.1799 8.56998 10.8649 8.65998 10.6399 8.64498H9.91995C9.66495 8.64498 9.27495 8.73498 8.92995 9.10998C8.59995 9.48498 7.63995 10.385 7.63995 12.215C7.63995 14.045 8.97495 15.815 9.15495 16.055C9.33495 16.31 11.7799 20.06 15.4999 21.665C16.3849 22.055 17.0749 22.28 17.6149 22.445C18.4999 22.73 19.3099 22.685 19.9549 22.595C20.6749 22.49 22.1599 21.695 22.4599 20.825C22.7749 19.955 22.7749 19.22 22.6699 19.055C22.5649 18.89 22.3399 18.815 21.9649 18.635Z"
+                  fill="white" />
+              </svg>
+            </span>
+            <p class="popup__social-name">WhatshApp</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <template class="card-template">
+    </template>
+
+  </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container-mini">
+      <div class="footer__body">
+        <div class="footer__top">
+          <div class="footer__logo logo">
+            <a href="/"><img src="/images/logo/logo.png" alt="Логотип" width="121" height="48"></a>
+          </div>
+          <button class="footer__btn btn-popup" type="button">
+            <span>
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.80634 11.605C8.95757 14.7556 11.8777 15.1006 12.735 15.1325C13.7709 15.1702 14.8281 14.3246 15.2854 13.4585C14.556 12.603 13.6062 11.9393 12.5661 11.2199C11.9523 11.8328 11.1958 12.9718 10.1886 12.5637C9.61568 12.3334 8.20111 11.682 6.96521 10.4455C5.7293 9.20907 5.07774 7.79561 4.8458 7.22367C4.43766 6.21499 5.58014 5.45704 6.19399 4.84331C5.47441 3.78629 4.82204 2.81202 3.96805 2.11963C3.08947 2.57849 2.23876 3.62732 2.27728 4.67697C2.30924 5.53407 2.65428 8.45359 5.80634 11.605ZM12.6743 16.7705C11.4941 16.7271 8.14948 16.2649 4.64665 12.7636C1.14464 9.26151 0.683223 5.91836 0.638966 4.73761C0.573401 2.93821 1.95191 1.19043 3.54433 0.507871C3.73609 0.425085 3.94608 0.393566 4.1537 0.416406C4.36133 0.439247 4.55944 0.515663 4.72861 0.638156C6.04647 1.59931 6.95537 3.05538 7.73642 4.19599C7.8989 4.43316 7.97333 4.71967 7.94684 5.00592C7.92035 5.29217 7.7946 5.56015 7.59135 5.7635L6.48002 6.87542C6.73818 7.44491 7.26353 8.42655 8.12407 9.28691C8.98462 10.1473 9.96646 10.6725 10.5369 10.9306L11.6474 9.81952C11.8513 9.61546 12.1205 9.48961 12.4079 9.46399C12.6953 9.43837 12.9825 9.51463 13.2193 9.67941C14.3831 10.4857 15.7501 11.3813 16.7467 12.6571C16.8792 12.8275 16.9635 13.0303 16.9907 13.2443C17.018 13.4584 16.9872 13.6758 16.9016 13.8739C16.2157 15.4742 14.4798 16.8369 12.6743 16.7705Z"
+                  fill="currentColor" />
+              </svg>
+            </span>
+            <span>Связаться</span>
+          </button>
+        </div>
+        <div class="footer__contacts">
+          <div class="footer__item">
+            <address>
+              <p>3789 Mockingbird Lane, Apartment 2B, Anytown, CA 91234</p>
+            </address>
+          </div>
+          <div class="footer__item">
+            <div class="footer__mail">
+              <a href="mailto:mining@mail.ru" target="_blank">address@mail.ru</a>
+            </div>
+            <div class="footer__phone">
+              <a href="tel:88888888-888888">7 (999) 999-99-99</a>
+            </div>
+          </div>
+          <div class="footer__item">
+            <ul class="footer__socials-list">
+              <li class="footer__social">
+                <a href="#">
+                  <span class="social-icon tg">
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8.77388 0.522975C8.72547 0.481166 8.66656 0.45336 8.60351 0.442553C8.54045 0.431746 8.47565 0.438348 8.41607 0.461647L0.499665 3.55969C0.387472 3.60332 0.292487 3.68221 0.229011 3.78449C0.165535 3.88678 0.137003 4.00691 0.14771 4.12681C0.158418 4.24671 0.207786 4.35989 0.288382 4.4493C0.368977 4.53872 0.476439 4.59953 0.594587 4.62258L2.64576 5.02532V7.31243C2.64536 7.43701 2.68238 7.55883 2.75203 7.66212C2.82167 7.76541 2.92074 7.8454 3.03638 7.89173C3.15185 7.93888 3.27883 7.95019 3.40081 7.92421C3.5228 7.89822 3.63414 7.83614 3.72037 7.74602L4.70943 6.72024L6.27857 8.09368C6.39178 8.1941 6.53779 8.24967 6.68912 8.24993C6.75543 8.24988 6.82133 8.23946 6.88443 8.21907C6.98754 8.18635 7.08027 8.1272 7.1534 8.04749C7.22653 7.96778 7.27749 7.87031 7.30123 7.76477L8.88678 0.867116C8.90096 0.804909 8.89794 0.740014 8.87806 0.679389C8.85817 0.618764 8.82216 0.564694 8.77388 0.522975ZM6.3856 1.92923L2.88599 4.43548L0.948493 4.0554L6.3856 1.92923ZM3.27076 7.31243V5.45774L4.23912 6.30696L3.27076 7.31243ZM6.6899 7.62493L3.46021 4.7929L8.10865 1.46126L6.6899 7.62493Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="footer__social">
+                <a href="#">
+                  <span class="social-icon wa">
+                    <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8.77083 2.5459C8.38878 2.16011 7.93376 1.85422 7.4323 1.64605C6.93083 1.43788 6.39295 1.3316 5.85 1.3334C3.575 1.3334 1.72083 3.18756 1.72083 5.46256C1.72083 6.19173 1.9125 6.90006 2.27083 7.52506L1.6875 9.66673L3.875 9.09173C4.47917 9.4209 5.15833 9.5959 5.85 9.5959C8.125 9.5959 9.97917 7.74173 9.97917 5.46673C9.97917 4.36256 9.55 3.32506 8.77083 2.5459ZM5.85 8.8959C5.23333 8.8959 4.62917 8.72923 4.1 8.41673L3.975 8.34173L2.675 8.6834L3.02083 7.41673L2.9375 7.28756C2.59481 6.7405 2.41289 6.10809 2.4125 5.46256C2.4125 3.5709 3.95417 2.02923 5.84583 2.02923C6.7625 2.02923 7.625 2.38756 8.27083 3.03756C8.59067 3.35584 8.84413 3.73446 9.01651 4.15145C9.18889 4.56844 9.27675 5.01552 9.275 5.46673C9.28333 7.3584 7.74167 8.8959 5.85 8.8959ZM7.73333 6.32923C7.62917 6.27923 7.12083 6.02923 7.02917 5.99173C6.93333 5.9584 6.86667 5.94173 6.79583 6.04173C6.725 6.1459 6.52917 6.37923 6.47083 6.4459C6.4125 6.51673 6.35 6.52506 6.24583 6.4709C6.14167 6.4209 5.80833 6.3084 5.41667 5.9584C5.10833 5.6834 4.90417 5.3459 4.84167 5.24173C4.78333 5.13756 4.83333 5.0834 4.8875 5.02923C4.93333 4.9834 4.99167 4.9084 5.04167 4.85006C5.09167 4.79173 5.1125 4.7459 5.14583 4.67923C5.17917 4.6084 5.1625 4.55006 5.1375 4.50006C5.1125 4.45006 4.90417 3.94173 4.82083 3.7334C4.7375 3.5334 4.65 3.5584 4.5875 3.55423H4.3875C4.31667 3.55423 4.20833 3.57923 4.1125 3.6834C4.02083 3.78756 3.75417 4.03756 3.75417 4.5459C3.75417 5.05423 4.125 5.5459 4.175 5.61256C4.225 5.6834 4.90417 6.72506 5.9375 7.1709C6.18333 7.27923 6.375 7.34173 6.525 7.38756C6.77083 7.46673 6.99583 7.45423 7.175 7.42923C7.375 7.40006 7.7875 7.17923 7.87083 6.93756C7.95833 6.6959 7.95833 6.49173 7.92917 6.4459C7.9 6.40006 7.8375 6.37923 7.73333 6.32923Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright-text">©
+          <script>document.write(new Date().getFullYear())</script>
+          Все права защищены
+        </p>
+        <a class="footer__copyright-link" href="/privacy.html" target="_blank">Политика конфиденциальности</a>
+        <div class="footer__leadstudio">
+          <p class="footer__leadstudio-text">Разработка</p>
+          <a href="https://lead-studio.pro/" target="_blank">
+            <svg width="127" height="23" viewBox="0 0 127 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_127_15200)">
+                <path
+                  d="M2.16754 11.7786C1.48156 9.80958 2.19041 5.1076 6.85692 4.67798C7.50656 4.58958 8.24833 4.67752 9.03035 4.95132C9.85106 4.05385 10.8718 2.45829 13.6625 3.36526C13.2728 2.84504 12.842 2.40104 12.3806 2.02896C6.54502 -2.67734 -4.17301 4.12183 1.71036 13.6881C1.72325 12.875 1.87698 12.4659 2.16754 11.7786Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M9.03078 4.95096C8.24876 4.67716 7.50699 4.58922 6.85736 4.67762C5.16819 5.74579 3.02555 9.74981 2.16797 11.7783C2.37585 12.375 3.42641 14.8214 5.77108 15.1795C5.08358 12.3274 7.10608 8.11505 9.03078 4.95096Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M6.62882 17.2679C6.23663 16.5833 5.93355 15.8539 5.77098 15.1795C3.42631 14.8215 2.37575 12.3751 2.16787 11.7783C1.87731 12.4656 1.72358 12.8747 1.7107 13.6878C1.53858 24.5479 14.4057 24.8462 16.6932 17.4472C16.2929 17.6859 15.3994 17.9246 15.0086 17.9246C12.9147 20.3001 8.59011 20.6918 6.62882 17.2679Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M5.77075 15.1796C5.93332 15.8539 6.2364 16.5834 6.62859 17.268C10.1894 18.3748 13.1474 18.223 15.0083 17.9246C16.0892 16.6984 16.5756 14.9436 15.8357 12.9121C12.4045 15.5973 9.54513 15.2393 5.77075 15.1796Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M13.6625 3.36517C17.1509 4.49889 18.695 7.36303 17.2081 11.1222C16.9794 11.5797 16.3846 12.5781 15.8356 12.9123C16.5755 14.9437 16.0891 16.6986 15.0082 17.9248C15.399 17.9248 16.2926 17.6861 16.6929 17.4474C26.3004 11.5998 19.8423 0.774911 12.3806 2.02887C12.842 2.40095 13.2728 2.84495 13.6625 3.36517Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M9.03027 4.95171C11.4151 5.78672 14.1739 8.35032 15.8355 12.9127C16.3845 12.5786 16.9793 11.5801 17.2081 11.1227C16.6362 8.73593 15.2065 5.21542 13.6624 3.36566C10.8717 2.45868 9.85098 4.05424 9.03027 4.95171Z"
+                  fill="white" fill-opacity="0.4" />
+                <path
+                  d="M29.1885 17.0003V6.06626H30.8761V15.4757H36.6169V17.0003H29.1885ZM45.3259 15.4757V17.0003H37.9879V6.06626H45.1903V7.59086H39.6754V10.7017H44.4519V12.1339H39.6754V15.4757H45.3259ZM50.1557 6.06626H51.7529L55.9118 17.0003H54.1338L53.0035 14.0281H48.8749L47.7599 17.0003H45.9668L50.1557 6.06626ZM52.672 12.7499L50.9543 7.96046L49.1763 12.7499H52.672ZM57.2345 17.0003V6.06626H61.0316C62.187 6.06626 63.1513 6.31266 63.9246 6.80546C64.6984 7.28797 65.2758 7.94506 65.6574 8.77666C66.0491 9.59797 66.245 10.5117 66.245 11.5179C66.245 12.6267 66.0292 13.5917 65.5971 14.4131C65.1752 15.2344 64.5725 15.8709 63.789 16.3227C63.0055 16.7744 62.0863 17.0003 61.0316 17.0003H57.2345ZM64.5273 11.5179C64.5273 10.7479 64.3868 10.0703 64.1054 9.48506C63.8342 8.88957 63.4376 8.42757 62.915 8.09906C62.4027 7.76026 61.7753 7.59086 61.0316 7.59086H58.9221V15.4757H61.0316C61.785 15.4757 62.4178 15.3011 62.9301 14.9521C63.4526 14.603 63.8492 14.1307 64.1205 13.5353C64.3917 12.9398 64.5273 12.2673 64.5273 11.5179ZM78.0716 8.63806C77.971 8.52514 77.8257 8.40706 77.6347 8.28386C77.4436 8.15037 77.2176 8.02717 76.9566 7.91426C76.6956 7.80134 76.4142 7.70894 76.1128 7.63706C75.8115 7.56517 75.4999 7.52926 75.1786 7.52926C74.4753 7.52926 73.9533 7.66274 73.6116 7.92966C73.2698 8.19657 73.0993 8.56617 73.0993 9.03846C73.0993 9.38754 73.1945 9.66474 73.3855 9.87006C73.5766 10.0651 73.8677 10.2294 74.2595 10.3629C74.6512 10.4963 75.1436 10.6401 75.7361 10.7941C76.4594 10.9686 77.0874 11.1791 77.6196 11.4255C78.1518 11.6616 78.5586 11.9799 78.8401 12.3803C79.1215 12.7807 79.262 13.3094 79.262 13.9665C79.262 14.5209 79.1614 14.9983 78.9606 15.3987C78.7599 15.7991 78.4785 16.1276 78.1168 16.3843C77.7552 16.6307 77.3382 16.8155 76.8662 16.9387C76.3943 17.0516 75.8868 17.1081 75.3444 17.1081C74.8121 17.1081 74.2794 17.0516 73.7472 16.9387C73.2247 16.8257 72.7226 16.6615 72.2404 16.4459C71.7685 16.22 71.3315 15.9479 70.9295 15.6297L71.698 14.1513C71.8287 14.2847 72.0144 14.4336 72.2555 14.5979C72.5068 14.7519 72.7931 14.9007 73.1143 15.0445C73.4458 15.1882 73.8026 15.3114 74.1841 15.4141C74.5759 15.5065 74.9725 15.5527 75.3745 15.5527C76.0477 15.5527 76.56 15.4346 76.9114 15.1985C77.273 14.9521 77.4538 14.603 77.4538 14.1513C77.4538 13.7817 77.3382 13.4891 77.1073 13.2735C76.8764 13.0476 76.5396 12.8577 76.0978 12.7037C75.6559 12.5497 75.1286 12.3957 74.5156 12.2417C73.8123 12.0466 73.2246 11.8361 72.7527 11.6103C72.2808 11.3741 71.924 11.0764 71.6829 10.7171C71.452 10.3475 71.3363 9.88034 71.3363 9.31566C71.3363 8.59697 71.5069 7.99126 71.8486 7.49846C72.1904 6.99537 72.6521 6.62066 73.2349 6.37426C73.8274 6.11757 74.4903 5.98926 75.2238 5.98926C75.706 5.98926 76.1629 6.04574 76.595 6.15866C77.0271 6.26134 77.4286 6.40506 77.8004 6.58986C78.182 6.77466 78.5285 6.98514 78.8401 7.22126L78.0716 8.63806ZM88.8047 7.59086H85.2487V17.0003H83.5461V7.59086H79.975V6.06626H88.8047V7.59086ZM94.6995 17.0773C93.846 17.0773 93.1228 16.9284 92.5297 16.6307C91.9475 16.3329 91.475 15.9274 91.1134 15.4141C90.7619 14.9007 90.5009 14.3155 90.3298 13.6585C90.1695 13.0014 90.0887 12.3187 90.0887 11.6103V6.06626H91.7763V11.6103C91.7763 12.1133 91.8269 12.601 91.927 13.0733C92.0276 13.5353 92.1885 13.9511 92.4092 14.3207C92.6304 14.6903 92.9269 14.9829 93.2982 15.1985C93.6803 15.4141 94.1474 15.5219 94.6995 15.5219C95.2624 15.5219 95.7295 15.4141 96.1008 15.1985C96.4829 14.9726 96.7788 14.6749 96.9898 14.3053C97.211 13.9254 97.3719 13.5045 97.472 13.0425C97.5726 12.5805 97.6226 12.1031 97.6226 11.6103V6.06626H99.3253V11.6103C99.3253 12.3597 99.2349 13.0681 99.0541 13.7355C98.8835 14.3925 98.6123 14.9726 98.2404 15.4757C97.8788 15.9685 97.4068 16.3586 96.824 16.6461C96.2418 16.9335 95.5336 17.0773 94.6995 17.0773ZM101.57 17.0003V6.06626H105.367C106.522 6.06626 107.487 6.31266 108.26 6.80546C109.033 7.28797 109.611 7.94506 109.993 8.77666C110.385 9.59797 110.58 10.5117 110.58 11.5179C110.58 12.6267 110.365 13.5917 109.932 14.4131C109.511 15.2344 108.908 15.8709 108.124 16.3227C107.341 16.7744 106.422 17.0003 105.367 17.0003H101.57ZM108.863 11.5179C108.863 10.7479 108.722 10.0703 108.441 9.48506C108.17 8.88957 107.773 8.42757 107.25 8.09906C106.738 7.76026 106.11 7.59086 105.367 7.59086H103.257V15.4757H105.367C106.12 15.4757 106.753 15.3011 107.265 14.9521C107.788 14.603 108.185 14.1307 108.456 13.5353C108.727 12.9398 108.863 12.2673 108.863 11.5179ZM112.356 17.0003V6.06626H114.043V17.0003H112.356ZM120.906 17.0773C120.132 17.0773 119.434 16.9233 118.812 16.6153C118.189 16.3073 117.652 15.8915 117.199 15.3679C116.747 14.834 116.396 14.2385 116.145 13.5815C115.904 12.9141 115.783 12.2314 115.783 11.5333C115.783 10.8043 115.913 10.1113 116.175 9.45426C116.436 8.78694 116.797 8.19657 117.26 7.68326C117.721 7.15966 118.264 6.74897 118.887 6.45126C119.52 6.14326 120.203 5.98926 120.936 5.98926C121.699 5.98926 122.392 6.14837 123.016 6.46666C123.648 6.78494 124.186 7.21097 124.628 7.74486C125.08 8.27874 125.426 8.87417 125.668 9.53126C125.918 10.1883 126.044 10.8608 126.044 11.5487C126.044 12.2776 125.914 12.9757 125.653 13.6431C125.401 14.3001 125.044 14.8905 124.583 15.4141C124.12 15.9274 123.573 16.3329 122.94 16.6307C122.317 16.9284 121.639 17.0773 120.906 17.0773ZM117.501 11.5333C117.501 12.0466 117.581 12.5445 117.742 13.0271C117.902 13.5096 118.128 13.9408 118.42 14.3207C118.721 14.6903 119.083 14.9829 119.505 15.1985C119.927 15.4141 120.399 15.5219 120.921 15.5219C121.464 15.5219 121.946 15.4089 122.368 15.1831C122.79 14.9572 123.141 14.6543 123.422 14.2745C123.714 13.8843 123.935 13.4531 124.085 12.9809C124.236 12.4983 124.311 12.0158 124.311 11.5333C124.311 11.0199 124.231 10.5271 124.07 10.0549C123.92 9.57234 123.694 9.14626 123.392 8.77666C123.091 8.39677 122.729 8.09906 122.307 7.88346C121.895 7.66786 121.434 7.56006 120.921 7.56006C120.379 7.56006 119.897 7.67297 119.475 7.89886C119.053 8.12474 118.696 8.42757 118.405 8.80746C118.113 9.18734 117.887 9.61337 117.727 10.0857C117.576 10.5579 117.501 11.0405 117.501 11.5333Z"
+                  fill="white" fill-opacity="0.4" />
+              </g>
+              <defs>
+                <clipPath id="clip0_127_15200">
+                  <rect width="127" height="22" fill="white" transform="translate(0 0.5)" />
+                </clipPath>
+              </defs>
+            </svg>
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

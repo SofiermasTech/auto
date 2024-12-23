@@ -1,0 +1,21 @@
+.page-form {
+  margin-bottom: var(--section-offset);
+
+  &__body {
+    width: 100%;
+    border-radius: var(--br-section);
+    // background-color: var(--dark);
+    background-image: url('../../images/banner-form.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+  }
+
+  &__popup {
+    max-width: 59%;
+    margin-left: auto;
+
+  }
+
+
+}

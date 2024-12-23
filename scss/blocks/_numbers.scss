@@ -1,0 +1,71 @@
+.numbers {
+  margin-bottom: var(--section-offset);
+
+  &__body {}
+
+  &__title {
+    margin-bottom: 14px;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    min-height: 244px;
+
+    @include desktop-bottom {
+      min-height: 200px;
+    }
+
+    @include tablet {
+      min-height: 150px;
+      gap: 14px;
+    }
+
+    @include tablet-bottom {
+      min-height: 136px;
+      gap: 10px;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      min-height: 130px;
+      gap: 16px;
+    }
+  }
+
+  &__card {
+    padding: 26px 24px;
+    background-color: var(--red);
+    border-radius: var(--br-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+  }
+
+  &__card-number {
+    font-size: 64px;
+    font-weight: 600;
+
+    @include desktop-bottom {
+      font-size: 48px;
+    }
+
+    @include tablet {
+      font-size: 32px;
+    }
+
+    @include mobile {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__card-text {}
+}

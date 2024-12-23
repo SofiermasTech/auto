@@ -1,0 +1,115 @@
+.cards {
+  margin-bottom: var(--section-offset);
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  &__item {}
+}
+
+.card {
+  background-color: var(--light-gray);
+  border-radius: var(--br-card);
+  display: flex;
+  flex-direction: column;
+
+  &__top {
+    width: 100%;
+    max-height: 296px;
+    height: 100%;
+  }
+
+  &__info-wrapper {
+    padding: 27px 21px;
+  }
+
+  &__info {
+    margin-bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &__car {}
+
+  &__car-brand {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__car-model {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-80);
+  }
+
+  &__characteristics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 22px;
+
+  }
+
+  &__characteristic-item {
+
+    &:not(:nth-of-type(4)) {
+      padding-left: 14px;
+      border-left: 2px solid rgba(127, 127, 127, 0.2);
+    }
+
+    &:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    span {
+      color: var(--gray-80);
+      font-size: 12px;
+    }
+
+    p {
+      color: var(--dark);
+      font-size: 12px;
+    }
+  }
+
+  &__price {
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  &__btn-popup {
+    padding: 12px;
+
+    @include hover {
+      background-color: var(--dark);
+      border-color: var(--dark);
+      color: var(--white);
+    }
+  }
+
+  &__btn-info {
+    background-color: transparent;
+    border: 2px solid var(--gray);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray);
+    padding: 12px;
+    border-radius: var(--br-btn);
+    cursor: pointer;
+
+    @include hover {
+      background-color: rgba(127, 127, 127, 0.2);
+    }
+  }
+}

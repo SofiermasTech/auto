@@ -1,0 +1,219 @@
+.intro {
+  padding-top: 16px;
+  margin-bottom: var(--section-offset);
+
+  @include mobile {
+    padding-top: 8px;
+  }
+
+  &__body {
+    // height: 80vh;
+    max-height: 750px;
+    width: 100%;
+    padding: 0 85px;
+    background-color: var(--dark);
+    border-radius: var(--br-section);
+    background-image: url('../images/intro.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include desktop {
+      // height: 90vh;
+      background-position: bottom;
+    }
+
+    // @include tablet {
+    //   height: 45vh;
+    // }
+
+    @include tablet-bottom {
+      padding: 48px;
+    }
+
+    @include mobile {
+      padding: 18px;
+    }
+  }
+
+  &__content {
+    max-width: 55%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    @include desktop-top {
+      max-width: 65%;
+    }
+
+    @include desktop-bottom {
+      gap: 16px;
+    }
+
+    @include tablet {
+      gap: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    font-weight: 700;
+
+    @include desktop {
+      font-size: 48px;
+    }
+
+    @include desktop-bottom {
+      font-size: 40px;
+    }
+
+    @include tablet {
+      font-size: 32px;
+    }
+
+    @include tablet-bottom {
+      font-size: 24px;
+    }
+
+    strong {
+      color: var(--red);
+    }
+  }
+
+  &__subtitle {
+    max-width: 70%;
+    font-size: 20px;
+
+    @include desktop-bottom {
+      font-size: 16px;
+    }
+
+    @include tablet {
+      font-size: 12px;
+    }
+
+    @include tablet-bottom {
+      font-size: 10px;
+    }
+  }
+
+  &__btn {
+    margin-top: 16px;
+    max-width: 370px;
+    padding-bottom: 14px;
+
+    @include desktop-bottom {
+      margin-top: 24px;
+      max-width: 55%;
+    }
+
+    @include tablet {
+      padding: 9px 12px;
+    }
+  }
+
+  &__line {
+    height: 56px;
+    width: 100%;
+    border-bottom: 2px solid var(--white-14);
+  }
+
+  &__bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  &__logos {
+    padding: 20px 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+
+    @include desktop {
+      gap: 64px;
+    }
+
+    @include tablet {
+      padding-bottom: 20px;
+      gap: 40px;
+    }
+
+    @include tablet-bottom {
+      padding: 12px 0;
+    }
+
+    @include mobile {
+      padding: 16px 0 20px;
+    }
+
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+
+    &:nth-last-child(-n+2) {
+      display: none;
+    }
+
+    @include desktop {
+      width: 80px;
+      height: 80px;
+
+      // &:nth-last-child(-n+2) {
+      //   display: block;
+      // }
+    }
+
+    @include tablet {
+      width: 40px;
+      height: 40px;
+
+      &:nth-last-child(-n+2) {
+        display: block;
+      }
+    }
+
+    @include tablet-bottom {
+
+      &:nth-last-child(-n+1) {
+        display: none;
+      }
+    }
+
+    @include mobile {
+
+      &:nth-last-child(-n+4) {
+        display: none;
+      }
+    }
+
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Прокрутка на 100% ширины контейнера */
+  }
+}

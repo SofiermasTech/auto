@@ -1,0 +1,44 @@
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+.page {
+  background-color: var(--white);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: 400;
+  color: var(--dark);
+  min-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: clip;
+  position: relative;
+  line-height: 1.2;
+}
+
+.main {
+  flex-shrink: 1;
+}
+
+.background-page {
+  background-image: url('/images/back-l.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  @include mobile {
+    background-image: none;
+  }
+}

@@ -1,0 +1,148 @@
+.banner {
+  margin-bottom: var(--section-offset);
+
+  &__body {
+    width: 100%;
+    padding: 80px 84px 94px;
+    border-radius: var(--br-section);
+    background-color: var(--red);
+    background-image: url('../images/banner-back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+
+    @include desktop {
+      padding: 64px 80px;
+    }
+
+    @include tablet {
+      padding: 48px 80px 84px;
+    }
+
+    @include tablet-bottom {
+      padding: 48px;
+      padding-bottom: 60px;
+    }
+
+    @include mobile {
+      padding: 36px 18px 170px;
+    }
+  }
+
+  &__content {
+    max-width: 50%;
+
+    @include desktop {
+      max-width: 55%;
+    }
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 10px;
+    }
+
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    max-width: 70%;
+    margin-bottom: 36px;
+
+    @include desktop {
+      font-size: 16px;
+      max-width: 80%;
+    }
+
+    @include tablet {
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    @include tablet-bottom {
+      max-width: 95%;
+      font-size: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__btn {
+    width: 55%;
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--red);
+    transition: 0.3s;
+
+    @include hover {
+      color: var(--dark);
+      transition: 0.3s;
+    }
+
+    @include mobile {
+      width: 190px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+    display: flex;
+    justify-content: flex-end;
+
+
+    @include desktop {
+      bottom: 4%;
+      right: -5%;
+
+      img {
+        max-width: 95%;
+      }
+    }
+
+    @include desktop-bottom {
+      bottom: 0;
+      right: -12%;
+
+      img {
+        max-width: 90%;
+      }
+    }
+
+    @include tablet {
+
+      right: -10%;
+
+      img {
+        max-width: 70%;
+      }
+    }
+
+    @include tablet-bottom {
+      right: -10%;
+
+      img {
+        max-width: 55%;
+      }
+    }
+
+    @include mobile {
+      img {
+        max-width: 90%;
+      }
+    }
+  }
+}
+
+.container {}
+
+.btn-popup {}

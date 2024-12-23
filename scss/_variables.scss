@@ -1,0 +1,58 @@
+:root {
+  @import 'media';
+
+
+
+  --red: #B00000;
+  --dark: #303030;
+  --white: #fff;
+  --white-14: rgba(255, 255, 255, 0.14);
+  --gray-70: rgba(242, 242, 242, 0.7);
+  --gray: #7F7F7F;
+  --gray-80: rgba(76, 76, 76, 0.8);
+  --light-gray: #EAEAEA;
+
+
+  // text
+  --font-size-body: 16px;
+  --font-family-base: "Source Sans Pro", Arial, Helvetica, sans-serif;
+
+
+
+
+  // border-radius
+  --br-card: 24px;
+  --br-btn: 50px;
+  --br-section: 36px;
+
+
+
+  // margin, padding
+  --container-padding-y: 64px;
+  --section-offset: 120px;
+  // --blocks-offset: 100px;
+
+  @include desktop {
+    --section-offset: 104px;
+  }
+
+  @include desktop-bottom {
+    --section-offset: 96px;
+    --br-section: 24px;
+  }
+
+  @include tablet {
+    --section-offset: 64px;
+    --br-card: 16px;
+  }
+
+  @include tablet-bottom {
+    --section-offset: 48px;
+    --br-section: 16px;
+  }
+
+  @include mobile {
+    --section-offset: 32px;
+    --br-section: 20px;
+  }
+}
