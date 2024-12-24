@@ -63,6 +63,38 @@
   }
 }
 
+.btn {
+  padding: 13px 24px;
+  border: none;
+  background-color: var(--red);
+  border-radius: var(--br-btn);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow:
+    0 4px 4px rgba($color: #000000, $alpha: 0.25),
+    inset 0 5px 15px rgba($color: #000000, $alpha: 0.25);
+  transition: 0.5s;
+  cursor: pointer;
+
+  @include desktop-bottom {
+    font-size: 16px;
+    padding: 11px 16px;
+  }
+
+  @include tablet {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  @include hover {
+    background-color: var(--white);
+    color: var(--dark);
+    transition: 0.5s;
+  }
+
+}
+
 .btn-popup {
   padding: 13px 24px;
   border: 1px solid var(--red);
@@ -74,25 +106,25 @@
   box-shadow:
     0 4px 4px rgba($color: #000000, $alpha: 0.25),
     inset 0 5px 15px rgba($color: #000000, $alpha: 0.25);
+  transition: 0.5s;
+  cursor: pointer;
 
-    @include desktop-bottom {
-      font-size: 16px;
-      padding: 11px 16px;
-    }
+  @include desktop-bottom {
+    font-size: 16px;
+    padding: 11px 16px;
+  }
 
-    @include tablet {
-      font-size: 12px;
-      padding: 7px 10px;
-    }
+  @include tablet {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
 
-    @include hover {
-      background-color: var(--white);
-      border: 1px solid var(--white);
-      color: var(--dark);
-      cursor: pointer;
-    }
-
-    
+  @include hover {
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--dark);
+    transition: 0.5s;
+  }
 }
 
 .title {
@@ -127,4 +159,14 @@
   @include tablet-bottom {
     font-size: 10px;
   }
+}
+
+.stop-scroll {
+  overflow-y: hidden;
+}
+
+#why-us,
+#steps,
+#traded-now {
+  scroll-margin-top: 150px;
 }

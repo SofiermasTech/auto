@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
   }
 }
 
@@ -12,9 +13,9 @@
   background-color: var(--light-gray);
   border-radius: var(--br-card);
 
-&__wrapper {
+  &__wrapper {
 
-}
+  }
 
   &__options {
     padding: 5px;
@@ -51,7 +52,7 @@
     }
   }
 
-  &__options-input {
+  &__options-range {
     padding: 9px 10px;
     display: flex;
     flex-direction: column;
@@ -85,7 +86,7 @@
       width: 19px;
       height: 19px;
       -webkit-appearance: none;
-margin-top: -8px;
+      margin-top: -8px;
     }
 
     input[type=range]::-moz-range-track {
@@ -112,7 +113,27 @@ margin-top: -8px;
     margin-bottom: 8px;
   }
 
-  &__current-brands {
+  &__brands {
+    transition: 0.5s;
+
+    &.open {
+      transition: 0.5s;
+
+      .select-arrow {
+        transform: rotate(180deg);
+        transition: 0.3s;
+      }
+
+     & + .filters__brand-list {
+        max-height: 140px;
+        visibility: visible;
+        opacity: 1;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  &__current-brand {
     padding: 11px;
     display: flex;
     gap: 4px;
@@ -120,6 +141,7 @@ margin-top: -8px;
     align-items: center;
     color: var(--red);
     font-weight: 600;
+    cursor: pointer;
 
     .select-arrow {
       width: 24px;
@@ -127,12 +149,97 @@ margin-top: -8px;
       display: flex;
       align-items: center;
       justify-content: center;
-    
+      transition: 0.3s;
 
       svg {
         width: 10px;
         height: 13px;
       }
+    }
+  }
+
+  &__brand-list {
+    max-height: 0;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    scrollbar-width: auto;
+    scrollbar-color: var(--red) #8A8A8A;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 100%;
+
+      border-radius: 26px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--red);
+      border-radius: 26px;
+      // height: 10%;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #8A8A8A;
+      border: transparent;
+      border-radius: 26px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-moz-scrollbar-button {
+      display: none;
+    }
+  }
+
+  &__brand-item {
+    padding: 11px 20px;
+    color: #8A8A8A;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.select {
+      background-color: #F0F0F0;
+      color: rgba(76, 76, 76, 0.8);
+    }
+  }
+
+  &__label-year {
+    width: 100%;
+    background-color: #F0F0F0;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  &__year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    font-weight: 600;
+
+    span {
+      color: #8A8A8A;
+    }
+
+    input {
+      max-width: 44px;
+      background-color: #F0F0F0;
+      border: none;
+      color: var(--gray-80);
+
+      &::placeholder {
+        color: #8A8A8A;
+      }
+
     }
   }
 

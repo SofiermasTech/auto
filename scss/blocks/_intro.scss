@@ -59,6 +59,10 @@
     @include tablet {
       gap: 10px;
     }
+
+    @include mobile {
+      max-width: 100%;
+    }
   }
 
   &__title {

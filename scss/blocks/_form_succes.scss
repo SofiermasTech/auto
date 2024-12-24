@@ -1,0 +1,147 @@
+.form-success {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 113;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+
+  @include mobile {
+    padding-top: 20px;
+  }
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__body {
+    position: relative;
+    max-width: 40%;
+    height: auto;
+    padding: 60px 40px;
+    background-color: var(--dark);
+    border-radius: var(--br-section);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;
+    text-align: center;
+
+
+    @include tablet {
+      max-width: 70%;
+    }
+
+    @include mobile {
+      padding: 48px 24px 32px;
+      max-width: 90%;
+    }
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    @include desktop-bottom {
+      width: 30px;
+      height: 30px;
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    @include tablet-bottom {
+      width: 22px;
+      height: 22px;
+
+      svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+
+  &__img {
+    width: 100px;
+    height: 100px;
+
+    @include tablet {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include mobile {
+      width: 60px;
+      height: 60px;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+    font-size: 28px;
+
+    @include tablet {
+      font-size: 24px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__subtitle {
+    max-width: 80%;
+
+    @include mobile {
+      max-width: 90%;
+      font-size: 12px;
+    }
+  }
+
+  &__btn {
+    margin-top: 16px;
+    width: 110px;
+
+    @include tablet-bottom {
+      width: 90px;
+    }
+
+    @include mobile {
+      padding-block: 12px;
+    }
+  }
+
+}

@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <script src="js/aos.js"></script>
   <title>Auto</title>
 </head>
 
@@ -12,7 +14,7 @@
   <header class="header">
     <div class="header__body">
       <div class="header__burger">
-        <button class="header__burger-btn btn-popup" type="button">
+        <button class="header__burger-btn btn-menu" type="button">
           <img src="/images/burger.svg" alt="">
         </button>
       </div>
@@ -22,13 +24,13 @@
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item">
-            <a class="header__link" href="#">Торгуются сейчас</a>
+            <a class="header__link" href="#traded-now">Торгуются сейчас</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="#">Этапы работы</a>
+            <a class="header__link" href="#steps">Этапы работы</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="#">Преимущества</a>
+            <a class="header__link" href="#why-us">Преимущества</a>
           </li>
         </ul>
       </nav>
@@ -44,21 +46,22 @@
           <span>Связаться</span>
         </button>
         <div class="header__social">
-          <a href="#">
+          <a href="#" target="_blank">
             <span class="social-icon tg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none">
-                <path fill="#fff"
-                  d="M19.548 2.546a.703.703 0 0 0-.716-.123L3 8.62a1.11 1.11 0 0 0 .19 2.125l4.102.806v4.574a1.244 1.244 0 0 0 .781 1.159 1.243 1.243 0 0 0 1.368-.292l1.978-2.051 3.138 2.746a1.24 1.24 0 0 0 1.212.251 1.239 1.239 0 0 0 .834-.908l3.17-13.796a.704.704 0 0 0-.225-.688ZM14.772 5.36l-7 5.012-3.875-.76 10.874-4.252Zm-6.23 10.766v-3.71l1.937 1.699-1.937 2.011Zm6.838.625-6.46-5.664 9.298-6.663L15.38 16.75Z" />
+              <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M17.548 0.546072C17.4512 0.462454 17.3334 0.406842 17.2073 0.385228C17.0812 0.363614 16.9515 0.376818 16.8324 0.423416L0.999575 6.61951C0.775188 6.70676 0.585218 6.86455 0.458266 7.06911C0.331313 7.27367 0.274249 7.51394 0.295665 7.75374C0.31708 7.99354 0.415816 8.21989 0.577007 8.39872C0.738199 8.57755 0.953121 8.69918 1.18942 8.74529L5.29176 9.55076V14.125C5.29095 14.3741 5.365 14.6178 5.50429 14.8244C5.64359 15.0309 5.84172 15.1909 6.07301 15.2836C6.30394 15.3779 6.5579 15.4005 6.80187 15.3485C7.04584 15.2966 7.26853 15.1724 7.44098 14.9922L9.41911 12.9406L12.5574 15.6875C12.7838 15.8883 13.0758 15.9995 13.3785 16C13.5111 15.9999 13.6429 15.9791 13.7691 15.9383C13.9753 15.8728 14.1608 15.7545 14.307 15.5951C14.4533 15.4357 14.5552 15.2407 14.6027 15.0297L17.7738 1.23435C17.8022 1.10994 17.7961 0.980151 17.7564 0.858901C17.7166 0.737651 17.6446 0.629511 17.548 0.546072ZM12.7715 3.35857L5.77223 8.37107L1.89723 7.61092L12.7715 3.35857ZM6.54176 14.125V10.4156L8.47848 12.114L6.54176 14.125ZM13.38 14.75L6.92067 9.08592L16.2175 2.42263L13.38 14.75Z"
+                  fill="white" />
               </svg>
-            </span>
           </a>
         </div>
         <div class="header__social">
-          <a href="#">
+          <a href="#" target="_blank">
             <span class="social-icon wa">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none">
-                <path fill="#fff"
-                  d="M17.542 4.592A8.184 8.184 0 0 0 11.7 2.167c-4.55 0-8.258 3.708-8.258 8.258 0 1.458.383 2.875 1.1 4.125l-1.167 4.283 4.375-1.15a8.26 8.26 0 0 0 3.95 1.009c4.55 0 8.258-3.709 8.258-8.259a8.207 8.207 0 0 0-2.416-5.841Zm-5.842 12.7a6.885 6.885 0 0 1-3.5-.959l-.25-.15-2.6.684.692-2.534-.167-.258a6.883 6.883 0 0 1-1.05-3.65c0-3.783 3.083-6.867 6.867-6.867 1.833 0 3.558.717 4.85 2.017a6.817 6.817 0 0 1 2.008 4.858c.017 3.784-3.067 6.859-6.85 6.859Zm3.767-5.134c-.209-.1-1.225-.6-1.409-.675-.191-.066-.325-.1-.466.1a13.04 13.04 0 0 1-.65.809c-.117.141-.242.158-.45.05-.209-.1-.875-.325-1.659-1.025-.616-.55-1.025-1.225-1.15-1.434-.116-.208-.016-.316.092-.425.092-.091.208-.241.308-.358.1-.117.142-.208.209-.342.066-.141.033-.258-.017-.358-.05-.1-.467-1.117-.633-1.533-.167-.4-.342-.35-.467-.359h-.4a.749.749 0 0 0-.55.259c-.183.208-.717.708-.717 1.725 0 1.016.742 2 .842 2.133.1.142 1.458 2.225 3.525 3.117.492.216.875.341 1.175.433.492.158.942.133 1.3.083.4-.058 1.225-.5 1.392-.983.175-.483.175-.892.116-.983-.058-.092-.183-.134-.391-.234Z" />
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.5417 2.59167C13.7776 1.82009 12.8675 1.20831 11.8646 0.791973C10.8617 0.375636 9.7859 0.163073 8.7 0.166671C4.15 0.166671 0.441667 3.875 0.441667 8.425C0.441667 9.88334 0.825 11.3 1.54167 12.55L0.375 16.8333L4.75 15.6833C5.95833 16.3417 7.31667 16.6917 8.7 16.6917C13.25 16.6917 16.9583 12.9833 16.9583 8.43334C16.9583 6.225 16.1 4.15 14.5417 2.59167ZM8.7 15.2917C7.46667 15.2917 6.25833 14.9583 5.2 14.3333L4.95 14.1833L2.35 14.8667L3.04167 12.3333L2.875 12.075C2.18962 10.9809 1.82577 9.71607 1.825 8.425C1.825 4.64167 4.90833 1.55834 8.69167 1.55834C10.525 1.55834 12.25 2.275 13.5417 3.575C14.1813 4.21156 14.6883 4.96879 15.033 5.80278C15.3778 6.63677 15.5535 7.53091 15.55 8.43334C15.5667 12.2167 12.4833 15.2917 8.7 15.2917ZM12.4667 10.1583C12.2583 10.0583 11.2417 9.55834 11.0583 9.48334C10.8667 9.41667 10.7333 9.38334 10.5917 9.58334C10.45 9.79167 10.0583 10.2583 9.94167 10.3917C9.825 10.5333 9.7 10.55 9.49167 10.4417C9.28333 10.3417 8.61667 10.1167 7.83333 9.41667C7.21667 8.86667 6.80833 8.19167 6.68333 7.98334C6.56667 7.775 6.66667 7.66667 6.775 7.55834C6.86667 7.46667 6.98333 7.31667 7.08333 7.2C7.18333 7.08334 7.225 6.99167 7.29167 6.85834C7.35833 6.71667 7.325 6.6 7.275 6.5C7.225 6.4 6.80833 5.38334 6.64167 4.96667C6.475 4.56667 6.3 4.61667 6.175 4.60834H5.775C5.63333 4.60834 5.41667 4.65834 5.225 4.86667C5.04167 5.075 4.50833 5.575 4.50833 6.59167C4.50833 7.60834 5.25 8.59167 5.35 8.72501C5.45 8.86667 6.80833 10.95 8.875 11.8417C9.36667 12.0583 9.75 12.1833 10.05 12.275C10.5417 12.4333 10.9917 12.4083 11.35 12.3583C11.75 12.3 12.575 11.8583 12.7417 11.375C12.9167 10.8917 12.9167 10.4833 12.8583 10.3917C12.8 10.3 12.675 10.2583 12.4667 10.1583Z"
+                  fill="white" />
               </svg>
             </span>
           </a>
@@ -83,17 +86,17 @@
     <nav class="mobile-menu__nav">
       <ul class="mobile-menu__list">
         <li class="mobile-menu__list-item">
-          <a class="click-js" href="/calculator.html">
+          <a class="menu-link-js" href="#traded-now">
             <p class="mobile-menu__btn-text">Торгуются сейчас</p>
           </a>
         </li>
         <li class="mobile-menu__list-item">
-          <a class="click-js" href="/turnkey-mining.html">
+          <a class="menu-link-js" href="#steps">
             <p class="mobile-menu__btn-text">Этапы работы</p>
           </a>
         </li>
         <li class="mobile-menu__list-item">
-          <a class="click-js" href="/investing-mining.html">
+          <a class="menu-link-js" href="#why-us">
             <p class="mobile-menu__btn-text">Преимущества</p>
           </a>
         </li>
@@ -157,64 +160,64 @@
           <div class="intro__bottom">
             <div class="intro__logos">
               <div class="intro__logo">
-                <img src="./images/logo/bentley.svg" alt="bentley" width="100" height="100">
+                <img src="/images/logo/bentley.svg" alt="bentley" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/bmw.svg" alt="bmw" width="100" height="100">
+                <img src="/images/logo/bmw.svg" alt="bmw" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
+                <img src="/images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/dodge.svg" alt="dodge" width="100" height="100">
+                <img src="/images/logo/dodge.svg" alt="dodge" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
+                <img src="/images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/li.svg" alt="li" width="100" height="100">
+                <img src="/images/logo/li.svg" alt="li" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
+                <img src="/images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/porsche.svg" alt="porsche" width="100" height="100">
+                <img src="/images/logo/porsche.svg" alt="porsche" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/tesla.svg" alt="tesla" width="100" height="100">
+                <img src="/images/logo/tesla.svg" alt="tesla" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/toyota.svg" alt="toyota" width="100" height="100">
+                <img src="/images/logo/toyota.svg" alt="toyota" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/bentley.svg" alt="bentley" width="100" height="100">
+                <img src="/images/logo/bentley.svg" alt="bentley" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/bmw.svg" alt="bmw" width="100" height="100">
+                <img src="/images/logo/bmw.svg" alt="bmw" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
+                <img src="/images/logo/chrysler.svg" alt="chrysler" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/dodge.svg" alt="dodge" width="100" height="100">
+                <img src="/images/logo/dodge.svg" alt="dodge" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
+                <img src="/images/logo/jaguar.svg" alt="jaguar" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/li.svg" alt="li" width="100" height="100">
+                <img src="/images/logo/li.svg" alt="li" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
+                <img src="/images/logo/mercedes.svg" alt="mercedes" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/porsche.svg" alt="porsche" width="100" height="100">
+                <img src="/images/logo/porsche.svg" alt="porsche" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/tesla.svg" alt="tesla" width="100" height="100">
+                <img src="/images/logo/tesla.svg" alt="tesla" width="100" height="100">
               </div>
               <div class="intro__logo">
-                <img src="./images/logo/toyota.svg" alt="toyota" width="100" height="100">
+                <img src="/images/logo/toyota.svg" alt="toyota" width="100" height="100">
               </div>
             </div>
           </div>
@@ -224,68 +227,90 @@
     <div class="background-page">
       <section class="cards">
         <div class="container-mini">
-          <div class="cards__body">
+          <div class="cards__body" id="traded-now">
             <h2 class="cards__title title">ТОРГУЮТСЯ СЕЙЧАС</h2>
             <div class="cards__content">
               <div class="cards__filters filters">
                 <div class="filters__wrapper">
                   <div class="filters__options">
-                    <div class="filters__options-btn">
+                    <div class="filters__options-btn type-car">
                       <button class="filters__btn active" type="button">Все</button>
                       <button class="filters__btn" type="button">Новые</button>
                       <button class="filters__btn" type="button">С пробегом</button>
                     </div>
                   </div>
                   <div class="filters__options">
-                    <div class="filters__options-btn">
+                    <div class="filters__options-btn type-else">
                       <button class="filters__btn active" type="button">Автомобили</button>
                       <button class="filters__btn" type="button">Мотоциклы</button>
                     </div>
                   </div>
                   <div class="filters__options">
-                    <div class="filters__options-input">
+                    <div class="filters__options-range">
                       <label for="price-range">Цена</label>
-                      <input type="range" id="price-range" name="range" min="0" max="15 000 000" value=""
+                      <input type="range" id="price-range" name="range" min="0" max="15 000 000" value="15 000 000"
                         step="10000" />
                     </div>
                   </div>
                   <h3 class="filters__title">Марка</h3>
                   <div class="filters__options">
-                    <div class="filters__brands">
-                      <div class="filters__current-brands">
-                        <div class="filters__brand">
-                          <p class="filters__brand-title-all">Все марки</p>
-                          <p class="filters__brand-title-choice" style="display: none;">Марки автомобиля</p>
+                    <div class="filters__brands select-heading-js">
+                      <div class="filters__current-brand ">
+                        <div class="filters__current-titles">
+                          <p class="filters__current-title-all">Все марки</p>
+                          <p class="filters__current-title-choice" style="display: none;">Марки автомобиля</p>
                         </div>
                         <span class="select-arrow">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 13 8">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5"
-                              stroke-width="2" d="m1 1 4.763 5.196a1 1 0 0 0 1.474 0L12 1" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m1 1 4.763 5.196a1 1 0 0 0 1.474 0L12 1" />
                           </svg>
                         </span>
                       </div>
                     </div>
-                    <!-- <div class="option__select-coin">
-                      <div class="option__coin" @click="selectCoin('Все')">
-                        <p class="option__coin-name">Все</p>
+                    <div class="filters__brand-list select-list-js">
+                      <div class="filters__brand-item">
+                        <p class="filters__brand-name">Все</p>
                       </div>
-                      <div class="option__coin" v-for="(coin, index) in coins" :key="coin.shortName"
-                        @click="selectCoin(coin.shortName, coin.img)">
-                        <div class="option__coin-img">
-                          <img :src="coin.img" :alt="coin.shortName" width="20" height="20" loading="lazy">
+                      <div class="filters__brand-item">
+                        <p class="filters__brand-name">Toyota</p>
+                      </div>
+                      <!-- <div class="filters__brand-item">
+                        <p class="filters__brand-name">Toyota</p>
+                      </div> -->
+                      <!-- <div class="filters__brand-item">
+                        <p class="filters__brand-name">Toyota</p>
+                      </div> -->
+                    </div>
+                  </div>
+                  <h3 class="filters__title">Год выпуска</h3>
+                  <div class="filters__options">
+                    <div class="filters__options-btn">
+                      <label class="filters__label-year">
+                        <div class="filters__year">
+                          <span class="filters__year-from">от</span>
+                          <input type="text" inputmode="numeric" pattern="[0-9]*" value="" placeholder="2020"
+                            maxlength="4" minlength="4">
                         </div>
-                        <p class="option__coin-name">{{coin.nameCoin}}<span> ({{coin.shortName}})</span></p>
-                      </div>
-                    </div> -->
+                      </label>
+                      <label class="filters__label-year">
+                        <div class="filters__year">
+                          <span class="filters__year-before">до</span>
+                          <input type="text" inputmode="numeric" pattern="[0-9]*" value="" placeholder="2024"
+                            maxlength="4" minlength="4">
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
+
                 <div class="filters__buttons">
                   <button class="filters__btn-submit" type="button">Применить</button>
                   <button class="filters__btn-reset" type="reset" hidden>Сбросить фильтры</button>
                 </div>
 
               </div>
-              <article class="cards__item card">
+              <article class="cards__item card" data-year="2023 г.">
                 <div class="card__top">
                   <div class="card__images">
                     <div class="card__image-item">
@@ -336,7 +361,7 @@
                   </div>
                 </div>
               </article>
-              <article class="cards__item card">
+              <article class="cards__item card" data-year="2023 г.">
                 <div class="card__top">
                   <div class="card__images">
                     <div class="card__image-item">
@@ -387,7 +412,7 @@
                   </div>
                 </div>
               </article>
-              <article class="cards__item card">
+              <article class="cards__item card" data-year="2023 г.">
                 <div class="card__top">
                   <div class="card__images">
                     <div class="card__image-item">
@@ -438,7 +463,7 @@
                   </div>
                 </div>
               </article>
-              <article class="cards__item card">
+              <article class="cards__item card" data-year="2023 г.">
                 <div class="card__top">
                   <div class="card__images">
                     <div class="card__image-item">
@@ -489,7 +514,7 @@
                   </div>
                 </div>
               </article>
-              <article class="cards__item card">
+              <article class="cards__item card" data-year="2023 г.">
                 <div class="card__top">
                   <div class="card__images">
                     <div class="card__image-item">
@@ -541,7 +566,9 @@
                 </div>
               </article>
             </div>
-            <button class="cards__btn-else" type="button"></button>
+            <div class="cards__btn-wrapper">
+              <button class="cards__btn-else" type="button">Загрузить еще</button>
+            </div>
           </div>
         </div>
       </section>
@@ -557,7 +584,7 @@
               <button class="banner__btn btn-popup" type="button">Узнать стоимость</button>
             </div>
             <div class="banner__img">
-              <img src="./images/banner-car.png" alt width="740" height="270" loading="lazy">
+              <img src="/images/banner-car.png" alt width="740" height="270" loading="lazy">
             </div>
           </div>
         </div>
@@ -565,7 +592,7 @@
 
       <section class="steps">
         <div class="container-mini">
-          <div class="steps__body">
+          <div class="steps__body" id="steps">
             <h2 class="steps__title title">ВСЕГО 5 ЭТАПОВ РАБОТЫ</h2>
             <div class="steps__cards">
               <div class="steps__card">
@@ -603,7 +630,7 @@
 
       <section class="numbers">
         <div class="container-mini">
-          <div class="numbers__body">
+          <div class="numbers__body" id="why-us">
             <h2 class="numbers__title title">ПОЧЕМУ МЫ?</h2>
             <div class="numbers__cards">
               <div class="numbers__card">
@@ -632,7 +659,7 @@
           <div class="page-form__body">
             <div class="page-form__popup popup">
               <h2 class="popup__title title">УЗНАЙТЕ СТОИМОСТЬ ВАШЕГО АВТОМОБИЛЯ</h2>
-              <form class="popup__form" method="post" name="formPopup" novalidate>
+              <form class="popup__form form" method="post" name="formPopup" novalidate>
                 <label class="popup__label">
                   <input id="name2" type="text" name="name[0]" class="input-name input-validation" minlength="2"
                     pattern="^(?!\s).+[a-zA-Zа-яА-ЯЁё \-]+$" required placeholder="Ваше имя"
@@ -640,17 +667,19 @@
                   <span class="input-error name2-error"></span>
                 </label>
                 <label class="popup__label label-email">
-                  <input id="email[0]" class="input-email" type="email" name="email[0]" inputmode="email"
-                    title="exemple@gmail.com" placeholder="Ваш e-mail">
-                  <span id="email-error[0]" class="input-error email-error"></span>
+                  <input id="email2" class="input-email input-validation" type="email" name="email[0]" inputmode="email"
+                    title="exemple@gmail.com" placeholder="Ваш e-mail" required>
+                  <span id="email-error" class="input-error email2-error"></span>
                 </label>
                 <label class="popup__label">
                   <input id="phone2" type="text" name="phone[0]" class="input-phone input-validation" inputmode="tel"
                     minlength="16" placeholder="+7 (999) 999-99-99" autocomplete="off" required>
                   <span id="phone2-error" class="input-error phone2-error tel-err"></span>
                 </label>
-                <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
-                <span class="empty-error" id="empty-error"></span>
+                <div class="popup__btn-container">
+                  <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
+                  <span class="empty-error" id="empty-error"></span>
+                </div>
               </form>
               <p class="popup__text"><span>Или напишите нам</span></p>
               <div class="popup__socials">
@@ -681,6 +710,7 @@
       </section>
     </div>
 
+    <!-- Popup -->
     <section class="popup-form">
       <div class="popup">
         <h2 class="popup__title title">УЗНАЙТЕ СТОИМОСТЬ ВАШЕГО АВТОМОБИЛЯ</h2>
@@ -691,25 +721,27 @@
               fill="#303030" />
           </svg>
         </div>
-        <form class="popup__form" method="post" name="formPopup" novalidate>
+        <form class="popup__form form" method="post" name="formPopup" novalidate>
           <label class="popup__label">
-            <input id="name2" type="text" name="name[0]" class="input-name input-validation" minlength="2"
+            <input id="name1" type="text" name="name[1]" class="input-name input-validation" minlength="2"
               pattern="^(?!\s).+[a-zA-Zа-яА-ЯЁё \-]+$" required placeholder="Ваше имя"
               data-error-message="Допускаются символы латиницы, кириллицы, дефисы. Минимум 2 символа">
-            <span class="input-error name2-error"></span>
+            <span class="input-error name1-error" id="name1-error"></span>
           </label>
           <label class="popup__label label-email">
-            <input id="email[0]" class="input-email" type="email" name="email[0]" inputmode="email"
-              title="exemple@gmail.com" placeholder="Ваш e-mail">
-            <span id="email-error[0]" class="input-error email-error"></span>
+            <input id="email1" class="input-email input-validation" type="email" name="email[1]" inputmode="email"
+              title="exemple@gmail.com" placeholder="Ваш e-mail" required>
+            <span id="email1-error" class="input-error email1-error"></span>
           </label>
           <label class="popup__label">
-            <input id="phone2" type="text" name="phone[0]" class="input-phone input-validation" inputmode="tel"
+            <input id="phone1" type="text" name="phone[1]" class="input-phone input-validation" inputmode="tel"
               minlength="16" placeholder="+7 (999) 999-99-99" autocomplete="off" required>
-            <span id="phone2-error" class="input-error phone2-error tel-err"></span>
+            <span id="phone1-error" class="input-error phone1-error tel-err"></span>
           </label>
-          <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
-          <span class="empty-error" id="empty-error"></span>
+          <div class="popup__btn-container">
+            <button type="submit" class="popup__btn btn-validation">Узнать стоимость</button>
+            <span class="empty-error" id="empty-error"></span>
+          </div>
         </form>
         <p class="popup__text"><span>Или напишите нам</span></p>
         <div class="popup__socials">
@@ -737,6 +769,26 @@
       </div>
     </section>
 
+    <!-- Popup success -->
+    <section class="form-success">
+      <div class="form-success__body">
+        <button class="form-success__btn-close" type="button">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.02777 6.99989L0.325642 1.29914C0.261721 1.23522 0.211016 1.15934 0.176422 1.07582C0.141829 0.992302 0.124023 0.90279 0.124023 0.812392C0.124023 0.721994 0.141829 0.632481 0.176422 0.548965C0.211016 0.465448 0.261721 0.389563 0.325642 0.325642C0.389563 0.261721 0.465448 0.211016 0.548965 0.176422C0.632481 0.141829 0.721994 0.124023 0.812392 0.124023C0.90279 0.124023 0.992302 0.141829 1.07582 0.176422C1.15934 0.211016 1.23522 0.261721 1.29914 0.325642L6.99989 6.02777L12.7006 0.325642C12.8297 0.196548 13.0048 0.124023 13.1874 0.124023C13.37 0.124023 13.545 0.196548 13.6741 0.325642C13.8032 0.454736 13.8758 0.629825 13.8758 0.812392C13.8758 0.994959 13.8032 1.17005 13.6741 1.29914L7.97202 6.99989L13.6741 12.7006C13.8032 12.8297 13.8758 13.0048 13.8758 13.1874C13.8758 13.37 13.8032 13.545 13.6741 13.6741C13.545 13.8032 13.37 13.8758 13.1874 13.8758C13.0048 13.8758 12.8297 13.8032 12.7006 13.6741L6.99989 7.97202L1.29914 13.6741C1.17005 13.8032 0.994959 13.8758 0.812392 13.8758C0.629825 13.8758 0.454736 13.8032 0.325642 13.6741C0.196548 13.545 0.124023 13.37 0.124023 13.1874C0.124023 13.0048 0.196548 12.8297 0.325642 12.7006L6.02777 6.99989Z"
+              fill="#303030" />
+          </svg>
+        </button>
+        <div class="form-success__img">
+          <img src="/images/success.svg" alt width="100" height="100" loading="lazy">
+        </div>
+        <h4 class="form-success__title">Спасибо, что оставили заявку</h4>
+        <p class="form-success__subtitle">Наш менеджер свяжется с вами в&nbsp;ближайшее время</p>
+        <button class="form-success__btn btn" type="button">Ок</button>
+      </div>
+    </section>
+
+
     <template class="card-template">
     </template>
 
@@ -748,7 +800,9 @@
       <div class="footer__body">
         <div class="footer__top">
           <div class="footer__logo logo">
-            <a href="/"><img src="/images/logo/logo.png" alt="Логотип" width="121" height="48"></a>
+            <a href="/">
+              <img src="/images/logo/logo.png" alt="Логотип" width="121" height="48">
+            </a>
           </div>
           <button class="footer__btn btn-popup" type="button">
             <span>
@@ -778,7 +832,7 @@
           <div class="footer__item">
             <ul class="footer__socials-list">
               <li class="footer__social">
-                <a href="#">
+                <a href="#" target="_blank">
                   <span class="social-icon tg">
                     <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -789,7 +843,7 @@
                 </a>
               </li>
               <li class="footer__social">
-                <a href="#">
+                <a href="#" target="_blank">
                   <span class="social-icon wa">
                     <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -808,7 +862,7 @@
           <script>document.write(new Date().getFullYear())</script>
           Все права защищены
         </p>
-        <a class="footer__copyright-link" href="/privacy.html" target="_blank">Политика конфиденциальности</a>
+        <a class="footer__copyright-link" href="#" target="_blank">Политика конфиденциальности</a>
         <div class="footer__leadstudio">
           <p class="footer__leadstudio-text">Разработка</p>
           <a href="https://lead-studio.pro/" target="_blank">
@@ -842,13 +896,14 @@
                 </clipPath>
               </defs>
             </svg>
-
           </a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/imask"></script>
+  <script src="/js/validation.js"></script>
   <script src="/js/main.js"></script>
 </body>
 

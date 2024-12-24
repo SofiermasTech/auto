@@ -19,15 +19,25 @@
     transition: 0.7s;
 
     .popup {
-      transform: translateY(0);
+      transform: translateY(-3%);
       transition: 0.5s;
     }
   }
 
   .popup {
     max-width: 720px;
-    transform: translateY(20%);
+    margin-inline: 16px;
+    padding-block: 50px;
+    transform: translateY(0);
     transition: 0.5s;
+
+    @include desktop-bottom {
+      padding-block: 36px;
+    }
+
+    @include tablet {
+      padding-block: 24px;
+    }
   }
 
   .popup__title {

@@ -1,20 +1,44 @@
 .page-form {
-  margin-bottom: var(--section-offset);
+  padding-bottom: var(--section-offset);
+
+
 
   &__body {
     width: 100%;
     border-radius: var(--br-section);
     // background-color: var(--dark);
-    background-image: url('../../images/banner-form.png');
+    background-image: url('../images/form-man.png');
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
+
+    @include mobile {
+      // padding-bottom: 100px;
+      background-position: top;
+      min-height: 650px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    @include mobile-bottom {
+      min-height: 600px;
+    }
   }
 
   &__popup {
     max-width: 59%;
     margin-left: auto;
 
+    @include tablet-bottom {
+      max-width: 55%;
+    }
+
+    @include mobile {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+
+    }
   }
 
 

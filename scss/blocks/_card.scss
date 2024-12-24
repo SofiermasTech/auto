@@ -5,9 +5,56 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    margin-bottom: 36px;
+
+    @include desktop-bottom {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    @include mobile {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__filters {
+    @include tablet {
+      grid-column: span 2;
+    }
+
+    @include tablet-bottom {
+      grid-column: span 3;
+    }
   }
 
   &__item {}
+
+  &__btn-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__btn-else {
+    max-width: 370px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--dark);
+    border-radius: var(--br-btn);
+    background-color: transparent;
+    padding: 13px;
+    cursor: pointer;
+
+    @include hover {
+      background-color: rgba(127, 127, 127, 0.2);
+    }
+  }
 }
 
 .card {
@@ -15,15 +62,86 @@
   border-radius: var(--br-card);
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  &[data-year]::before {
+    content: attr(data-year);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: var(--white);
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 16px;
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    @include desktop-bottom {
+      left: 14px;
+      top: 14px;
+      padding: 9px 7px;
+      font-size: 14px;
+    }
+
+    @include tablet {
+      left: 10px;
+      top: 10px;
+      font-size: 12px;
+    }
+
+    @include tablet-bottom {
+      padding: 4px 5px;
+      border-radius: 8px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      padding: 9px 7px;
+    }
+  }
 
   &__top {
     width: 100%;
     max-height: 296px;
     height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include mobile {
+      max-height: 217px;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
   }
 
   &__info-wrapper {
     padding: 27px 21px;
+
+    @include desktop {
+      padding: 25px 14px 14px;
+    }
+
+    @include desktop-bottom {
+      padding: 16px 14px 14px;
+    }
+
+    @include tablet {
+      padding: 10px;
+    }
+
+    @include tablet-bottom {
+      padding: 8px 11px;
+    }
+
+    @include mobile {
+      padding: 10px 14px;
+    }
   }
 
   &__info {
@@ -31,6 +149,28 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
+
+    @include desktop {
+      gap: 14px;
+    }
+
+    @include desktop-bottom {
+      margin-bottom: 54px;
+    }
+
+    @include tablet {
+      margin-bottom: 26px;
+      gap: 8px;
+    }
+
+    @include tablet-bottom {
+      margin-bottom: 8px;
+    }
+
+    @include mobile {
+      margin-bottom: 24px;
+      gap: 4px;
+    }
   }
 
   &__car {}
@@ -38,18 +178,59 @@
   &__car-brand {
     font-size: 20px;
     font-weight: 600;
+
+    @include desktop-bottom {
+      font-size: 16px;
+    }
+
+    @include tablet {
+      font-size: 14px;
+    }
+
+    @include tablet-bottom {
+      font-size: 12px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+    }
   }
 
   &__car-model {
     font-size: 14px;
     font-weight: 400;
     color: var(--gray-80);
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
+
+    @include tablet {
+      font-size: 10px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__characteristics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 22px;
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 8px;
+    }
+
+    @include tablet {
+      grid-template-columns:  1fr 1.1fr;
+    }
+
+    @include mobile {
+      row-gap: 10px;
+    }
 
   }
 
@@ -65,14 +246,39 @@
       border-left: none;
     }
 
+    @include desktop {
+
+      &:nth-of-type(2),
+      &:nth-of-type(4),
+      &:nth-of-type(6) {
+        padding-left: 10px;
+        border-left: 2px solid rgba(127, 127, 127, 0.2);
+      }
+
+      &:nth-of-type(1),
+      &:nth-of-type(3),
+      &:nth-of-type(5) {
+        padding-left: 0;
+        border-left: none;
+      }
+    }
+
     span {
       color: var(--gray-80);
       font-size: 12px;
+
+      @include desktop-bottom {
+        font-size: 10px;
+      }
     }
 
     p {
       color: var(--dark);
       font-size: 12px;
+
+      @include desktop-bottom {
+        font-size: 10px;
+      }
     }
   }
 
@@ -80,16 +286,60 @@
     margin-bottom: 24px;
     font-size: 32px;
     font-weight: 600;
+
+    @include desktop-bottom {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    @include tablet {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    @include tablet {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    @include mobile {
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
   }
 
   &__buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+
+    @include desktop-bottom {
+    gap: 6px;
+    }
   }
 
   &__btn-popup {
     padding: 12px;
+
+    @include desktop {
+      font-size: 16px;
+      padding: 11px 8px;
+    }
+
+    @include tablet {
+      font-size: 12px;
+      padding: 7px 4px;
+    }
+
+    @include tablet-bottom {
+      font-size: 10px;
+      padding: 8px 4px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      padding: 9px;
+    }
 
     @include hover {
       background-color: var(--dark);
@@ -107,6 +357,26 @@
     padding: 12px;
     border-radius: var(--br-btn);
     cursor: pointer;
+
+    @include desktop {
+      font-size: 16px;
+      padding: 11px;
+    }
+
+    @include tablet {
+      font-size: 12px;
+      padding: 7px 4px;
+    }
+
+    @include tablet-bottom {
+      font-size: 10px;
+      padding: 8px 4px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      padding: 9px;
+    }
 
     @include hover {
       background-color: rgba(127, 127, 127, 0.2);
