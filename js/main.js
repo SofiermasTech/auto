@@ -75,6 +75,12 @@ const btnFormClose = document.querySelector('.popup__btn-close');
 const popupForm = document.querySelector('.popup-form');
 const btnFormOpen = document.querySelectorAll('.btn-popup');
 
+function openPopup(popup) {
+  popup.classList.add('open');
+  document.addEventListener('keydown', closePopupEsc);
+  hideScroll();
+}
+
 btnFormOpen.forEach((btn) => {
   btn.addEventListener('click', () => {
     popupForm.classList.add('open');

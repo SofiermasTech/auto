@@ -234,22 +234,37 @@
                 <div class="filters__wrapper">
                   <div class="filters__options">
                     <div class="filters__options-btn type-car">
-                      <button class="filters__btn active" type="button">Все</button>
-                      <button class="filters__btn" type="button">Новые</button>
-                      <button class="filters__btn" type="button">С пробегом</button>
+                      <button class="filters__btn active" type="button" data-drive="all">Все</button>
+                      <button class="filters__btn" type="button" data-drive="new">Новые</button>
+                      <button class="filters__btn" type="button" data-drive="run">С пробегом</button>
                     </div>
                   </div>
                   <div class="filters__options">
                     <div class="filters__options-btn type-else">
-                      <button class="filters__btn active" type="button">Автомобили</button>
-                      <button class="filters__btn" type="button">Мотоциклы</button>
+                      <button class="filters__btn active" type="button" data-type="auto">Автомобили</button>
+                      <button class="filters__btn" type="button" data-type="bike">Мотоциклы</button>
                     </div>
                   </div>
                   <div class="filters__options">
                     <div class="filters__options-range">
-                      <label for="price-range">Цена</label>
-                      <input type="range" id="price-range" name="range" min="0" max="15 000 000" value="15 000 000"
-                        step="10000" />
+                      <label>Цена
+                        <input type="range" id="price-range" name="range" min="0" max="15000000" value="15000000" step="50000" />
+                        <!-- <input type="range" id="min-price-range" name="min-range" min="0" max="15000000" value="0"
+                          step="50000" />
+
+                        <input type="range" id="max-price-range" name="max-range" min="0" max="15000000"
+                          value="15000000" step="50000" /> -->
+                      </label>
+                      <div class="filters__price-output">
+                        <p>
+                          <span id="min-price">0</span>
+                          <span> ₽</span>
+                        </p>
+                        <p>
+                          <span id="max-price">15 000 000</span>
+                          <span> ₽</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <h3 class="filters__title">Марка</h3>
@@ -269,15 +284,15 @@
                       </div>
                     </div>
                     <div class="filters__brand-list select-list-js">
-                      <div class="filters__brand-item">
+                      <div class="filters__brand-item" data-brand="all">
                         <p class="filters__brand-name">Все</p>
                       </div>
-                      <div class="filters__brand-item">
+                      <div class="filters__brand-item" data-brand="Toyota">
                         <p class="filters__brand-name">Toyota</p>
                       </div>
-                      <!-- <div class="filters__brand-item">
-                        <p class="filters__brand-name">Toyota</p>
-                      </div> -->
+                      <div class="filters__brand-item" data-brand="Ford">
+                        <p class="filters__brand-name">Ford</p>
+                      </div>
                       <!-- <div class="filters__brand-item">
                         <p class="filters__brand-name">Toyota</p>
                       </div> -->
@@ -289,15 +304,15 @@
                       <label class="filters__label-year">
                         <div class="filters__year">
                           <span class="filters__year-from">от</span>
-                          <input type="text" inputmode="numeric" pattern="[0-9]*" value="" placeholder="2020"
-                            maxlength="4" minlength="4">
+                          <input id="year-from" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
+                            value="" placeholder="2020" maxlength="4" minlength="4">
                         </div>
                       </label>
                       <label class="filters__label-year">
                         <div class="filters__year">
                           <span class="filters__year-before">до</span>
-                          <input type="text" inputmode="numeric" pattern="[0-9]*" value="" placeholder="2024"
-                            maxlength="4" minlength="4">
+                          <input id="year-to" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
+                            value="" placeholder="2024" maxlength="4" minlength="4">
                         </div>
                       </label>
                     </div>
@@ -305,266 +320,14 @@
                 </div>
 
                 <div class="filters__buttons">
-                  <button class="filters__btn-submit" type="button">Применить</button>
-                  <button class="filters__btn-reset" type="reset" hidden>Сбросить фильтры</button>
+                  <button class="filters__btn-submit" type="button" hidden>Применить</button>
+                  <button class="filters__btn-reset" type="button" disabled>Сбросить фильтры</button>
                 </div>
 
               </div>
-              <article class="cards__item card" data-year="2023 г.">
-                <div class="card__top">
-                  <div class="card__images">
-                    <div class="card__image-item">
-                      <div class="card__img">
-                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="card__pagination-list" aria-hidden="true"></ul>
-                </div>
-                <div class="card__info-wrapper">
-                  <div class="card__info">
-                    <div class="card__car">
-                      <h3 class="card__car-brand">МАРКА АВТО</h3>
-                      <h3 class="card__car-model">Модель</h3>
-                    </div>
-                    <div class="card__characteristics">
-                      <div class="card__characteristic-item">
-                        <span>КПП</span>
-                        <p>IAT</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Объем двигателя</span>
-                        <p>660</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Пробег</span>
-                        <p>5000км</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Тип двигателя</span>
-                        <p>Электрический</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Мощность</span>
-                        <p>203 л.с.</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Привод</span>
-                        <p>Передний</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__price">641 978 ₽</div>
-                  <div class="card__buttons">
-                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
-                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
-                  </div>
-                </div>
-              </article>
-              <article class="cards__item card" data-year="2023 г.">
-                <div class="card__top">
-                  <div class="card__images">
-                    <div class="card__image-item">
-                      <div class="card__img">
-                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="card__pagination-list" aria-hidden="true"></ul>
-                </div>
-                <div class="card__info-wrapper">
-                  <div class="card__info">
-                    <div class="card__car">
-                      <h3 class="card__car-brand">МАРКА АВТО</h3>
-                      <h3 class="card__car-model">Модель</h3>
-                    </div>
-                    <div class="card__characteristics">
-                      <div class="card__characteristic-item">
-                        <span>КПП</span>
-                        <p>IAT</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Объем двигателя</span>
-                        <p>660</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Пробег</span>
-                        <p>5000км</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Тип двигателя</span>
-                        <p>Электрический</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Мощность</span>
-                        <p>203 л.с.</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Привод</span>
-                        <p>Передний</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__price">641 978 ₽</div>
-                  <div class="card__buttons">
-                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
-                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
-                  </div>
-                </div>
-              </article>
-              <article class="cards__item card" data-year="2023 г.">
-                <div class="card__top">
-                  <div class="card__images">
-                    <div class="card__image-item">
-                      <div class="card__img">
-                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="card__pagination-list" aria-hidden="true"></ul>
-                </div>
-                <div class="card__info-wrapper">
-                  <div class="card__info">
-                    <div class="card__car">
-                      <h3 class="card__car-brand">МАРКА АВТО</h3>
-                      <h3 class="card__car-model">Модель</h3>
-                    </div>
-                    <div class="card__characteristics">
-                      <div class="card__characteristic-item">
-                        <span>КПП</span>
-                        <p>IAT</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Объем двигателя</span>
-                        <p>660</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Пробег</span>
-                        <p>5000км</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Тип двигателя</span>
-                        <p>Электрический</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Мощность</span>
-                        <p>203 л.с.</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Привод</span>
-                        <p>Передний</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__price">641 978 ₽</div>
-                  <div class="card__buttons">
-                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
-                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
-                  </div>
-                </div>
-              </article>
-              <article class="cards__item card" data-year="2023 г.">
-                <div class="card__top">
-                  <div class="card__images">
-                    <div class="card__image-item">
-                      <div class="card__img">
-                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="card__pagination-list" aria-hidden="true"></ul>
-                </div>
-                <div class="card__info-wrapper">
-                  <div class="card__info">
-                    <div class="card__car">
-                      <h3 class="card__car-brand">МАРКА АВТО</h3>
-                      <h3 class="card__car-model">Модель</h3>
-                    </div>
-                    <div class="card__characteristics">
-                      <div class="card__characteristic-item">
-                        <span>КПП</span>
-                        <p>IAT</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Объем двигателя</span>
-                        <p>660</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Пробег</span>
-                        <p>5000км</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Тип двигателя</span>
-                        <p>Электрический</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Мощность</span>
-                        <p>203 л.с.</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Привод</span>
-                        <p>Передний</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__price">641 978 ₽</div>
-                  <div class="card__buttons">
-                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
-                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
-                  </div>
-                </div>
-              </article>
-              <article class="cards__item card" data-year="2023 г.">
-                <div class="card__top">
-                  <div class="card__images">
-                    <div class="card__image-item">
-                      <div class="card__img">
-                        <img src="/images/catalog.png" alt="" width="395" height="296" loading="lazy">
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="card__pagination-list" aria-hidden="true"></ul>
-                </div>
-                <div class="card__info-wrapper">
-                  <div class="card__info">
-                    <div class="card__car">
-                      <h3 class="card__car-brand">МАРКА АВТО</h3>
-                      <h3 class="card__car-model">Модель</h3>
-                    </div>
-                    <div class="card__characteristics">
-                      <div class="card__characteristic-item">
-                        <span>КПП</span>
-                        <p>IAT</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Объем двигателя</span>
-                        <p>660</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Пробег</span>
-                        <p>5000км</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Тип двигателя</span>
-                        <p>Электрический</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Мощность</span>
-                        <p>203 л.с.</p>
-                      </div>
-                      <div class="card__characteristic-item">
-                        <span>Привод</span>
-                        <p>Передний</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__price">641 978 ₽</div>
-                  <div class="card__buttons">
-                    <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
-                    <button class="card__btn-info btn-info" type="button">Подробнее</button>
-                  </div>
-                </div>
-              </article>
+             <div class="cards__content-empty">
+              <p>Ничего не найдено</p>
+             </div>
             </div>
             <div class="cards__btn-wrapper">
               <button class="cards__btn-else" type="button">Загрузить еще</button>
@@ -790,6 +553,60 @@
 
 
     <template class="card-template">
+      <article class="cards__item card" data-year="">
+        <div class="card__top">
+          <div class="card__images">
+            <div class="card__image-item">
+              <div class="card__img">
+                <img src="" alt="" width="395" height="296" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <ul class="card__pagination-list" aria-hidden="true"></ul>
+        </div>
+        <div class="card__info-wrapper">
+          <div class="card__info">
+            <div class="card__car">
+              <h3 class="card__car-brand">МАРКА АВТО</h3>
+              <h3 class="card__car-model">Модель</h3>
+            </div>
+            <div class="card__characteristics">
+              <div class="card__characteristic-item">
+                <span>КПП</span>
+                <p class="card__transmission"></p>
+              </div>
+              <div class="card__characteristic-item">
+                <span>Объем двигателя</span>
+                <p class="card__motor"></p>
+              </div>
+              <div class="card__characteristic-item">
+                <span>Пробег</span>
+                <p>
+                  <span class="card__mileage"></span>
+                  <span>км</span>
+                </p>
+              </div>
+              <div class="card__characteristic-item">
+                <span>Тип двигателя</span>
+                <p class="card__motor-type"></p>
+              </div>
+              <div class="card__characteristic-item">
+                <span>Мощность</span>
+                <p class="card__power"></p>
+              </div>
+              <div class="card__characteristic-item">
+                <span>Привод</span>
+                <p class="card__drive"></p>
+              </div>
+            </div>
+          </div>
+          <div class="card__price"><span class="card__price-js"></span> <span>₽</span></div>
+          <div class="card__buttons">
+            <button class="card__btn-popup btn-popup" type="button">Заказать авто</button>
+            <button class="card__btn-info btn-info" type="button">Подробнее</button>
+          </div>
+        </div>
+      </article>
     </template>
 
   </main>
@@ -904,6 +721,7 @@
 
   <script src="https://unpkg.com/imask"></script>
   <script src="/js/validation.js"></script>
+  <script src="/js/addCard.js" type="module"></script>
   <script src="/js/main.js"></script>
 </body>
 
