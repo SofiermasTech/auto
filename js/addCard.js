@@ -11,6 +11,22 @@ let selectedBrands = [];
 let yearFrom = null; // Переменная для года "от"
 let yearTo = null; // Переменная для года "до"
 
+// Функция для обновления количества карточек в зависимости от ширины экрана
+function updateCardsToShow() {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 1024) {
+      cardsToShow = 5; // Показываем 4 карточки для ширины 1024px и более
+  } else if (screenWidth >= 768) {
+      cardsToShow = 4; // Показываем 6 карточек для ширины 768px и более
+  } else if (screenWidth >= 580) {
+      cardsToShow = 6; // Показываем 3 карточки для ширины 580px и более
+  } else {
+      cardsToShow = 3; // для ширины менее 580px
+  }
+}
+
+
 // Обработчик событий для марок
 const brandItems = document.querySelectorAll('.filters__brand-item');
 const titleAll = document.querySelector('.filters__current-title-all');
@@ -22,12 +38,12 @@ const yearToInput = document.getElementById('year-to');
 
 // Обработчик события для инпутов года
 yearFromInput.addEventListener('input', () => {
-  yearFrom = parseInt(yearFromInput.value, 10) || null; // Преобразуем в число или null
+  yearFrom = parseInt(yearFromInput.value, 10) || null;
   filterCars();
 });
 
 yearToInput.addEventListener('change', () => {
-  yearTo = parseInt(yearToInput.value, 10) || null; // Преобразуем в число или null
+  yearTo = parseInt(yearToInput.value, 10) || null;
   filterCars();
 });
 
@@ -35,56 +51,50 @@ brandItems.forEach((item) => {
   item.addEventListener('click', () => {
     const brand = item.getAttribute('data-brand');
 
-    // Проверяем, выбрана ли марка
-    if (brand === 'all') {
-      selectedBrands = [];
-      brandItems.forEach((i) => i.classList.remove('selected'));
-      item.classList.add('selected');
-      titleAll.style.display = 'block';
-      titleChoice.style.display = 'none';
+    // Проверяем, выбрана ли уже марка
+    if (selectedBrands.includes(brand)) {
+      // Если марка уже выбрана, убираем её
+      selectedBrands = selectedBrands.filter((b) => b !== brand);
+      item.classList.remove('selected');
     } else {
-      // Проверяем, выбрана ли уже марка
-      if (selectedBrands.includes(brand)) {
-        selectedBrands = selectedBrands.filter((b) => b !== brand);
-        item.classList.remove('selected');
-      } else {
-        selectedBrands.push(brand);
-        item.classList.add('selected');
-      }
-
-      // Обновляем отображение заголовка
-      if (selectedBrands.length > 0) {
-        titleAll.style.display = 'none';
-        titleChoice.style.display = 'block';
-      } else {
-        titleAll.style.display = 'block';
-        titleChoice.style.display = 'none';
-      }
+      // Если марка не выбрана, добавляем её
+      selectedBrands.push(brand);
+      item.classList.add('selected');
     }
 
+    // Обновляем отображение заголовка
+    if (selectedBrands.length > 0) {
+      titleAll.style.display = 'none';
+      titleChoice.style.display = 'block';
+    } else {
+      titleAll.style.display = 'block';
+      titleChoice.style.display = 'none';
+    }
+
+    checkFiltersChanged();
     filterCars();
   });
 });
+
 
 const priceRange = document.getElementById('price-range');
 const minPriceOutput = document.getElementById('min-price');
 const maxPriceOutput = document.getElementById('max-price');
 
-// Устанавливаем начальные значения
-minPriceOutput.textContent = priceRange.min;
-maxPriceOutput.textContent = priceRange.value;
+// Устанавливаем начальные значения с форматированием
+minPriceOutput.textContent = parseInt(priceRange.min, 10).toLocaleString('ru-RU');
+maxPriceOutput.textContent = parseInt(priceRange.value, 10).toLocaleString('ru-RU');
 
-let minPrice = parseInt(priceRange.min, 10);  // Минимальная цена
+let minPrice = parseInt(priceRange.min, 10); // Минимальная цена
 let maxPrice = parseInt(priceRange.value, 10); // Максимальная цена
 
 // Обработчик события для обновления значений при перемещении ползунка
 priceRange.addEventListener('input', () => {
-    maxPrice = parseInt(priceRange.value, 10); // Обновляем максимальную цену
-    maxPriceOutput.textContent = maxPrice; // Обновляем отображение максимальной цены
-    filterCars(); 
-    checkFiltersChanged();// Применяем фильтрацию
+  maxPrice = parseInt(priceRange.value, 10); // Обновляем максимальную цену
+  maxPriceOutput.textContent = maxPrice.toLocaleString('ru-RU'); // Обновляем отображение максимальной цены
+  filterCars();
+  checkFiltersChanged(); // Применяем фильтрацию
 });
-
 
 // Функция для создания элемента пагинации
 export function createPaginationItem(index) {
@@ -156,6 +166,13 @@ function createCard(item) {
   imagesContainer.innerHTML = '';
   imagePagination.innerHTML = '';
 
+// Проверка на количество изображений
+if (item.img.length > 1) {
+  imagePagination.style.display = 'flex'; // Отобразить пагинацию
+} else {
+  imagePagination.style.display = 'none'; // Скрыть пагинацию
+}
+
   item.img.forEach((imageSrc, index) => {
     const imageItemClone = imageTemplate.cloneNode(true);
     imageItemClone.setAttribute('data-index', index);
@@ -188,13 +205,15 @@ function createCard(item) {
     btnPopup.addEventListener('click', () => openPopup(popupForm));
   }
 
-  // const btnInfo = cardClone.querySelector('.card__btn-info'); // Кнопка "Подробнее"
-  // if (btnInfo) {
-  //   btnInfo.addEventListener('click', () => openPopup(popupInfo));
-  // }
+  const btnInfo = cardClone.querySelector('.card__btn-info'); // Кнопка "Подробнее"
+  if (btnInfo) {
+    btnInfo.addEventListener('click', () => openPopupCard(item));
+  }
 
   return cardClone;
 }
+
+updateCardsToShow(); // Устанавливаем количество карточек при загрузке
 
 // Генерация карточек
 if (cardsContainer) {
@@ -236,9 +255,9 @@ function renderCards(cards) {
 
   if (cards.length === 0) {
     emptyMessage.style.display = 'block'; // Показываем сообщение
-} else {
+  } else {
     emptyMessage.style.display = 'none'; // Скрываем сообщение
-}
+  }
 }
 
 // Функция для фильтрации и отображения карточек
@@ -264,9 +283,15 @@ function filterCars() {
       (yearFrom === null || itemYear >= yearFrom) &&
       (yearTo === null || itemYear <= yearTo); // Проверяем год
 
-      const isPriceMatch = item.price >= minPrice && item.price <= maxPrice;
+    const isPriceMatch = item.price >= minPrice && item.price <= maxPrice;
 
-    return isTypeMatch && isMileageMatch && isBrandMatch && isYearMatch && isPriceMatch; // Проверяем все условия
+    return (
+      isTypeMatch &&
+      isMileageMatch &&
+      isBrandMatch &&
+      isYearMatch &&
+      isPriceMatch
+    ); // Проверяем все условия
   });
 
   renderCards(filteredCars); // Отображаем отфильтрованные карточки
@@ -276,7 +301,7 @@ function filterCars() {
 filterTypeBtns.forEach((btn) => {
   btn.addEventListener('click', (evt) => {
     selectedType = evt.currentTarget.getAttribute('data-type');
-    cardsToShow = 5; // Сбрасываем количество карточек для отображения
+    updateCardsToShow(); // Сбрасываем количество карточек для отображения
     filterCars(); // Обновляем карточки в зависимости от выбранного типа
 
     resetButton.classList.add('active');
@@ -288,12 +313,18 @@ filterTypeBtns.forEach((btn) => {
 mileageBtns.forEach((btn) => {
   btn.addEventListener('click', (evt) => {
     selectedMileage = evt.currentTarget.getAttribute('data-drive'); // Получаем пробег из атрибута
-    cardsToShow = 5; // Сбрасываем количество карточек для отображения
+    updateCardsToShow();; // Сбрасываем количество карточек для отображения
     filterCars(); // Обновляем карточки в зависимости от выбранного типа
 
     resetButton.classList.add('active');
     resetButton.disabled = false; // Активируем кнопку
   });
+});
+
+// Обработчик события для изменения размера окна
+window.addEventListener('resize', () => {
+  updateCardsToShow(); // Обновляем количество карточек
+  renderCards(filteredCars); // Перерисовываем карточки с учетом нового количества
 });
 
 // Инициализация отображения карточек по умолчанию
@@ -317,10 +348,18 @@ function checkFiltersChanged() {
 
   // Здесь логика для проверки, изменены ли фильтры
   filterInputs.forEach((input) => {
-    if (input.value !== input.defaultValue || parseInt(priceRange.value, 10) < parseInt(priceRange.max, 10)) {
+    if (
+      input.value !== input.defaultValue ||
+      parseInt(priceRange.value, 10) < parseInt(priceRange.max, 10)
+    ) {
       filtersChanged = true;
     }
   });
+
+    // Проверяем, есть ли выбранные бренды
+    if (selectedBrands.length > 0) {
+      filtersChanged = true;
+    }
 
   // Включаем или отключаем кнопку сброса
   if (filtersChanged) {
@@ -346,14 +385,19 @@ function resetFilters() {
   });
 
   priceRange.value = priceRange.max; // Возвращаем максимальную цену
-  maxPriceOutput.textContent = priceRange.max; // Обновляем отображение максимальной цены
+  maxPriceOutput.textContent = priceRange.max.toLocaleString('ru-RU'); // Обновляем отображение максимальной цены
   maxPrice = parseInt(priceRange.value, 10); // Обновляем переменную максимальной цены
+
+  // Обновляем цвет трека ползунка
+  const value = (priceRange.value - priceRange.min) / (priceRange.max - priceRange.min) * 100;
+  priceRange.style.background = 'linear-gradient(to right, var(--red) ' + value + '%, #8A8A8A ' + value + '%)';
 
   // Сбрасываем выбранные марки
   selectedBrands = [];
   brandItems.forEach((item) => {
     item.classList.remove('selected'); // Убираем выделение у всех марок
   });
+  
   titleAll.style.display = 'block';
   titleChoice.style.display = 'none';
 
@@ -393,7 +437,7 @@ function resetFilters() {
   checkFiltersChanged();
 
   // Сбрасываем количество карточек для отображения
-  cardsToShow = 5;
+  updateCardsToShow();
 
   // Обновляем отображение карточек
   filterCars(); // Отображаем все карточки по умолчанию
@@ -401,8 +445,6 @@ function resetFilters() {
 
 // Обработчик события для кнопки сброса
 resetButton.addEventListener('click', resetFilters);
-
-
 
 // const minPriceRange = document.getElementById('min-price-range');
 // const maxPriceRange = document.getElementById('max-price-range');
@@ -434,3 +476,79 @@ resetButton.addEventListener('click', resetFilters);
 //     minPriceOutput.textContent = minPriceRange.value;
 //   }
 // });
+
+function openPopupCard(carData) {
+  const popup = document.querySelector('.popup-card');
+
+  // Заполнение попапа данными о машине
+  popup.querySelector('.popup-card__car-brand').textContent = carData.brand;
+  popup.querySelector('.popup-card__car-model').textContent = carData.model;
+  popup.querySelector('.popup-card__transmission').textContent =
+    carData.transmission;
+  popup.querySelector('.popup-card__motor').textContent = carData.motor;
+  popup.querySelector('.popup-card__mileage').textContent =
+    carData.mileage.toLocaleString('ru-RU');
+  popup.querySelector('.popup-card__motor-type').textContent =
+    carData.motorType;
+  popup.querySelector('.popup-card__power').textContent = carData.power;
+  popup.querySelector('.popup-card__drive').textContent = carData.drive;
+  popup.querySelector('.popup-card__body-type').textContent = carData.bodyType;
+  popup.querySelector('.popup-card__equipment').textContent = carData.equipment;
+  popup.querySelector('.popup-card__color').textContent = carData.color;
+  popup.querySelector('.popup-card__year').textContent = carData.year;
+  popup.querySelector('.popup-card__condition').textContent = carData.condition;
+  popup.querySelector('.popup-card__guarantee').textContent = carData.guarantee;
+  popup.querySelector('.popup-card__description').textContent =
+    carData.description;
+  popup.querySelector('.popup-card__price-js').textContent =
+    carData.price.toLocaleString('ru-RU');
+
+ // Селектор для элемента с изображением
+ const imageTemplate = popup.querySelector('.popup-card__slide');
+
+ // Очистка предыдущих изображений
+ const sliderWrapper = popup.querySelector('.popup-card__slider-wrapper');
+ sliderWrapper.innerHTML = ''; // Очищаем предыдущие изображения
+
+ // Добавление новых изображений
+ carData.img.forEach((imageSrc) => {
+     const slide = imageTemplate.cloneNode(true); // Клонируем существующий элемент
+
+     const imgElement = slide.querySelector('img'); // Получаем img внутри клона
+     imgElement.src = imageSrc; // Устанавливаем путь к изображению
+     imgElement.alt = `${carData.brand} ${carData.model}`; // Устанавливаем атрибут alt
+
+     sliderWrapper.appendChild(slide); // Добавляем клон в контейнер
+ });
+
+ //Свайпер для img-popup-card
+const swiper = new Swiper('.popup-card__slider', {
+  slideClass: 'popup-card__slide',
+  wrapperClass: 'popup-card__slider-wrapper',
+  direction: 'horizontal',
+  loop: true,
+  spaceBetween: 16,
+  slidesPerView: 1,
+
+  pagination: {
+    el: '.popup-card__pagination',
+    type: 'bullets',
+  },
+
+  navigation: {
+    nextEl: '.popup-card__btn-next',
+    prevEl: '.popup-card__btn-prev',
+  },
+});
+
+  // Показать попап
+  popup.classList.add('open');
+  hideScroll();
+}
+
+
+const range = document.getElementById('price-range');
+range.addEventListener('input', () => {
+  const value = (range.value-range.min)/(range.max-range.min)*100;
+  range.style.background = 'linear-gradient(to right, var(--red) ' + value + '%, #8A8A8A ' + value + '%)';
+});

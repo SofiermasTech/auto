@@ -16,6 +16,7 @@
     }
 
     @include mobile {
+      gap: 32px;
       margin-bottom: 16px;
       display: flex;
       flex-direction: column;
@@ -141,7 +142,7 @@
     }
 
     @include mobile {
-      max-height: 217px;
+      height: 217px;
     }
 
     // img {

@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/aos.js"></script>
   <title>Auto</title>
 </head>
@@ -248,7 +249,9 @@
                   <div class="filters__options">
                     <div class="filters__options-range">
                       <label>Цена
-                        <input type="range" id="price-range" name="range" min="0" max="15000000" value="15000000" step="50000" />
+                        <input type="range" id="price-range" name="range" min="0" max="15000000" value="15000000"
+                          step="50000" style="background: var(--red);"
+                          oninput="this.style.background = `red ${this.value}%`;" />
                         <!-- <input type="range" id="min-price-range" name="min-range" min="0" max="15000000" value="0"
                           step="50000" />
 
@@ -267,54 +270,73 @@
                       </div>
                     </div>
                   </div>
-                  <h3 class="filters__title">Марка</h3>
-                  <div class="filters__options">
-                    <div class="filters__brands select-heading-js">
-                      <div class="filters__current-brand ">
-                        <div class="filters__current-titles">
-                          <p class="filters__current-title-all">Все марки</p>
-                          <p class="filters__current-title-choice" style="display: none;">Марки автомобиля</p>
+                  <div class="filters__wrapper-title brand-list">
+                    <h3 class="filters__title">Марка</h3>
+                    <div class="filters__options">
+                      <div class="filters__brands select-heading-js">
+                        <div class="filters__current-brand ">
+                          <div class="filters__current-titles">
+                            <p class="filters__current-title-all">Все марки</p>
+                            <p class="filters__current-title-choice" style="display: none;">Марки автомобиля</p>
+                          </div>
+                          <span class="select-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 13 8">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4.763 5.196a1 1 0 0 0 1.474 0L12 1" />
+                            </svg>
+                          </span>
                         </div>
-                        <span class="select-arrow">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 13 8">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="m1 1 4.763 5.196a1 1 0 0 0 1.474 0L12 1" />
-                          </svg>
-                        </span>
                       </div>
-                    </div>
-                    <div class="filters__brand-list select-list-js">
-                      <div class="filters__brand-item" data-brand="all">
-                        <p class="filters__brand-name">Все</p>
+                      <div class="filters__brand-list select-list-js">
+                        <div class="filters__brand-item" data-brand="Mazda">
+                          <p class="filters__brand-name">Mazda</p>
+                        </div>
+                        <div class="filters__brand-item" data-brand="Toyota">
+                          <p class="filters__brand-name">Toyota</p>
+                        </div>
+                        <div class="filters__brand-item" data-brand="Ford">
+                          <p class="filters__brand-name">Ford</p>
+                        </div>
+                        <div class="filters__brand-item" data-brand="Tesla">
+                          <p class="filters__brand-name">Tesla</p>
+                        </div>
+                        <div class="filters__brand-item" data-brand="BMW">
+                          <p class="filters__brand-name">BMW</p>
+                        </div>
                       </div>
-                      <div class="filters__brand-item" data-brand="Toyota">
-                        <p class="filters__brand-name">Toyota</p>
-                      </div>
-                      <div class="filters__brand-item" data-brand="Ford">
-                        <p class="filters__brand-name">Ford</p>
-                      </div>
-                      <!-- <div class="filters__brand-item">
-                        <p class="filters__brand-name">Toyota</p>
-                      </div> -->
+                      <ul class="filters__bran-list-selected">
+                        <li class="selected-brand">
+                          <p class="selected-brand__name"></p>
+                          <button type="button" class="selected-brand__del">
+                            <svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M3.55815 3.18594L0.966278 0.594692C0.937224 0.565637 0.914176 0.531143 0.898452 0.493181C0.882727 0.455219 0.874634 0.414532 0.874634 0.373442C0.874634 0.332352 0.882727 0.291664 0.898452 0.253702C0.914176 0.21574 0.937224 0.181247 0.966278 0.152192C0.995333 0.123137 1.02983 0.100089 1.06779 0.0843646C1.10575 0.0686402 1.14644 0.0605469 1.18753 0.0605469C1.22862 0.0605469 1.26931 0.0686402 1.30727 0.0843646C1.34523 0.100089 1.37972 0.123137 1.40878 0.152192L4.00003 2.74407L6.59128 0.152192C6.64996 0.0935124 6.72954 0.0605469 6.81253 0.0605469C6.89551 0.0605469 6.9751 0.0935124 7.03378 0.152192C7.09246 0.210871 7.12542 0.290457 7.12542 0.373442C7.12542 0.456427 7.09246 0.536013 7.03378 0.594692L4.4419 3.18594L7.03378 5.77719C7.09246 5.83587 7.12542 5.91546 7.12542 5.99844C7.12542 6.08143 7.09246 6.16101 7.03378 6.21969C6.9751 6.27837 6.89551 6.31134 6.81253 6.31134C6.72954 6.31134 6.64996 6.27837 6.59128 6.21969L4.00003 3.62782L1.40878 6.21969C1.3501 6.27837 1.27051 6.31134 1.18753 6.31134C1.10454 6.31134 1.02496 6.27837 0.966278 6.21969C0.907599 6.16101 0.874634 6.08143 0.874634 5.99844C0.874634 5.91546 0.907599 5.83587 0.966278 5.77719L3.55815 3.18594Z"
+                                fill="white" />
+                            </svg>
+                          </button>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-                  <h3 class="filters__title">Год выпуска</h3>
-                  <div class="filters__options">
-                    <div class="filters__options-btn">
-                      <label class="filters__label-year">
-                        <div class="filters__year">
-                          <span class="filters__year-from">от</span>
-                          <input id="year-from" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
-                            value="" placeholder="2020" maxlength="4" minlength="4">
-                        </div>
-                      </label>
-                      <label class="filters__label-year">
-                        <div class="filters__year">
-                          <span class="filters__year-before">до</span>
-                          <input id="year-to" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
-                            value="" placeholder="2024" maxlength="4" minlength="4">
-                        </div>
-                      </label>
+                  <div class="filters__wrapper-title year-blocks">
+                    <h3 class="filters__title">Год выпуска</h3>
+                    <div class="filters__options">
+                      <div class="filters__options-btn">
+                        <label class="filters__label-year">
+                          <div class="filters__year">
+                            <span class="filters__year-from">от</span>
+                            <input id="year-from" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
+                              value="" placeholder="2020" maxlength="4" minlength="4">
+                          </div>
+                        </label>
+                        <label class="filters__label-year">
+                          <div class="filters__year">
+                            <span class="filters__year-before">до</span>
+                            <input id="year-to" class="filter-input" type="text" inputmode="numeric" pattern="[0-9]*"
+                              value="" placeholder="2024" maxlength="4" minlength="4">
+                          </div>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -325,9 +347,9 @@
                 </div>
 
               </div>
-             <div class="cards__content-empty">
-              <p>Ничего не найдено</p>
-             </div>
+              <div class="cards__content-empty">
+                <p>Ничего не найдено</p>
+              </div>
             </div>
             <div class="cards__btn-wrapper">
               <button class="cards__btn-else" type="button">Загрузить еще</button>
@@ -551,6 +573,113 @@
       </div>
     </section>
 
+    <!-- Popup card -->
+    <section class="popup-card">
+      <div class="popup-card__wrapper">
+        <div class="popup__btn-close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.02777 6.99989L0.325642 1.29914C0.261721 1.23522 0.211016 1.15934 0.176422 1.07582C0.141829 0.992302 0.124023 0.90279 0.124023 0.812392C0.124023 0.721994 0.141829 0.632481 0.176422 0.548965C0.211016 0.465448 0.261721 0.389563 0.325642 0.325642C0.389563 0.261721 0.465448 0.211016 0.548965 0.176422C0.632481 0.141829 0.721994 0.124023 0.812392 0.124023C0.90279 0.124023 0.992302 0.141829 1.07582 0.176422C1.15934 0.211016 1.23522 0.261721 1.29914 0.325642L6.99989 6.02777L12.7006 0.325642C12.8297 0.196548 13.0048 0.124023 13.1874 0.124023C13.37 0.124023 13.545 0.196548 13.6741 0.325642C13.8032 0.454736 13.8758 0.629825 13.8758 0.812392C13.8758 0.994959 13.8032 1.17005 13.6741 1.29914L7.97202 6.99989L13.6741 12.7006C13.8032 12.8297 13.8758 13.0048 13.8758 13.1874C13.8758 13.37 13.8032 13.545 13.6741 13.6741C13.545 13.8032 13.37 13.8758 13.1874 13.8758C13.0048 13.8758 12.8297 13.8032 12.7006 13.6741L6.99989 7.97202L1.29914 13.6741C1.17005 13.8032 0.994959 13.8758 0.812392 13.8758C0.629825 13.8758 0.454736 13.8032 0.325642 13.6741C0.196548 13.545 0.124023 13.37 0.124023 13.1874C0.124023 13.0048 0.196548 12.8297 0.325642 12.7006L6.02777 6.99989Z"
+              fill="#303030" />
+          </svg>
+        </div>
+        <div class="popup-card__body">
+          <div class="popup-card__slider">
+            <div class="popup-card__slider-wrapper">
+              <div class="popup-card__slide">
+                <img src="" alt="">
+              </div>
+            </div>
+            <div class="popup-card__pagination"></div>
+            <div class="popup-card__navigation">
+              <div class="popup-card__btn-prev">
+                <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 1.5L1.76316 10.275C1.34816 10.6693 1.34816 11.3307 1.76316 11.725L11 20.5"
+                    stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="popup-card__btn-next">
+                <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1.5L10.2368 10.275C10.6518 10.6693 10.6518 11.3307 10.2368 11.725L1 20.5" stroke="#303030"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="popup-card__content">
+            <div class="popup-card__info">
+              <div class="popup-card__car">
+                <h3 class="popup-card__car-brand">МАРКА АВТО</h3>
+                <h3 class="popup-card__car-model">Модель</h3>
+              </div>
+              <div class="popup-card__characteristics">
+                <div class="popup-card__characteristic-item">
+                  <span>КПП</span>
+                  <p class="popup-card__transmission"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Объем двигателя</span>
+                  <p class="popup-card__motor"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Пробег</span>
+                  <p>
+                    <span class="popup-card__mileage"></span>
+                    <span>км</span>
+                  </p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Тип двигателя</span>
+                  <p class="popup-card__motor-type"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Мощность</span>
+                  <p class="popup-card__power"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Привод</span>
+                  <p class="popup-card__drive"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Тип кузова</span>
+                  <p class="popup-card__body-type"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Комплектация</span>
+                  <p class="popup-card__equipment"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Цвет</span>
+                  <p class="popup-card__color"></p>
+                </div>
+              </div>
+              <div class="popup-card__additional">
+                <div class="popup-card__characteristic-item">
+                  <span>Год выпуска:</span>
+                  <p class="popup-card__year"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Состояние:</span>
+                  <p class="popup-card__condition"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Гарантия:</span>
+                  <p class="popup-card__guarantee"></p>
+                </div>
+                <div class="popup-card__characteristic-item">
+                  <span>Дополнительные опции:</span>
+                  <p class="popup-card__description"></p>
+                </div>
+              </div>
+            </div>
+            <div class="popup-card__price"><span class="popup-card__price-js"></span> <span>₽</span></div>
+            <div class="popup-card__buttons">
+              <button class="popup-card__btn-popup btn-popup" type="button">Заказать авто</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <template class="card-template">
       <article class="cards__item card" data-year="">
@@ -720,6 +849,7 @@
   </footer>
 
   <script src="https://unpkg.com/imask"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/validation.js"></script>
   <script src="/js/addCard.js" type="module"></script>
   <script src="/js/main.js"></script>

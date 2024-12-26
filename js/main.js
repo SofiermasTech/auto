@@ -73,6 +73,7 @@ window.addEventListener('resize', () => {
 
 const btnFormClose = document.querySelector('.popup__btn-close');
 const popupForm = document.querySelector('.popup-form');
+const popupInfo = document.querySelector('.popup-card');
 const btnFormOpen = document.querySelectorAll('.btn-popup');
 
 function openPopup(popup) {
@@ -94,6 +95,14 @@ popupForm.addEventListener('mousedown', (evt) => {
     // console.log(evt.target);
     // console.log(evt.currentTarget);
     closePopup(popupForm);
+  }
+});
+
+popupInfo.addEventListener('mousedown', (evt) => {
+  if (evt.target === evt.currentTarget) {
+    // console.log(evt.target);
+    // console.log(evt.currentTarget);
+    closePopup(popupInfo);
   }
 });
 
@@ -194,6 +203,11 @@ popupSuccess.addEventListener('mousedown', (evt) => {
   }
 });
 
+const btnPopupCardClose = document.querySelector('.popup-card .popup__btn-close');
+
 btnFormClose.addEventListener('click', () => closePopup(popupForm));
 btnSuccessClose.addEventListener('click', () => closePopup(popupSuccess));
 btnSuccessCloseBottom.addEventListener('click', () => closePopup(popupSuccess));
+btnPopupCardClose.addEventListener('click', () => closePopup(popupInfo));
+
+

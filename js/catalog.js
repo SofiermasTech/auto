@@ -84,7 +84,7 @@ export const cars = [
       "images/car/car1.webp",
       "images/car/car2.png"
     ],
-    price: 641978,
+    price: 1641978,
     transmission: "Автомат",
     description: "Навигация, камера заднего вида, подогрев сидения",
     year: "2000 г.",
@@ -109,7 +109,7 @@ export const cars = [
       "images/car/car1.webp",
       "images/car/car2.png"
     ],
-    price: 641978,
+    price: 10641978,
     transmission: "Автомат",
     description: "Навигация, камера заднего вида, подогрев сидения",
     year: "2023 г.",
@@ -130,13 +130,11 @@ export const cars = [
     type: "auto",
     id: "1",
     img: [
-       "images/car/car2.png",
-      "images/car/car1.webp",
-      "images/car/car2.png"
+      "images/car/car1.webp"
     ],
-    price: 641978,
+    price: 7000000,
     transmission: "Автомат",
-    description: "Навигация, камера заднего вида, подогрев сидения",
+    description: "ghjgj gjghjghj g jghjghj",
     year: "2023 г.",
     motor: "2.3 л",
     motorType: "Бензин",

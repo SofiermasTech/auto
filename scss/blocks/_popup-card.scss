@@ -1,0 +1,413 @@
+.popup-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+  width: 100%;
+  height: 100vh;
+  padding-inline: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.7s;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.7s;
+  }
+
+  &__wrapper {
+    max-width: 1240px;
+    width: 100%;
+    background-color: var(--dark);
+    border-radius: var(--br-section);
+    padding: 40px 56px 56px;
+    position: relative;
+
+    @include desktop {
+      max-width: 1030px;
+      padding: 32px;
+    }
+
+    @include desktop-bottom {
+      max-width: 855px;
+      padding: 24px;
+    }
+
+    @include tablet {
+      max-width: 660px;
+      border-radius: 16px;
+    }
+
+    @include tablet-bottom {
+      max-width: 545px;
+      padding: 16px;
+    }
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__body {
+    display: flex;
+    gap: 40px;
+
+    @include desktop-bottom {
+      gap: 16px;
+    }
+
+    @include tablet-bottom {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @include tablet-bottom {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__slider {
+    max-width: 610px;
+    width: 100%;
+    max-height: 456px;
+    overflow: hidden;
+    position: relative;
+
+    @include desktop {
+      max-width: 520px;
+      max-height: 390px;
+    }
+
+    @include desktop-bottom {
+      max-width: 450px;
+      max-height: 340px;
+    }
+
+    @include tablet {
+      max-width: 340px;
+      max-height: 270px;
+    }
+
+    @include tablet-bottom {
+      max-width: 100%;
+      max-height: 320px;
+    }
+
+    @include mobile {
+      max-width: 100%;
+      max-height: 240px;
+    }
+  }
+
+  &__slider-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    width: 100%;
+    max-height: 456px;
+    height: 100%;
+    background-color: var(--white-14);
+    border-radius: 20px;
+
+    @include desktop {
+      max-height: 390px;
+    }
+
+    @include desktop-bottom {
+      max-height: 340px;
+    }
+
+    @include tablet {
+      max-height: 270px;
+    }
+
+    @include tablet-bottom {
+      max-height: 320px;
+    }
+
+    @include mobile {
+      max-height: 240px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    text-align: center;
+    // left: 50% !important;
+    // transform: translateX(-50%);
+  }
+
+  &__navigation {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+
+    @include tablet-bottom {
+      display: none;
+    }
+  }
+
+  &__btn-next,
+  &__btn-prev {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 16px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 8px;
+    }
+  }
+
+  &__car {}
+
+  &__car-brand {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+
+    @include desktop {
+      font-size: 24px;
+    }
+
+    @include desktop-bottom {
+      font-size: 20px;
+    }
+
+    @include tablet {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    @include tablet-bottom {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    @include mobile {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  &__car-model {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+
+    @include desktop {
+      font-size: 16px;
+    }
+
+    @include desktop-bottom {
+      font-size: 14px;
+    }
+
+    @include tablet {
+      font-size: 12px;
+    }
+
+    @include tablet-bottom {
+      font-size: 14px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  &__characteristics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // justify-content: ;
+    row-gap: 22px;
+
+    @include tablet-bottom {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 10px;
+    }
+
+  }
+
+  &__characteristic-item {
+
+    padding-left: 16px;
+    border-left: 2px solid rgba(127, 127, 127, 0.2);
+
+    &:nth-of-type(1),
+    &:nth-of-type(4),
+    &:nth-of-type(7) {
+      padding-left: 0;
+      border-left: none;
+    }
+
+
+    @include tablet-bottom {
+
+      &:nth-of-type(1),
+      &:nth-of-type(5),
+      &:nth-of-type(9) {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      &:nth-of-type(4),
+      &:nth-of-type(7) {
+        padding-left: 16px;
+        border-left: 2px solid rgba(127, 127, 127, 0.2);
+      }
+    }
+
+    @include mobile {
+      padding-left: 8px;
+
+      &:nth-of-type(5),
+      &:nth-of-type(9) {
+        padding-left: 8px;
+        border-left: 2px solid rgba(127, 127, 127, 0.2);
+      }
+
+      &:nth-of-type(1),
+      &:nth-of-type(4),
+      &:nth-of-type(7) {
+        padding-left: 0;
+        border-left: none;
+
+      }
+    }
+
+    span {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+
+      @include desktop-bottom {
+        font-size: 10px;
+      }
+    }
+
+    p,
+    p span {
+      color: var(--white);
+      font-size: 12px;
+
+      @include desktop-bottom {
+        font-size: 10px;
+      }
+    }
+  }
+
+  &__price {
+    margin-top: auto;
+    color: var(--white);
+    // margin-bottom: 24px;
+    font-size: 40px;
+    font-weight: 600;
+
+    @include desktop {
+      font-size: 36px;
+    }
+
+    @include desktop-bottom {
+      // margin-bottom: 16px;
+    }
+
+    @include tablet {
+      // margin-bottom: 8px;
+      font-size: 24px;
+    }
+  }
+
+  &__additional {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .popup-card__characteristic-item {
+      padding-left: 0;
+      border: none;
+    }
+  }
+
+  &__buttons {}
+
+  &__btn-popup {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .popup__btn-close {
+    @include tablet-bottom {
+      top: 4px;
+      right: 4px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--red);
+}

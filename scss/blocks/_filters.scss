@@ -13,19 +13,84 @@
   background-color: var(--light-gray);
   border-radius: var(--br-card);
 
-  &__wrapper {}
+  @include desktop-bottom {
+    padding: 14px;
+  }
+
+  @include tablet {
+    padding: 8px;
+  }
+
+  &__wrapper {
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "opt1 opt2"
+        "opt3 opt4"
+        "opt5 opt5";
+      gap: 8px;
+
+
+      .filters__wrapper-title.brand-list {
+        width: 100%;
+      }
+
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__wrapper-title {
+
+
+@include tablet {
+    &.brand-list {
+      grid-area: opt5;
+      order: 2;
+
+      .filters__options {
+        max-width: 100%;
+      }
+    }
+
+    &.year-blocks {
+      background-color: var(--white);
+      padding: 4px 5px;
+      border-radius: 10px;
+
+      .filters__title {
+        margin-bottom: 0;
+      }
+    }
+}
+
+  }
 
   &__options {
     padding: 5px;
     background-color: var(--white);
     margin-bottom: 10px;
     border-radius: 14px;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 
   &__options-btn {
     display: flex;
     align-items: center;
     gap: 5px;
+
+
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__btn {
@@ -40,27 +105,46 @@
     cursor: pointer;
     transition: 0.5s;
 
+    @include desktop-bottom {
+      font-size: 12px;
+    }
+
+    @include tablet {
+      font-size: 10px;
+    }
+
     &.active {
       background-color: var(--red);
       color: var(--white);
       box-shadow:
         0 4px 4px rgba($color: #000000, $alpha: 0.25),
         inset 0 5px 15px rgba($color: #000000, $alpha: 0.25);
-
     }
   }
 
   &__options-range {
-    padding: 9px 10px;
+    padding: 4px 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+
+    @include tablet {
+      grid-area: opt3;
+      width: 100%;
+      gap: 0;
+      padding: 4px 8px;
+    }
 
     label {
       font-size: 16px;
       font-weight: 600;
       color: #8A8A8A;
       position: relative;
+
+      @include desktop-bottom {
+        font-size: 12px;
+      }
     }
 
     input[type=range] {
@@ -68,16 +152,12 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      background-color: #8A8A8A;
     }
 
-
-
     input[type=range]::-webkit-slider-runnable-track {
-      border-radius: 6px;
+      border-radius: 10px/100%;
       height: 4px;
       border: none;
-      background-color: #8A8A8A;
     }
 
     input[type=range]::-webkit-slider-thumb {
@@ -92,10 +172,11 @@
     }
 
     input[type=range]::-moz-range-track {
-      border-radius: 6px;
+      border-radius: 10px/100%;
+
       height: 4px;
       border: none;
-      background-color: #8A8A8A;
+      // background-color: #8A8A8A;
     }
 
     input[type=range]::-moz-range-thumb {
@@ -113,10 +194,18 @@
     display: flex;
     justify-content: space-between;
 
+    p {
+      margin-bottom: 0;
+    }
+
     span {
       font-size: 16px;
       font-weight: 600;
       color: #8A8A8A;
+
+      @include desktop-bottom {
+        font-size: 12px;
+      }
     }
   }
 
@@ -125,6 +214,10 @@
     font-weight: 600;
     color: #8A8A8A;
     margin-bottom: 8px;
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
   }
 
   &__brands {
@@ -139,16 +232,21 @@
       }
 
       &+.filters__brand-list {
-        max-height: 140px;
+        max-height: 130px;
+        padding-right: 8px;
         visibility: visible;
         opacity: 1;
         transition: 0.5s;
+
+        @include tablet {
+          max-height: 102px;
+        }
       }
     }
   }
 
   &__current-brand {
-    padding: 11px;
+    padding: 8px;
     display: flex;
     gap: 4px;
     justify-content: center;
@@ -156,6 +254,10 @@
     color: var(--red);
     font-weight: 600;
     cursor: pointer;
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
 
     .select-arrow {
       width: 24px;
@@ -179,11 +281,15 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    // scrollbar-width: auto;
+    scrollbar-width: thin;
     scrollbar-color: var(--red) #8A8A8A;
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -229,6 +335,14 @@
       background-color: #F0F0F0;
       color: rgba(76, 76, 76, 0.8);
     }
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
+
+    @include tablet {
+     padding: 8px 14px;
+    }
   }
 
   &__label-year {
@@ -245,6 +359,10 @@
     gap: 4px;
     font-size: 16px;
     font-weight: 600;
+
+    @include desktop-bottom {
+      font-size: 12px;
+    }
 
     span {
       color: #8A8A8A;
