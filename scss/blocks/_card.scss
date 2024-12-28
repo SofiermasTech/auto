@@ -70,13 +70,6 @@
   flex-direction: column;
   position: relative;
 
-  // &:nth-child(n + 6) {
-  //   display: none;
-  // }
-
-  // &.visible {
-  //   display: flex;
-  // }
 
   &[data-year]::before {
     content: attr(data-year);
@@ -121,7 +114,7 @@
     width: 100%;
     height: 296px;
     // height: 100%;
-    border-radius: 20px;
+    border-radius: var(--br-card);
     overflow: hidden;
     position: relative;
 
@@ -135,6 +128,7 @@
 
     @include tablet {
       height: 165px;
+      touch-action: pan-y;
     }
 
     @include tablet-bottom {
@@ -161,11 +155,13 @@
     left: 0;
     z-index: 20;
     display: flex;
+    transition: transform 0.3s ease;
   }
 
   &__image-item {
     flex-grow: 1;
     cursor: pointer;
+    // position: relative;
 
     &:first-child .card__img {
       opacity: 1;
@@ -176,6 +172,17 @@
       opacity: 1;
       z-index: -1;
     }
+
+    // // Увеличение области касания
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   z-index: 1; // Позволяет захватывать события касания
+    // }
   }
 
   &__img {
@@ -185,7 +192,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fff;
+    background-color: var(--white);
     pointer-events: none;
     display: flex;
     align-items: center;

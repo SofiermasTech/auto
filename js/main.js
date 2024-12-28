@@ -1,8 +1,11 @@
+const pageBody = document.querySelector('.page');
 const bodyIntro = document.querySelector('.intro__body');
 const contentIntro = document.querySelector('.intro__content');
 const logosIntro = document.querySelector('.intro__logos');
 const header = document.querySelector('.header');
 
+const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+// console.log(scrollBarWidth)
 // Функция для обновления стилей
 const updateStyles = () => {
   bodyIntro.style.paddingBottom = logosIntro.offsetHeight + 'px';
@@ -17,7 +20,8 @@ const updateStyles = () => {
     introPaddingInline = 85;
   }
 
-  header.style.maxWidth = bodyIntro.offsetWidth - introPaddingInline * 2 + 'px';
+  const maxWidthValue = bodyIntro.offsetWidth - introPaddingInline * 2;
+  header.style.maxWidth = maxWidthValue + 'px';
 
   let contentPaddingTop;
 
@@ -34,12 +38,13 @@ const updateStyles = () => {
 
 updateStyles();
 
+// Анимация для логотипов
 const logosContainer = document.querySelector('.intro__logos');
 const logos = document.querySelectorAll('.intro__logo');
 const logoWidth = document.querySelector('.intro__logo');
 
-let scrollPosition = 0; // Текущая позиция прокрутки
-const speed = 0.3; // Скорость прокрутки
+let scrollPosition = 0;
+const speed = 0.3;
 
 console.log(logoWidth.offsetWidth);
 
@@ -50,7 +55,7 @@ const getVisibleLogosCount = () => {
 };
 
 let visibleLogosCount = getVisibleLogosCount();
-let totalWidth = visibleLogosCount * logoWidth.offsetWidth; // Ширина всех логотипов
+let totalWidth = visibleLogosCount * logoWidth.offsetWidth;
 console.log(totalWidth);
 
 function animateScroll() {
@@ -80,13 +85,14 @@ function openPopup(popup) {
   popup.classList.add('open');
   document.addEventListener('keydown', closePopupEsc);
   hideScroll();
+
+  header.style.opacity = '0';
+  updateStyles();
 }
 
 btnFormOpen.forEach((btn) => {
   btn.addEventListener('click', () => {
-    popupForm.classList.add('open');
-    document.addEventListener('keydown', closePopupEsc);
-    hideScroll();
+    openPopup(popupForm);
   });
 });
 
@@ -100,18 +106,14 @@ popupForm.addEventListener('mousedown', (evt) => {
 
 popupInfo.addEventListener('mousedown', (evt) => {
   if (evt.target === evt.currentTarget) {
-    // console.log(evt.target);
-    // console.log(evt.currentTarget);
     closePopup(popupInfo);
   }
 });
-
 
 const burgerMenu = document.querySelector('.btn-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const btnMenuClose = document.querySelector('.mobile-menu__btn-close');
 const linkMenu = document.querySelectorAll('.menu-link-js');
-
 
 burgerMenu.addEventListener('click', () => {
   mobileMenu.classList.add('open');
@@ -131,24 +133,6 @@ linkMenu.forEach((link) => {
   });
 });
 
-const headingFilters = document.querySelectorAll('.select-heading-js');
-// const filterElement = document.querySelectorAll('.select-list-js');
-
-headingFilters.forEach((heading) => {
-  heading.addEventListener('click', () => {
-    const isOpen = heading.classList.contains('open');
-
-    headingFilters.forEach((heading) => {
-      heading.classList.remove('open');
-    });
-
-    if (!isOpen) {
-      heading.classList.add('open');
-    }
-  });
-});
-
-const pageBody = document.querySelector('.page');
 function hideScroll() {
   pageBody.classList.toggle('stop-scroll');
 }
@@ -176,7 +160,6 @@ filtersBtnElse.forEach((btn) => {
   });
 });
 
-
 const sendForm = document.forms.formPopup;
 const popupSuccess = document.querySelector('.form-success');
 const btnSuccessClose = document.querySelector('.form-success__btn-close');
@@ -186,8 +169,11 @@ function closePopup(popup) {
   popup.classList.remove('open');
   hideScroll();
   document.removeEventListener('keydown', closePopupEsc);
-
+  header.style.opacity = '1';
   sendForm.reset();
+
+  document.body.style.paddingRight = '';
+  updateStyles();
 }
 
 function closePopupEsc(evt) {
@@ -203,11 +189,17 @@ popupSuccess.addEventListener('mousedown', (evt) => {
   }
 });
 
-const btnPopupCardClose = document.querySelector('.popup-card .popup__btn-close');
+const btnPopupCardClose = document.querySelector(
+  '.popup-card .popup__btn-close'
+);
 
 btnFormClose.addEventListener('click', () => closePopup(popupForm));
 btnSuccessClose.addEventListener('click', () => closePopup(popupSuccess));
 btnSuccessCloseBottom.addEventListener('click', () => closePopup(popupSuccess));
 btnPopupCardClose.addEventListener('click', () => closePopup(popupInfo));
 
-
+AOS.init({
+  offset: 120, // offset (in px) from the original trigger point
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'linear', // default easing for AOS animations
+});

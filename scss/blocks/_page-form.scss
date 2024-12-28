@@ -1,19 +1,15 @@
 .page-form {
   padding-bottom: var(--section-offset);
 
-
-
   &__body {
     width: 100%;
     border-radius: var(--br-section);
-    // background-color: var(--dark);
     background-image: url('../images/form-man.png');
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
 
     @include mobile {
-      // padding-bottom: 100px;
       background-position: top;
       min-height: 650px;
       display: flex;
@@ -26,7 +22,7 @@
   }
 
   &__popup {
-    max-width: 59%;
+    max-width: 60%;
     margin-left: auto;
 
     @include tablet-bottom {
@@ -40,6 +36,5 @@
 
     }
   }
-
 
 }

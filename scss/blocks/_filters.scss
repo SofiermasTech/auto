@@ -345,6 +345,49 @@
     }
   }
 
+  &__brand-list-selected {
+    display: none;
+    margin-block: 8px;
+    // display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    &.visible {
+      display: flex;
+    }
+
+    .selected-brand {
+      width: fit-content;
+      padding: 8px;
+      background-color: var(--red);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+
+      &__del {
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+
+        svg {
+          width: 7px;
+          height: 7px;
+        }
+      }
+    }
+  }
+
   &__label-year {
     width: 100%;
     background-color: #F0F0F0;
@@ -422,45 +465,45 @@
 
 
 
-input[type="range"]:nth-of-type(1) {
-  z-index: 1;
-  /* Минимальный ползунок выше */
-}
+// input[type="range"]:nth-of-type(1) {
+//   z-index: 1;
+//   /* Минимальный ползунок выше */
+// }
 
-input[type="range"]:nth-of-type(2) {
-  z-index: 2;
-  /* Максимальный ползунок выше */
-}
+// input[type="range"]:nth-of-type(2) {
+//   z-index: 2;
+//   /* Максимальный ползунок выше */
+// }
 
-.slider-track {
-  position: absolute;
-  height: 8px;
-  background: #ddd;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 0;
-  /* Под ползунками */
-}
+// .slider-track {
+//   position: absolute;
+//   height: 8px;
+//   background: #ddd;
+//   top: 50%;
+//   left: 0;
+//   right: 0;
+//   transform: translateY(-50%);
+//   z-index: 0;
+//   /* Под ползунками */
+// }
 
-.slider-thumb {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #007bff;
-  border-radius: 50%;
-  cursor: pointer;
-  pointer-events: auto;
-  /* Включаем события для пользовательских ползунков */
-}
+// .slider-thumb {
+//   position: absolute;
+//   width: 16px;
+//   height: 16px;
+//   background: #007bff;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   pointer-events: auto;
+//   /* Включаем события для пользовательских ползунков */
+// }
 
-.min-thumb {
-  left: 0;
-  /* Позиция для минимума */
-}
+// .min-thumb {
+//   left: 0;
+//   /* Позиция для минимума */
+// }
 
-.max-thumb {
-  left: 100%;
-  /* Позиция для максимума */
-}
+// .max-thumb {
+//   left: 100%;
+//   /* Позиция для максимума */
+// }
