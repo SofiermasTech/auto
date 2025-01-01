@@ -20,7 +20,8 @@ function scripts() {
       'js/*.js',
       '!js/main.min.js',
       '!js/catalog.js',
-      '!js/aos.js'
+      '!js/aos.js',
+      '!ion.rangeSlider.min'
    ])
       .pipe(concat('main.min.js'))
       .pipe(uglify())
