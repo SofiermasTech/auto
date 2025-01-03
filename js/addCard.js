@@ -124,7 +124,8 @@ function createCard(item) {
       resetPagination(card);
     });
 
-    const imageItemClones = imagesContainer.querySelectorAll('.card__image-item');
+    const imageItemClones =
+      imagesContainer.querySelectorAll('.card__image-item');
     imageItemClones.forEach((imageItem) => {
       imageItem.addEventListener('touchstart', handleTouchStart, false);
       imageItem.addEventListener('touchmove', handleTouchMove, false);
@@ -225,47 +226,76 @@ function openPopupCard(carData) {
   popup.querySelector('.popup-card__price-js').textContent =
     carData.price.toLocaleString('ru-RU');
 
-  // Добавление img
-  const imageTemplate = popup.querySelector('.popup-card__slide');
-  const sliderWrapper = popup.querySelector('.popup-card__slider-wrapper');
+ // Добавление изображений в слайдер
+ const imageTemplate = popup.querySelector('.popup-card__slide');
+ const sliderWrapperThumbs = popup.querySelector('.slider .popup-card__slider-wrapper');
+ const sliderWrapperMain = popup.querySelector('.slider2 .popup-card__slider-wrapper');
 
-  sliderWrapper.innerHTML = '';
+ // Очистка предыдущих изображений
+ sliderWrapperThumbs.innerHTML = '';
+ sliderWrapperMain.innerHTML = '';
 
-  carData.img.forEach((imageSrc) => {
-    const slide = imageTemplate.cloneNode(true);
+ // Добавление изображений в оба слайдера
+ carData.img.forEach((imageSrc) => {
+   // Создание миниатюры
+   const slideThumb = imageTemplate.cloneNode(true);
+   const imgElementThumb = slideThumb.querySelector('img');
+   imgElementThumb.src = imageSrc;
+   imgElementThumb.alt = `${carData.brand} ${carData.model}`;
+   sliderWrapperThumbs.appendChild(slideThumb);
 
-    const imgElement = slide.querySelector('img');
-    imgElement.src = imageSrc;
-    imgElement.alt = `${carData.brand} ${carData.model}`;
+   // Создание основного слайда
+   const slideMain = imageTemplate.cloneNode(true);
+   const imgElementMain = slideMain.querySelector('img');
+   imgElementMain.src = imageSrc;
+   imgElementMain.alt = `${carData.brand} ${carData.model}`;
+   sliderWrapperMain.appendChild(slideMain);
+ });
 
-    sliderWrapper.appendChild(slide);
-  });
+ // Инициализация слайдера для миниатюр
+ const swiperThumbs = new Swiper('.slider', {
+   slideClass: 'popup-card__slide',
+   wrapperClass: 'popup-card__slider-wrapper',
+   loop: true,
+   spaceBetween: 10,
+   slidesPerView: 4,
+   freeMode: true,
+   watchSlidesProgress: true,
 
-  //Свайпер для img-popup-card
-  const swiper = new Swiper('.popup-card__slider', {
-    slideClass: 'popup-card__slide',
-    wrapperClass: 'popup-card__slider-wrapper',
-    direction: 'horizontal',
-    loop: true,
-    spaceBetween: 16,
-    slidesPerView: 1,
-
-    pagination: {
-      el: '.popup-card__pagination',
-      type: 'bullets',
+   breakpoints: {
+    760: {
+      spaceBetween: 14,
     },
-
-    navigation: {
-      nextEl: '.popup-card__btn-next',
-      prevEl: '.popup-card__btn-prev',
+    1280: {
+      spaceBetween: 20,
     },
-  });
+  },
+ });
+
+ // Инициализация основного слайдера с привязкой к миниатюрам
+ const swiperMain = new Swiper('.slider2', {
+   slideClass: 'popup-card__slide',
+   wrapperClass: 'popup-card__slider-wrapper',
+   spaceBetween: 10,
+   loop: true,
+   pagination: {
+     el: '.popup-card__pagination',
+     type: 'bullets',
+   },
+   navigation: {
+     nextEl: '.popup-card__btn-next',
+     prevEl: '.popup-card__btn-prev',
+   },
+   thumbs: {
+     swiper: swiperThumbs,
+   },
+ });
+
 
   popup.classList.add('open');
   header.style.opacity = '0';
   hideScroll();
 }
-
 
 // Обработка свайпов для слайдера карточек
 let xDown = null; // Координаты касания
