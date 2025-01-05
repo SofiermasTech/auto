@@ -26,7 +26,7 @@ function scripts() {
       .pipe(concat('main.min.js'))
       .pipe(uglify())
       .pipe(dest('js'))
-      .pipe(browserSync.stream())
+      // .pipe(browserSync.stream())
 }
 
 
@@ -35,4 +35,4 @@ exports.scripts = scripts;
 exports.watching = watching;
 
 
-exports.default = parallel( scripts);
+exports.default = parallel(scripts);

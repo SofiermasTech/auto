@@ -40,20 +40,22 @@ function createPaginationItem(index) {
 
 // Функция для обновления активного элемента пагинации
 function updatePagination(card, index) {
-  const paginationItems = card.querySelectorAll('.card__pagination-item');
-  paginationItems.forEach((el) => el.classList.remove('active'));
-  card
-    .querySelector(`.card__pagination-item[data-index="${index}"]`)
-    .classList.add('active');
+  const cardTop = card.querySelector('.card__top');
+  if (!cardTop.classList.contains('swiper-initialized')) { // Проверяем, что слайдер не инициализирован
+    const paginationItems = card.querySelectorAll('.card__pagination-item');
+    paginationItems.forEach((el) => el.classList.remove('active'));
+    card.querySelector(`.card__pagination-item[data-index="${index}"]`).classList.add('active');
+  }
 }
 
 // Функция для сброса пагинации
 function resetPagination(card) {
-  const paginationItems = card.querySelectorAll('.card__pagination-item');
-  paginationItems.forEach((el) => el.classList.remove('active'));
-  card
-    .querySelector(`.card__pagination-item[data-index="0"]`)
-    .classList.add('active');
+  const cardTop = card.querySelector('.card__top');
+  if (!cardTop.classList.contains('swiper-initialized')) { // Проверяем, что слайдер не инициализирован
+    const paginationItems = card.querySelectorAll('.card__pagination-item');
+    paginationItems.forEach((el) => el.classList.remove('active'));
+    card.querySelector(`.card__pagination-item[data-index="0"]`).classList.add('active');
+  }
 }
 
 // Добавление данных
@@ -86,10 +88,12 @@ function fillCardData(card, item) {
   driveEl.textContent = `${item.drive}`;
 }
 
+
 function createCard(item) {
   const template = document.querySelector('.card-template');
   const cardClone = template.content.cloneNode(true);
   const card = cardClone.querySelector('.card');
+  const cardTop = cardClone.querySelector('.card__top'); // Убедитесь, что этот элемент существует
 
   if (!card) return null;
   card.setAttribute('data-year', item.year);
@@ -124,13 +128,6 @@ function createCard(item) {
       resetPagination(card);
     });
 
-    const imageItemClones =
-      imagesContainer.querySelectorAll('.card__image-item');
-    imageItemClones.forEach((imageItem) => {
-      imageItem.addEventListener('touchstart', handleTouchStart, false);
-      imageItem.addEventListener('touchmove', handleTouchMove, false);
-    });
-
     imagesContainer.appendChild(imageItemClone);
 
     const paginationItem = createPaginationItem(index);
@@ -138,6 +135,45 @@ function createCard(item) {
   });
 
   fillCardData(card, item);
+
+  // Локальная переменная для хранения экземпляра Swiper
+  let swiperCard = null;
+
+  function initializeSwiper() {
+    if (swiperCard) return; // Если слайдер уже инициализирован, ничего не делаем
+
+    swiperCard = new Swiper(cardTop, {
+      slideClass: 'card__image-item',
+      wrapperClass: 'card__images',
+      // loop: true,
+      spaceBetween: 10,
+      slidesPerView: 1,
+      pagination: {
+        el: '.card__pagination-list',
+        clickable: true,
+      },
+    });
+  }
+
+  function destroySwiper() {
+    if (swiperCard) {
+      swiperCard.destroy(true, true);
+      swiperCard = null; // Сбрасываем ссылку на экземпляр
+    }
+  }
+
+  function manageSwiper() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 1024) {
+      initializeSwiper();
+    } else {
+      destroySwiper();
+    }
+  }
+
+  // Управляем состоянием слайдера для текущей карточки
+  manageSwiper();
 
   // Обработчики для кнопок попапов
   const btnPopup = cardClone.querySelector('.card__btn-popup');
@@ -155,8 +191,36 @@ function createCard(item) {
 
   return cardClone;
 }
+ 
+//  function initializeSwiper(swiperContainer) {
+//   const windowWidth = window.innerWidth;
+//   // const swiperContainer = cardClone.querySelector('.card__top');
 
+//   if (windowWidth <= 1024 && !swiperCard) {
+//     // Инициализация Swiper для слайдера
+//     swiperCard = new Swiper(swiperContainer, {
+//       slideClass: 'card__image-item',
+//       wrapperClass: 'card__images',
+//       loop: true,
+//       spaceBetween: 10,
+//       slidesPerView: 1,
+//       pagination: {
+//         el: '.card__pagination-list',
+//         clickable: true,
+//       },
+//     });
+
+//   } else if (windowWidth > 1024 && swiperCard) {
+//     // Если это десктоп, уничтожаем слайдер, если он существует
+//     swiperCard.destroy(true, true);
+//     swiperCard = null; // Сбрасываем ссылку на экземпляр
+
+//   }
+// }
+ 
+// initializeSwiper(cardClone);
 updateCardsToShow();
+// window.addEventListener('resize', initializeSwiper);
 
 // Генерация карточек
 if (cardsContainer) {
@@ -297,63 +361,63 @@ function openPopupCard(carData) {
   hideScroll();
 }
 
-// Обработка свайпов для слайдера карточек
-let xDown = null; // Координаты касания
+// // Обработка свайпов для слайдера карточек
+// let xDown = null; // Координаты касания
 
-function handleTouchStart(evt) {
-  const firstTouch = evt.touches[0]; // Получаем первое касание
-  xDown = firstTouch.clientX; // Сохраняем координату X
-}
+// function handleTouchStart(evt) {
+//   const firstTouch = evt.touches[0]; // Получаем первое касание
+//   xDown = firstTouch.clientX; // Сохраняем координату X
+// }
 
-function handleTouchMove(evt) {
-  if (!xDown) {
-    return; // Если не было касания, выходим
-  }
+// function handleTouchMove(evt) {
+//   if (!xDown) {
+//     return; // Если не было касания, выходим
+//   }
 
-  let xUp = evt.touches[0].clientX; // Получаем текущую координату X
-  let xDiff = xDown - xUp; // Вычисляем разницу
+//   let xUp = evt.touches[0].clientX; // Получаем текущую координату X
+//   let xDiff = xDown - xUp; // Вычисляем разницу
 
-  if (Math.abs(xDiff) > 40) {
-    const card = evt.currentTarget.closest('.card'); // Находим родительскую карточку
-    if (xDiff > 0) {
-      // Свайп влево
-      nextImage(card);
-    } else {
-      // Свайп вправо
-      previousImage(card);
-    }
-    xDown = null; // Сбрасываем координату после свайпа
-  }
-}
+//   if (Math.abs(xDiff) > 40) {
+//     const card = evt.currentTarget.closest('.card'); // Находим родительскую карточку
+//     if (xDiff > 0) {
+//       // Свайп влево
+//       nextImage(card);
+//     } else {
+//       // Свайп вправо
+//       previousImage(card);
+//     }
+//     xDown = null; // Сбрасываем координату после свайпа
+//   }
+// }
 
-// Функция для перехода к следующему изображению
-function nextImage(card) {
-  const currentIndex = parseInt(
-    card.querySelector('.card__pagination-item.active').dataset.index
-  );
-  const totalImages = card.querySelectorAll('.card__image-item').length;
+// // Функция для перехода к следующему изображению
+// function nextImage(card) {
+//   const currentIndex = parseInt(
+//     card.querySelector('.card__pagination-item.active').dataset.index
+//   );
+//   const totalImages = card.querySelectorAll('.card__image-item').length;
 
-  const newIndex = (currentIndex + 1) % totalImages; // Цикл обратно к первому изображению
-  updatePagination(card, newIndex);
-  updateImageDisplay(card, newIndex); // Обновляем отображение изображения
-}
+//   const newIndex = (currentIndex + 1) % totalImages; // Цикл обратно к первому изображению
+//   updatePagination(card, newIndex);
+//   updateImageDisplay(card, newIndex); // Обновляем отображение изображения
+// }
 
-// Функция для перехода к предыдущему изображению
-function previousImage(card) {
-  const currentIndex = parseInt(
-    card.querySelector('.card__pagination-item.active').dataset.index
-  );
-  const totalImages = card.querySelectorAll('.card__image-item').length;
+// // Функция для перехода к предыдущему изображению
+// function previousImage(card) {
+//   const currentIndex = parseInt(
+//     card.querySelector('.card__pagination-item.active').dataset.index
+//   );
+//   const totalImages = card.querySelectorAll('.card__image-item').length;
 
-  const newIndex = (currentIndex - 1 + totalImages) % totalImages; // Цикл обратно к последнему изображению
-  updatePagination(card, newIndex);
-  updateImageDisplay(card, newIndex); // Обновляем отображение изображения
-}
+//   const newIndex = (currentIndex - 1 + totalImages) % totalImages; // Цикл обратно к последнему изображению
+//   updatePagination(card, newIndex);
+//   updateImageDisplay(card, newIndex); // Обновляем отображение изображения
+// }
 
-// Функция для обновления отображения изображения
-function updateImageDisplay(card, index) {
-  const images = card.querySelectorAll('.card__image-item');
-  images.forEach((img, idx) => {
-    img.style.opacity = idx === index ? '1' : '0'; // Показываем текущее изображение и скрываем остальные
-  });
-}
+// // Функция для обновления отображения изображения
+// function updateImageDisplay(card, index) {
+//   const images = card.querySelectorAll('.card__image-item');
+//   images.forEach((img, idx) => {
+//     img.style.opacity = idx === index ? '1' : '0'; // Показываем текущее изображение и скрываем остальные
+//   });
+// }

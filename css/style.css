@@ -1840,6 +1840,11 @@ svg * {
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
+@media (max-width: 1030px) {
+  .card__images {
+    position: static;
+  }
+}
 .card__image-item {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -1853,6 +1858,16 @@ svg * {
 .card__image-item:hover .card__img {
   opacity: 1;
   z-index: -1;
+}
+@media (max-width: 1030px) {
+  .card__image-item {
+    width: 100%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+  }
 }
 .card__img {
   width: 100%;
@@ -1876,6 +1891,11 @@ svg * {
           justify-content: center;
   opacity: 0;
 }
+@media (max-width: 1030px) {
+  .card__img {
+    opacity: 1;
+  }
+}
 .card__img img {
   max-width: 100%;
   height: 100%;
@@ -1887,8 +1907,8 @@ svg * {
 .card__pagination-list {
   width: 100%;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  bottom: 10px !important;
+  left: 50% !important;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
