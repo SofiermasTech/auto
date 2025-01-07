@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/ion.rangeSlider.min.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/aos.js"></script>
   <title>Auto</title>
@@ -250,9 +250,10 @@
                   <div class="filters__options">
                     <div class="filters__options-range">
                       <label>Цена
-                        <input type="range" id="price-range" name="range" min="0" max="15000000" value="15000000"
+                        <div id="price-range"></div>
+                        <!-- <input type="range" id="price-range" name="range" min="0" max="15000000" value="15000000"
                           step="50000" style="background: var(--red);"
-                          oninput="this.style.background = `red ${this.value}%`;" />
+                          oninput="this.style.background = `red ${this.value}%`;" /> -->
                         <!-- <input type="range" id="min-price-range" name="min-range" min="0" max="15000000" value="0"
                           step="50000" />
 
@@ -860,7 +861,7 @@
 
   <script src="https://unpkg.com/imask"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- <script src="/js/ion.rangeSlider.min.js"></script> -->
+  <script src="/js/nouislider.min.js"></script>
   <script src="/js/main.min.js" type="module"></script>
 </body>
 

@@ -1,6 +1,23 @@
 let filteredCars = [];
 let selectedBrands = [];
 
+/*--------------------------- Фильтр по году -------------------------*/
+let yearFrom = null; // Переменная для года "от"
+let yearTo = null; // Переменная для года "до"
+const yearFromInput = document.getElementById('year-from');
+const yearToInput = document.getElementById('year-to');
+
+/*-------------------- Фильтр с ценой --------------------------*/
+const priceRange = document.getElementById('price-range');
+const minPriceOutput = document.getElementById('min-price');
+const maxPriceOutput = document.getElementById('max-price');
+// Преобразуем значения в числа
+let minPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
+let maxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
+
+/*-------------------------------- Сброс фильтров -----------------------------*/
+const resetButton = document.querySelector('.filters__btn-reset');
+const filterInputs = document.querySelectorAll('.filter-input');
 
 /*------------------- Фильтр с кнопками пробег и тип --------------------------*/
 const filterTypeBtns = document.querySelectorAll('.type-else .filters__btn');
@@ -34,40 +51,46 @@ mileageBtns.forEach((btn) => {
 });
 
 /*-------------------- Фильтр с ценой --------------------------*/
-const priceRange = document.getElementById('price-range');
-const minPriceOutput = document.getElementById('min-price');
-const maxPriceOutput = document.getElementById('max-price');
-let minPrice = parseInt(priceRange.min, 10);
-let maxPrice = parseInt(priceRange.value, 10);
+// const priceRange = document.getElementById('price-range');
+// const minPriceOutput = document.getElementById('min-price');
+// const maxPriceOutput = document.getElementById('max-price');
+// // Преобразуем значения в числа
+// let minPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
+// let maxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
 
-// Начальные значения с форматированием
-minPriceOutput.textContent = parseInt(priceRange.min, 10).toLocaleString(
-  'ru-RU'
-);
-maxPriceOutput.textContent = parseInt(priceRange.value, 10).toLocaleString(
-  'ru-RU'
-);
 
-// Обработчик значений при перемещении ползунка
-priceRange.addEventListener('input', () => {
-  maxPrice = parseInt(priceRange.value, 10);
-  maxPriceOutput.textContent = maxPrice.toLocaleString('ru-RU');
+noUiSlider.create(priceRange, {
+  start: [0, 15000000],
+  connect: true,
+  range: {
+    'min': 0,
+    'max': 15000000
+  },
+  step: 10000,
+  format: {
+    to: function (value) {
+      return parseInt(value).toLocaleString('ru-RU'); // Форматируем значение
+    },
+    from: function (value) {
+      return value.replace(/\s/g, ''); // Убираем пробелы для преобразования обратно
+    }
+  }
+});
+
+
+// Обработчик изменения значений ползунка
+priceRange.noUiSlider.on('update', function (values, handle) {
+  minPrice = parseInt(values[0].replace(/\s/g, ''), 10); // Обновляем глобальную переменную
+  maxPrice = parseInt(values[1].replace(/\s/g, ''), 10); // Обновляем глобальную переменную
+
+  minPriceOutput.textContent = minPrice.toLocaleString('ru-RU'); // Обновляем минимальную цену
+  maxPriceOutput.textContent = maxPrice.toLocaleString('ru-RU'); // Обновляем максимальную цену
+
+  // Вызовите ваши функции фильтрации, если это необходимо
   filterCars();
   checkFiltersChanged();
 });
 
-// Изменение цвета трека при перемещении
-priceRange.addEventListener('input', () => {
-  const value =
-    ((priceRange.value - priceRange.min) / (priceRange.max - priceRange.min)) *
-    100;
-  priceRange.style.background =
-    'linear-gradient(to right, var(--red) ' +
-    value +
-    '%, #8A8A8A ' +
-    value +
-    '%)';
-});
 
 
 /*----------------------------- Фильтр со списком брендов -----------------------------*/
@@ -196,10 +219,10 @@ function removeBrandFromList(brand) {
 
 
 /*--------------------------- Фильтр по году -------------------------*/
-let yearFrom = null; // Переменная для года "от"
-let yearTo = null; // Переменная для года "до"
-const yearFromInput = document.getElementById('year-from');
-const yearToInput = document.getElementById('year-to');
+// let yearFrom = null; // Переменная для года "от"
+// let yearTo = null; // Переменная для года "до"
+// const yearFromInput = document.getElementById('year-from');
+// const yearToInput = document.getElementById('year-to');
 
 // Обработчик события для инпутов года
 yearFromInput.addEventListener('input', () => {
@@ -236,16 +259,15 @@ function filterCars() {
       (yearFrom === null || itemYear >= yearFrom) &&
       (yearTo === null || itemYear <= yearTo);
 
-    const isPriceMatch = item.price >= minPrice && item.price <= maxPrice;
+      const itemPrice = item.price; // Предполагается, что item.price — это число
+      const isPriceMatch = itemPrice >= minPrice && itemPrice <= maxPrice;
 
     // Проверяем все условия
     return (
       isTypeMatch &&
       isMileageMatch &&
       isBrandMatch &&
-      isYearMatch &&
-      isPriceMatch
-    );
+      isYearMatch && isPriceMatch);
   });
 
   renderCards(filteredCars);
@@ -260,8 +282,8 @@ window.addEventListener('resize', () => {
 });
 
 /*-------------------------------- Сброс фильтров -----------------------------*/
-const resetButton = document.querySelector('.filters__btn-reset');
-const filterInputs = document.querySelectorAll('.filter-input');
+// const resetButton = document.querySelector('.filters__btn-reset');
+// const filterInputs = document.querySelectorAll('.filter-input');
 
 // Функция для проверки, изменены ли фильтры
 function checkFiltersChanged() {
@@ -270,7 +292,7 @@ function checkFiltersChanged() {
   filterInputs.forEach((input) => {
     if (
       input.value !== input.defaultValue ||
-      parseInt(priceRange.value, 10) < parseInt(priceRange.max, 10)
+      parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10) < parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10)
     ) {
       filtersChanged = true;
     }
@@ -301,24 +323,11 @@ function resetFilters() {
   filterInputs.forEach((input) => {
     input.value = input.defaultValue;
   });
+ // Возвращаем максимальную цену
+ priceRange.noUiSlider.set([0, 15000000]); // Сбрасываем слайдер на начальные значения
+ minPriceOutput.textContent = '0'; // Обновляем отображение минимальной цены
+ maxPriceOutput.textContent = '15 000 000'; // Обновляем отображение максимальной цены
 
-  // Возвращаем максимальную цену
-  priceRange.value = priceRange.max;
-  maxPriceOutput.textContent = priceRange.max.toLocaleString('ru-RU');
-  maxPrice = parseInt(priceRange.value, 10);
-
-  // Обновляем цвет трека ползунка
-  const value =
-    ((priceRange.value - priceRange.min) / (priceRange.max - priceRange.min)) *
-    100;
-  priceRange.style.background =
-    'linear-gradient(to right, var(--red) ' +
-    value +
-    '%, #8A8A8A ' +
-    value +
-    '%)';
-
-  // Сбрасываем выбранные бренды
   selectedBrands = [];
   brandItems.forEach((item) => {
     item.classList.remove('selected');

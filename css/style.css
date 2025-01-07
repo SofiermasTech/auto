@@ -1296,6 +1296,7 @@ svg * {
   }
 }
 .filters__options-range input[type=range] {
+  margin-top: 16px;
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1656,6 +1657,48 @@ svg * {
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 5px 15px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
+.noUi-target {
+  margin-top: 12px;
+  background-color: #8A8A8A;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.noUi-connect {
+  background: var(--red);
+}
+
+.noUi-handle {
+  width: 19px;
+  height: 19px;
+  background: var(--red);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.noUi-horizontal {
+  height: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 19px;
+  height: 19px;
+  top: -8px;
+}
+
+.noUi-handle.noUi-handle-upper {
+  right: -8px;
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+  display: none;
+}
+
 .cards {
   margin-bottom: var(--section-offset);
 }
