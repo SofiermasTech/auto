@@ -230,7 +230,7 @@ yearFromInput.addEventListener('input', () => {
   filterCars();
 });
 
-yearToInput.addEventListener('change', () => {
+yearToInput.addEventListener('input', () => {
   yearTo = parseInt(yearToInput.value, 10) || null;
   filterCars();
 });
@@ -366,6 +366,9 @@ function resetFilters() {
     }
   });
 
+  resetButton.classList.remove('active');
+  resetButton.disabled = true;
+
   checkFiltersChanged();
   updateCardsToShow();
   filterCars();
@@ -373,3 +376,4 @@ function resetFilters() {
 
 // Обработчик события для кнопки сброса
 resetButton.addEventListener('click', resetFilters);
+checkFiltersChanged();

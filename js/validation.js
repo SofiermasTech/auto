@@ -1,5 +1,6 @@
 /* --------------------- Валидация формы --------------------- */
 const formErrorElement = Array.from(document.querySelectorAll('.empty-error'));
+const helpText = document.querySelector('.text-form-help');
 
 // Функция, которая добавляет класс с ошибкой
 const showInputError = (formElement, inputElement, errorMessage) => {
@@ -121,6 +122,8 @@ const setEventListeners = (formElement) => {
       checkInputValidity(formElement, inputElement);
       checkValidationPhone(inputElement);
       toggleButtonState(inputList, buttonElement);
+
+      helpText.style.display = 'none';
     });
   });
 };
@@ -160,7 +163,6 @@ function resetErrorMessage(formElement) {
     err.textContent = '';
   });
 }
-
 
 /* --------------------- Telephone number mask --------------------- */
 const inputPhone = Array.from(document.querySelectorAll('.input-phone'));

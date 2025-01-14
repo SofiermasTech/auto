@@ -41,20 +41,26 @@ function createPaginationItem(index) {
 // Функция для обновления активного элемента пагинации
 function updatePagination(card, index) {
   const cardTop = card.querySelector('.card__top');
-  if (!cardTop.classList.contains('swiper-initialized')) { // Проверяем, что слайдер не инициализирован
+  if (!cardTop.classList.contains('swiper-initialized')) {
+    // Проверяем, что слайдер не инициализирован
     const paginationItems = card.querySelectorAll('.card__pagination-item');
     paginationItems.forEach((el) => el.classList.remove('active'));
-    card.querySelector(`.card__pagination-item[data-index="${index}"]`).classList.add('active');
+    card
+      .querySelector(`.card__pagination-item[data-index="${index}"]`)
+      .classList.add('active');
   }
 }
 
 // Функция для сброса пагинации
 function resetPagination(card) {
   const cardTop = card.querySelector('.card__top');
-  if (!cardTop.classList.contains('swiper-initialized')) { // Проверяем, что слайдер не инициализирован
+  if (!cardTop.classList.contains('swiper-initialized')) {
+    // Проверяем, что слайдер не инициализирован
     const paginationItems = card.querySelectorAll('.card__pagination-item');
     paginationItems.forEach((el) => el.classList.remove('active'));
-    card.querySelector(`.card__pagination-item[data-index="0"]`).classList.add('active');
+    card
+      .querySelector(`.card__pagination-item[data-index="0"]`)
+      .classList.add('active');
   }
 }
 
@@ -87,7 +93,6 @@ function fillCardData(card, item) {
   const driveEl = card.querySelector('.card__drive');
   driveEl.textContent = `${item.drive}`;
 }
-
 
 function createCard(item) {
   const template = document.querySelector('.card-template');
@@ -165,7 +170,7 @@ function createCard(item) {
   function manageSwiper() {
     const windowWidth = window.innerWidth;
 
-    if (windowWidth <= 1024) {
+    if (windowWidth <= 1024 && item.img.length > 1) {
       initializeSwiper();
     } else {
       destroySwiper();
@@ -179,8 +184,16 @@ function createCard(item) {
   const btnPopup = cardClone.querySelector('.card__btn-popup');
   if (btnPopup) {
     btnPopup.addEventListener('click', () => {
-      pageBody.classList.add('stop-scroll');
       openPopup(popupForm);
+      // document.querySelector('.page').classList.add('stop-scroll');
+      const pageElement = document.querySelector('.page');
+      if (pageElement) {
+        pageElement.classList.add('stop-scroll');
+        console.log('Class stop-scroll added'); // Проверяем, что класс добавлен
+        console.log(pageElement);
+      } else {
+        console.log('Element .page not found'); // Если элемент не найден
+      }
     });
   }
 
@@ -191,36 +204,8 @@ function createCard(item) {
 
   return cardClone;
 }
- 
-//  function initializeSwiper(swiperContainer) {
-//   const windowWidth = window.innerWidth;
-//   // const swiperContainer = cardClone.querySelector('.card__top');
 
-//   if (windowWidth <= 1024 && !swiperCard) {
-//     // Инициализация Swiper для слайдера
-//     swiperCard = new Swiper(swiperContainer, {
-//       slideClass: 'card__image-item',
-//       wrapperClass: 'card__images',
-//       loop: true,
-//       spaceBetween: 10,
-//       slidesPerView: 1,
-//       pagination: {
-//         el: '.card__pagination-list',
-//         clickable: true,
-//       },
-//     });
-
-//   } else if (windowWidth > 1024 && swiperCard) {
-//     // Если это десктоп, уничтожаем слайдер, если он существует
-//     swiperCard.destroy(true, true);
-//     swiperCard = null; // Сбрасываем ссылку на экземпляр
-
-//   }
-// }
- 
-// initializeSwiper(cardClone);
 updateCardsToShow();
-// window.addEventListener('resize', initializeSwiper);
 
 // Генерация карточек
 if (cardsContainer) {
@@ -290,71 +275,74 @@ function openPopupCard(carData) {
   popup.querySelector('.popup-card__price-js').textContent =
     carData.price.toLocaleString('ru-RU');
 
- // Добавление изображений в слайдер
- const imageTemplate = popup.querySelector('.popup-card__slide');
- const sliderWrapperThumbs = popup.querySelector('.slider .popup-card__slider-wrapper');
- const sliderWrapperMain = popup.querySelector('.slider2 .popup-card__slider-wrapper');
+  // Добавление изображений в слайдер
+  const imageTemplate = popup.querySelector('.popup-card__slide');
+  const sliderWrapperThumbs = popup.querySelector(
+    '.slider .popup-card__slider-wrapper'
+  );
+  const sliderWrapperMain = popup.querySelector(
+    '.slider2 .popup-card__slider-wrapper'
+  );
 
- // Очистка предыдущих изображений
- sliderWrapperThumbs.innerHTML = '';
- sliderWrapperMain.innerHTML = '';
+  // Очистка предыдущих изображений
+  sliderWrapperThumbs.innerHTML = '';
+  sliderWrapperMain.innerHTML = '';
 
- // Добавление изображений в оба слайдера
- carData.img.forEach((imageSrc) => {
-   // Создание миниатюры
-   const slideThumb = imageTemplate.cloneNode(true);
-   const imgElementThumb = slideThumb.querySelector('img');
-   imgElementThumb.src = imageSrc;
-   imgElementThumb.alt = `${carData.brand} ${carData.model}`;
-   sliderWrapperThumbs.appendChild(slideThumb);
+  // Добавление изображений в оба слайдера
+  carData.img.forEach((imageSrc) => {
+    // Создание миниатюры
+    const slideThumb = imageTemplate.cloneNode(true);
+    const imgElementThumb = slideThumb.querySelector('img');
+    imgElementThumb.src = imageSrc;
+    imgElementThumb.alt = `${carData.brand} ${carData.model}`;
+    sliderWrapperThumbs.appendChild(slideThumb);
 
-   // Создание основного слайда
-   const slideMain = imageTemplate.cloneNode(true);
-   const imgElementMain = slideMain.querySelector('img');
-   imgElementMain.src = imageSrc;
-   imgElementMain.alt = `${carData.brand} ${carData.model}`;
-   sliderWrapperMain.appendChild(slideMain);
- });
+    // Создание основного слайда
+    const slideMain = imageTemplate.cloneNode(true);
+    const imgElementMain = slideMain.querySelector('img');
+    imgElementMain.src = imageSrc;
+    imgElementMain.alt = `${carData.brand} ${carData.model}`;
+    sliderWrapperMain.appendChild(slideMain);
+  });
 
- // Инициализация слайдера для миниатюр
- const swiperThumbs = new Swiper('.slider', {
-   slideClass: 'popup-card__slide',
-   wrapperClass: 'popup-card__slider-wrapper',
-   loop: true,
-   spaceBetween: 10,
-   slidesPerView: 4,
-   freeMode: true,
-   watchSlidesProgress: true,
+  // Инициализация слайдера для миниатюр
+  const swiperThumbs = new Swiper('.slider', {
+    slideClass: 'popup-card__slide',
+    wrapperClass: 'popup-card__slider-wrapper',
+    //  loop: true,
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
 
-   breakpoints: {
-    760: {
-      spaceBetween: 14,
+    breakpoints: {
+      760: {
+        spaceBetween: 14,
+      },
+      1280: {
+        spaceBetween: 20,
+      },
     },
-    1280: {
-      spaceBetween: 20,
+  });
+
+  // Инициализация основного слайдера с привязкой к миниатюрам
+  const swiperMain = new Swiper('.slider2', {
+    slideClass: 'popup-card__slide',
+    wrapperClass: 'popup-card__slider-wrapper',
+    spaceBetween: 10,
+    //  loop: true,
+    pagination: {
+      el: '.popup-card__pagination',
+      type: 'bullets',
     },
-  },
- });
-
- // Инициализация основного слайдера с привязкой к миниатюрам
- const swiperMain = new Swiper('.slider2', {
-   slideClass: 'popup-card__slide',
-   wrapperClass: 'popup-card__slider-wrapper',
-   spaceBetween: 10,
-   loop: true,
-   pagination: {
-     el: '.popup-card__pagination',
-     type: 'bullets',
-   },
-   navigation: {
-     nextEl: '.popup-card__btn-next',
-     prevEl: '.popup-card__btn-prev',
-   },
-   thumbs: {
-     swiper: swiperThumbs,
-   },
- });
-
+    navigation: {
+      nextEl: '.popup-card__btn-next',
+      prevEl: '.popup-card__btn-prev',
+    },
+    thumbs: {
+      swiper: swiperThumbs,
+    },
+  });
 
   popup.classList.add('open');
   header.style.opacity = '0';

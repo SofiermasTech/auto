@@ -44,3 +44,16 @@
     text-align: center;
   }
 }
+
+.text-form-help {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+
+  @include tablet-bottom {
+    font-size: 8px;
+    bottom: 4px;
+  }
+}
