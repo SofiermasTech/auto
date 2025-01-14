@@ -446,15 +446,16 @@ svg * {
   }
 }
 .header {
+  max-width: 1232px;
   width: 100%;
+  margin: 0 auto;
   position: fixed;
   z-index: 99;
-  top: 52px;
-  left: 0;
+  top: 32px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   padding: 14px;
   background-color: rgba(76, 76, 76, 0.8);
   -webkit-backdrop-filter: blur(6px);
@@ -463,15 +464,32 @@ svg * {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+@media (max-width: 1540px) {
+  .header {
+    max-width: 1072px;
+  }
+}
+@media (max-width: 1290px) {
+  .header {
+    max-width: 912px;
+  }
+}
 @media (max-width: 1030px) {
   .header {
+    max-width: 660px;
     padding: 8px;
-    top: 32px;
+    top: 24px;
+  }
+}
+@media (max-width: 780px) {
+  .header {
+    max-width: 545px;
   }
 }
 @media (max-width: 580px) {
   .header {
     top: 20px;
+    width: 100%;
   }
 }
 .header--privacy {

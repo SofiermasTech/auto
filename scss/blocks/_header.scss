@@ -1,24 +1,40 @@
 .header {
+  max-width: 1232px;
   width: 100%;
+  margin: 0 auto;
   position: fixed;
   z-index: 99;
-  top: 52px;
-  left: 0;
+  top: 32px;
+  // top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
   padding: 14px;
   background-color: rgba(76, 76, 76, 0.8);
   backdrop-filter: blur(6px);
   border-radius: 40px;
   transition: 0.5s;
 
+  @include desktop {
+    max-width: 1072px;
+  }
+
+  @include desktop-bottom {
+    max-width: 912px;
+  }
+
   @include tablet {
+    max-width: 660px;
     padding: 8px;
-    top: 32px;
+    top: 24px;
+  }
+
+  @include tablet-bottom {
+    max-width: 545px;
   }
 
   @include mobile {
     top: 20px;
+    width: 100%;
   }
 
   &--privacy {

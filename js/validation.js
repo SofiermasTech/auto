@@ -1,6 +1,4 @@
 /* --------------------- Валидация формы --------------------- */
-const formErrorElement = Array.from(document.querySelectorAll('.empty-error'));
-const helpText = document.querySelector('.text-form-help');
 
 // Функция, которая добавляет класс с ошибкой
 const showInputError = (formElement, inputElement, errorMessage) => {
@@ -24,7 +22,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, formErrorElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
     buttonElement.classList.add('btn_inactive');
@@ -39,9 +37,9 @@ const toggleButtonState = (inputList, buttonElement) => {
 };
 
 // Функция, которая проверяет валидность поля
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, formErrorElement) => {
   if (!inputElement.validity.valid) {
-    formErrorSubmit();
+    formErrorSubmit(formErrorElement);
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);
@@ -64,7 +62,9 @@ const setEventListeners = (formElement) => {
     formElement.querySelectorAll('.input-validation')
   );
   const buttonElement = formElement.querySelector('.btn-validation');
-  toggleButtonState(inputList, buttonElement);
+  const helpText = formElement.querySelector('.text-form-help');
+  const formErrorElement = Array.from(formElement.querySelectorAll('.empty-error'));
+  toggleButtonState(inputList, buttonElement, formErrorElement);
 
   buttonElement.addEventListener('click', () => {
     let isValidForm = true;
@@ -99,10 +99,10 @@ const setEventListeners = (formElement) => {
           popupSuccess.classList.add('open');
           // document.body.style.overflowY = 'auto';
           hideScroll();
-          resetErrorMessage(formElement);
+          resetErrorMessage(formElement, formErrorElement);
         })
         .catch((error) => {
-          formErrorSubmit();
+          formErrorSubmit(formErrorElement);
           console.error('Error:', error);
         });
     }
@@ -110,7 +110,7 @@ const setEventListeners = (formElement) => {
 
   formElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    toggleButtonState(inputList, buttonElement);
+    toggleButtonState(inputList, buttonElement, formErrorElement);
     formErrorElement.forEach((err) => {
       err.textContent = '';
     });
@@ -119,9 +119,9 @@ const setEventListeners = (formElement) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidityCustom(inputElement);
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(formElement, inputElement, formErrorElement);
       checkValidationPhone(inputElement);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, formErrorElement);
 
       helpText.style.display = 'none';
     });
@@ -135,21 +135,21 @@ const enableValidation = () => {
       evt.preventDefault();
     });
 
-    resetErrorMessage(formElement);
+    resetErrorMessage(formElement, Array.from(formElement.querySelectorAll('.empty-error')));
     setEventListeners(formElement);
   });
 };
 
 enableValidation();
 
-function formErrorSubmit() {
+function formErrorSubmit(formErrorElement) {
   const errorMessage = 'Заполните все поля для отправки формы.';
   formErrorElement.forEach((err) => {
     err.textContent = errorMessage;
   });
 }
 
-function resetErrorMessage(formElement) {
+function resetErrorMessage(formElement, formErrorElement) {
   const inputList = Array.from(
     formElement.querySelectorAll('.input-validation')
   );

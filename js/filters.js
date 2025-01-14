@@ -11,13 +11,17 @@ const yearToInput = document.getElementById('year-to');
 const priceRange = document.getElementById('price-range');
 const minPriceOutput = document.getElementById('min-price');
 const maxPriceOutput = document.getElementById('max-price');
-// Преобразуем значения в числа
-let minPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
-let maxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
+// // Преобразуем значения в числа
+// let minPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
+// let maxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
 
 /*-------------------------------- Сброс фильтров -----------------------------*/
 const resetButton = document.querySelector('.filters__btn-reset');
 const filterInputs = document.querySelectorAll('.filter-input');
+
+// Инициализация состояния кнопки сброса при загрузке
+// resetButton.classList.remove('active');
+// resetButton.disabled = true;
 
 /*------------------- Фильтр с кнопками пробег и тип --------------------------*/
 const filterTypeBtns = document.querySelectorAll('.type-else .filters__btn');
@@ -51,16 +55,17 @@ mileageBtns.forEach((btn) => {
 });
 
 /*-------------------- Фильтр с ценой --------------------------*/
-// const priceRange = document.getElementById('price-range');
-// const minPriceOutput = document.getElementById('min-price');
-// const maxPriceOutput = document.getElementById('max-price');
-// // Преобразуем значения в числа
-// let minPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
-// let maxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
+// Начальные значения ползунка
+const defaultMinPrice = 0;
+const defaultMaxPrice = 15000000;
 
+// Преобразуем значения в числа
+let minPrice = defaultMinPrice;
+let maxPrice = defaultMaxPrice;
 
+// Создание ползунка
 noUiSlider.create(priceRange, {
-  start: [0, 15000000],
+  start: [defaultMinPrice, defaultMaxPrice],
   connect: true,
   range: {
     'min': 0,
@@ -77,7 +82,6 @@ noUiSlider.create(priceRange, {
   }
 });
 
-
 // Обработчик изменения значений ползунка
 priceRange.noUiSlider.on('update', function (values, handle) {
   minPrice = parseInt(values[0].replace(/\s/g, ''), 10); // Обновляем глобальную переменную
@@ -86,9 +90,8 @@ priceRange.noUiSlider.on('update', function (values, handle) {
   minPriceOutput.textContent = minPrice.toLocaleString('ru-RU'); // Обновляем минимальную цену
   maxPriceOutput.textContent = maxPrice.toLocaleString('ru-RU'); // Обновляем максимальную цену
 
-  // Вызовите ваши функции фильтрации, если это необходимо
   filterCars();
-  checkFiltersChanged();
+  checkFiltersChanged(); // Проверяем состояние кнопки сброса
 });
 
 
@@ -228,11 +231,13 @@ function removeBrandFromList(brand) {
 yearFromInput.addEventListener('input', () => {
   yearFrom = parseInt(yearFromInput.value, 10) || null;
   filterCars();
+  checkFiltersChanged(); 
 });
 
 yearToInput.addEventListener('input', () => {
   yearTo = parseInt(yearToInput.value, 10) || null;
   filterCars();
+  checkFiltersChanged(); 
 });
 
 
@@ -289,16 +294,19 @@ window.addEventListener('resize', () => {
 function checkFiltersChanged() {
   let filtersChanged = false;
 
-  filterInputs.forEach((input) => {
-    if (
-      input.value !== input.defaultValue ||
-      parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10) < parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10)
-    ) {
-      filtersChanged = true;
-    }
-  });
+  // Проверка на изменения в ценовом диапазоне
+  const currentMinPrice = parseInt(minPriceOutput.textContent.replace(/\s/g, ''), 10);
+  const currentMaxPrice = parseInt(maxPriceOutput.textContent.replace(/\s/g, ''), 10);
+  if (currentMinPrice !== defaultMinPrice || currentMaxPrice !== defaultMaxPrice) {
+    filtersChanged = true;
+  }
 
   if (selectedBrands.length > 0) {
+    filtersChanged = true;
+  }
+
+  // Проверка на изменения в годах
+  if (yearFrom !== null || yearTo !== null) {
     filtersChanged = true;
   }
 
@@ -310,6 +318,7 @@ function checkFiltersChanged() {
     resetButton.classList.remove('active');
     resetButton.disabled = true;
   }
+
 }
 
 // Обработчик события для изменения фильтров

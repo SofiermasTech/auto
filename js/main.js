@@ -10,33 +10,56 @@ const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 const updateStyles = () => {
   bodyIntro.style.paddingBottom = logosIntro.offsetHeight + 'px';
 
-  let introPaddingInline;
-
-  if (window.innerWidth <= 602) {
-    introPaddingInline = 18;
-  } else if (window.innerWidth <= 768) {
-    introPaddingInline = 48;
-  } else {
-    introPaddingInline = 85;
-  }
-
-  const maxWidthValue = bodyIntro.offsetWidth - introPaddingInline * 2;
-  header.style.maxWidth = maxWidthValue + 'px';
-
   let contentPaddingTop;
 
   if (window.innerWidth <= 768) {
-    contentPaddingTop = 32 + 12;
+    contentPaddingTop = 24 + 12;
   } else if (window.innerWidth <= 1280) {
-    contentPaddingTop = 56 + 16;
+    contentPaddingTop = 50 + 16;
   } else {
-    contentPaddingTop = 85 + 32;
+    contentPaddingTop = 70 + 24;
   }
   contentIntro.style.paddingTop =
     header.offsetHeight + contentPaddingTop + 'px';
 };
 
 updateStyles();
+
+ /* --------------------- Header scroll up--------------------- */
+ const section = document.querySelectorAll('section');
+ let lastScrollTop = 0;
+
+ function scrollHeaderUp() {
+   let scrollDistance = window.scrollY;
+
+   if (scrollDistance > lastScrollTop) {
+     header.style.transform = `translate(-50%, -200%)`;
+   } else {
+     header.style.transform = `translate(-50%, 0)`;
+   }
+
+   if (scrollDistance === 0) {
+     header.classList.remove('hidden');
+     header.style.transform = `translate(-50%, 0)`;
+   }
+
+   const bodyScroll = document.body.scrollHeight;
+   const bodyScroll2 = bodyScroll - window.innerHeight * 1.2;
+
+   if (lastScrollTop >= bodyScroll2) {
+     section.forEach((item) => {
+       item.style.scrollMarginTop = `150px`;
+     });
+   }
+
+   lastScrollTop = scrollDistance;
+ }
+
+ scrollHeaderUp();
+
+ window.addEventListener('scroll', () => {
+   scrollHeaderUp();
+ });
 
 // Анимация для логотипов
 const logosContainer = document.querySelector('.intro__logos');
