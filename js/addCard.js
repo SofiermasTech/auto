@@ -147,6 +147,7 @@ function createCard(item) {
   function initializeSwiper() {
     if (swiperCard) return; // Если слайдер уже инициализирован, ничего не делаем
 
+ 
     swiperCard = new Swiper(cardTop, {
       slideClass: 'card__image-item',
       wrapperClass: 'card__images',
@@ -158,6 +159,12 @@ function createCard(item) {
         clickable: true,
       },
     });
+
+    // // Обновление пагинации при изменении активного слайда
+    // swiperCard.on('slideChange', () => {
+    //   const activeIndex = swiperCard.activeIndex;
+    //   updatePagination(card, activeIndex); // Обновляем пагинацию при изменении слайда
+    // });
   }
 
   function destroySwiper() {
@@ -176,6 +183,12 @@ function createCard(item) {
       destroySwiper();
     }
   }
+
+  // Обновление пагинации при изменении активного слайда
+cardTop.addEventListener('slideChange', () => {
+  const activeIndex = cardTop.swiper.activeIndex;
+  updatePagination(card, activeIndex); // Обновляем пагинацию при изменении слайда
+});
 
   // Управляем состоянием слайдера для текущей карточки
   manageSwiper();
@@ -312,8 +325,8 @@ function openPopupCard(carData) {
     //  loop: true,
     spaceBetween: 10,
     slidesPerView: 4,
-    freeMode: true,
-    watchSlidesProgress: true,
+    // freeMode: true,
+    // watchSlidesProgress: true,
 
     breakpoints: {
       760: {

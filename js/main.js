@@ -43,14 +43,14 @@ updateStyles();
      header.style.transform = `translate(-50%, 0)`;
    }
 
-   const bodyScroll = document.body.scrollHeight;
-   const bodyScroll2 = bodyScroll - window.innerHeight * 1.2;
+  //  const bodyScroll = document.body.scrollHeight;
+  //  const bodyScroll2 = bodyScroll - window.innerHeight * 1.2;
 
-   if (lastScrollTop >= bodyScroll2) {
-     section.forEach((item) => {
-       item.style.scrollMarginTop = `150px`;
-     });
-   }
+  //  if (lastScrollTop >= bodyScroll2) {
+  //    section.forEach((item) => {
+  //      item.style.scrollMarginTop = `150px`;
+  //    });
+  //  }
 
    lastScrollTop = scrollDistance;
  }
@@ -227,3 +227,12 @@ AOS.init({
   easing: 'linear', // default easing for AOS animations
 });
 
+// btn-up
+const btnScrollUp = document.querySelector('.btn-scroll-up');
+
+btnScrollUp.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});

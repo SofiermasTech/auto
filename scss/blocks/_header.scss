@@ -34,6 +34,7 @@
 
   @include mobile {
     top: 20px;
+    max-width: 85%;
     width: 100%;
   }
 
@@ -92,8 +93,8 @@
   }
 
   &__logo {
-    width: 121px;
-    height: 48px;
+    width: 130px;
+    height: 23px;
     display: flex;
     align-items: center;
 
@@ -102,9 +103,19 @@
       object-position: center;
     }
 
+    @include desktop-bottom {
+      width: 112px;
+      height: 19px;
+    }
+
     @include tablet {
-      width: 66px;
+      width: 86px;
       height: 15px;
+    }
+
+    @include tablet-bottom {
+      width: 94px;
+      height: 17px;
     }
 
     @include mobile {

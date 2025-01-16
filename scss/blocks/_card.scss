@@ -64,11 +64,25 @@
 }
 
 .card {
+  max-width: 395px;
+  width: 100%;
   background-color: var(--light-gray);
   border-radius: var(--br-card);
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @include tablet {
+    max-width: 209px;
+  }
+
+  @include tablet-bottom {
+    max-width: 174px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+  }
 
 
   &[data-year]::before {
@@ -501,4 +515,9 @@
       background-color: rgba(127, 127, 127, 0.2);
     }
   }
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+  visibility: hidden;
 }

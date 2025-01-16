@@ -1,0 +1,67 @@
+.btn-scroll-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: -80px;
+
+  @include desktop-bottom {
+    top: 32px;
+  }
+
+  @include tablet {
+    right: -50px;
+    top: 24px;
+  }
+
+  @include tablet-bottom {
+    top: 20px;
+  }
+
+  @include mobile {
+    position: static;
+  }
+
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    @include desktop-bottom {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include tablet {
+      width: 32px;
+      height: 32px;
+    }
+
+    @include tablet-bottom {
+      width: 28px;
+      height: 28px;
+    }
+
+    svg {
+      width: 16px;
+      height: 20px;
+      object-fit: contain;
+      transition: 0.5s;
+
+      @include tablet {
+        width: 10px;
+        height: 12px;
+      }
+    }
+  }
+}
